@@ -1,7 +1,8 @@
 module.exports = {
-  "title": "blog",
+  "title": "博客首页",
   "description": "Vimalakirti blog",
   "dest": "public",
+  "base": "/blogs/",
   "head": [
     [
       "link",

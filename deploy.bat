@@ -17,9 +17,9 @@ git commit -m 'deploy'
         
 REM 如果发布到 https://gitee.com/<USERNAME>
 REM git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
-git push -f git@github.com:Vimalate/Vimalate.git master:gh-pages     
+git push -f git@github.com:Vimalate/blogs.git master:gh-pages     
 REM 如果发布到 https://gitee.com/<USERNAME>/<REPO>
-git push -f https://gitee.com/lj107571/vimalate.git master:gh-pages
+@REM git push -f https://gitee.com/lj107571/blogs.git master:gh-pages
         
 cd ..
 cd ..
