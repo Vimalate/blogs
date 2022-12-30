@@ -2,7 +2,7 @@
 home: true
 heroText: 呛再首
 tagline: 世界是一场骗局，社会是伤害的比赛，每个人的加入就是一场跳海.
-# heroImage: /hero.png
+# heroImage: /bg.jpg
 # heroImageStyle: {
 #   maxWidth: '600px',
 #   width: '100%',
@@ -11,8 +11,10 @@ tagline: 世界是一场骗局，社会是伤害的比赛，每个人的加入�
 #   background: '#fff',
 #   borderRadius: '1rem',
 # }
+bgImage: /bg.jpg
 bgImageStyle: {
-  height: '450px'
+  height: '450px',
+  width: '100%',
 }
 isShowTitleInHome: false
 actionText: Guide
