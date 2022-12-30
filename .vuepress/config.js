@@ -87,6 +87,12 @@ module.exports = {
           opacity: 0.8 // 模型透明度(default: 0.8)
         }
       }
+    },
+    "dynamic-title":
+    {
+      showText: "(/≧▽≦/)咦！又好了！",
+      hideText: "(●—●)喔哟，崩溃啦！",
+      recoverTime: 2000
     }
   },
   "theme": "reco",
@@ -316,5 +322,8 @@ module.exports = {
   },
   "markdown": {
     "lineNumbers": true
-  }
+  },
+  chainWebpack: config => {
+    config.resolve.alias.set('core-js/library/fn', 'core-js/features')
+}
 }
