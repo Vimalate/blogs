@@ -292,7 +292,7 @@ module.exports = {
     "lastUpdated": "Last Updated",
     "author": "Vimalakirti",
     "authorAvatar": "/resb.jpg",
-    "record": "xxxx",
+    "record": "回到顶部",
     "startYear": "2019"
   },
   "markdown": {
