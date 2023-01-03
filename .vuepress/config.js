@@ -64,6 +64,13 @@ module.exports = {
     //   ],
     // },
     // "vuepress-plugin-nuggets-style-copy": true,
+    "one-click-copy":{
+    copySelector: ['div[class*="language-"] pre', 'div[class*="aside-code"] aside'], // String or Array
+    copyMessage: '复制成功！', // default is 'Copy successfully and then paste it for use.'
+    duration: 300, // prompt message display time.
+    showInMobile: false // whether to display on the mobile side, default: false.
+
+    },
     'vuepress-plugin-helper-live2d': {
       // 是否开启控制台日志打印(default: false)
       log: false,

@@ -16,6 +16,7 @@
     "vuepress-plugin-cursor-effects": "^1.1.2",
     "vuepress-plugin-helper-live2d": "^1.0.2",
     "vuepress-plugin-nuggets-style-copy": "^1.0.3",
+    "vuepress-plugin-one-click-copy": "^1.0.6",
     "vuepress-theme-reco": "1.6.16"
   },
   "dependencies": {
