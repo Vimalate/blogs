@@ -315,7 +315,7 @@ module.exports = {
     "search": true,
     "searchMaxSuggestions": 10,
     "lastUpdated": "Last Updated",
-    "author": "Vimalakirti",
+    "author": "呛再首",
     "authorAvatar": "/resb.jpg",
     "record": "回到顶部",
     "startYear": "2019"

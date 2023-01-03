@@ -13,7 +13,7 @@ tagline: 世界是一场骗局，社会是伤害的比赛，每个人的加入�
 # }
 bgImage: /bg.jpg
 bgImageStyle: {
-  height: '450px',
+  height: '550px',
   width: '100%',
 }
 isShowTitleInHome: false
