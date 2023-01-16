@@ -86,7 +86,7 @@ module.exports = {
           vOffset: 0, //  垂直偏移(default: 0)
         },
         mobile: {
-          show: false // 是否在移动设备上显示(default: false)
+          show: true // 是否在移动设备上显示(default: false)
         },
         react: {
           opacity: 0.8 // 模型透明度(default: 0.8)
@@ -301,6 +301,7 @@ module.exports = {
         "使用VuePress搭建Element的组件库文档",
         "Typescript学习指南",
         "vue3正式发布两年后，我才开始学（2w字总结）",
+        "微前端实践",
       ],
       "/docs/前端性能优化与实践/": [
         "",
