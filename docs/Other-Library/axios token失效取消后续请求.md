@@ -43,3 +43,5 @@ axios.interceptors.response.use(
     }
 );
 ```
+
+[vue阻止重复请求](https://juejin.cn/post/7189231050806001719)
