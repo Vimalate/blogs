@@ -175,6 +175,10 @@ module.exports = {
             "link": "/docs/juejin/"
           },
           {
+            "text": "web-interview",
+            "link":"/docs/web-interview/"
+          },
+          {
             "text": "前端性能优化与实践",
             "link": "/docs/前端性能优化与实践/"
           },
@@ -304,6 +308,10 @@ module.exports = {
         "vue3正式发布两年后，我才开始学（2w字总结）",
         "微前端实践",
         "我迟来的 2022 年终总结：前已无通路，后不见归途",
+      ],
+      "/docs/web-interview/": [
+        "",
+        "2023 web-interview"
       ],
       "/docs/前端性能优化与实践/": [
         "",
