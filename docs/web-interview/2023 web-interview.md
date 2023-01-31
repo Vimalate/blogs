@@ -17,3 +17,7 @@ categories:
 - [前端进阶之旅](https://interview.poetries.top/docs/base.html)
   
 [从输入URL开始建立前端知识体系](https://juejin.cn/post/6935232082482298911)
+
+## 一些神奇的面试提问
+
+[面试官:你觉得你最大的缺点是什么?](https://juejin.cn/post/7120805355042373662)
