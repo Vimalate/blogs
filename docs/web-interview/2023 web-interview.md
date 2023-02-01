@@ -16,4 +16,6 @@ categories:
 
 - [前端进阶之旅](https://interview.poetries.top/docs/base.html)
   
-[从输入URL开始建立前端知识体系](https://juejin.cn/post/6935232082482298911)
+- [从输入URL开始建立前端知识体系](https://juejin.cn/post/6935232082482298911)
+
+- [前端可以做的性能优化有哪些](https://juejin.cn/post/7194400984490049573)
