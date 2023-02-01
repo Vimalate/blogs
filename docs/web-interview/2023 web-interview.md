@@ -20,6 +20,7 @@ categories:
 
 - [前端可以做的性能优化有哪些](https://juejin.cn/post/7194400984490049573)
 [从输入URL开始建立前端知识体系](https://juejin.cn/post/6935232082482298911)
+- [前端面试题整理](http://fanyouf.gitee.io/interview/nb/03.html#%E4%BA%8C%E3%80%81%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F)
 
 ## 一些神奇的面试提问
 
