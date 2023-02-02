@@ -17,7 +17,18 @@ module.exports = {
         "name": "viewport",
         "content": "width=device-width,initial-scale=1,user-scalable=no"
       }
-    ]
+    ],
+    // [
+    //   'script', 
+    //   { "src": `https://unpkg.com/element-ui/lib/index.js` }
+    // ],
+    // [
+    //   "link",
+    //   {
+    //     "rel": "stylesheet",
+    //     "href": "https://unpkg.com/element-ui/lib/theme-chalk/index.css"
+    //   }
+    // ],
   ],
   "plugins": {
     "@vuepress/pwa": {
@@ -279,6 +290,7 @@ module.exports = {
         "使用signature_pad实现数字签名",
         "算法初探",
         "图片上传压缩",
+        "verdaccio搭建npm私有仓库",
         "网络安全",
         "微前端qiankun实践",
         "移动端常见兼容问题",

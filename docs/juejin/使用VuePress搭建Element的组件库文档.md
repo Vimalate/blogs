@@ -6,6 +6,7 @@ tags:
 categories: 
  - Vue
 ---
+
 # 使用VuePress搭建属于自己的组件库文档
 
 日常开发中，我们使用 element-ui、vant-ui、Ant Design 等组件库，都因为其具备完善的文档，使得我们参照文档开发起来能够得心应手，那么如果我们想搭建自己的组件库文档该怎么做呢？
@@ -16,7 +17,6 @@ categories:
 ```sh
 npm install element-ui
 ```
-
 
 ## 修改 enhanceApp.js
 在 docs/.vuepress/enhanceApp.js（没有文件的则新建） 添加
@@ -113,6 +113,7 @@ export default {
 </div>
 ```
 :::
+
 
 这样，你就大功告成啦
 
