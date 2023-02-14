@@ -144,5 +144,20 @@ git merge develop
 
 重点 merge命令的本质是从别的分支，将自身没有的提交记录拉去过来（粗略的说而已）。
 
+## git提交忽略文件名称大小写问题解决
+git在提交代码时，会忽略文件名称大小写，导致本地代码与远程代码不一致，此时可利用终端指令来检查下
+
+```
+git config --get core.ignorecase
+```
+
+true值则代表当前是忽略的，此时需要将当前项目提交设置为false
+
+```
+git config core.ignorecase false
+```
+
+>当前配置设置仅针对当前项目.git，其他项目需重新配置
+
 
 参考：[git 教程](https://juejin.im/post/5c67e70bf265da2de33f127c)、[使用Git进行多人协作开发](https://juejin.im/post/5ecb6b41f265da770d3dae6e)、[廖雪峰：多人协作](https://www.liaoxuefeng.com/wiki/896043488029600/900375748016320)、[vscode 本地分支合并远程分支，远程分支合并到本地分支](https://blog.csdn.net/qq_41732963/article/details/119942560)
