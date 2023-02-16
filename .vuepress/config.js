@@ -187,7 +187,7 @@ module.exports = {
           },
           {
             "text": "web-interview",
-            "link":"/docs/web-interview/"
+            "link":"/docs/interview/"
           },
           {
             "text": "前端性能优化与实践",
@@ -321,9 +321,11 @@ module.exports = {
         "微前端实践",
         "我迟来的 2022 年终总结：前已无通路，后不见归途",
       ],
-      "/docs/web-interview/": [
+      "/docs/interview/": [
         "",
-        "2023 web-interview"
+        "2023-web-interview",
+        "简历准备",
+        "面试题整理",
       ],
       "/docs/前端性能优化与实践/": [
         "",
