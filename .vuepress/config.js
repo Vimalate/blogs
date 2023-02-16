@@ -308,7 +308,8 @@ module.exports = {
         "print 打印",
         "session、cookie、Token和JWT",
         "Vite初识",
-        "一些工作中值得收藏的网站"
+        "一些工作中值得收藏的网站",
+        "pnpm、vue3搭建组件库"
       ],
       "/docs/juejin/": [
         "",
