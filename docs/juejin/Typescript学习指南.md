@@ -1280,6 +1280,11 @@ tsconfig.json 包含 TypeScript 编译的相关配置，通过更改编译配置
 - exclude - 设置无需进行编译的文件，支持路径模式匹配；
 - compilerOptions - 设置与编译流程相关的选项。
 
+## typescript 顶级类型
+
+![](./img/typescript-top.png)
+
+
 ### compilerOptions 选项
 
 ```json
