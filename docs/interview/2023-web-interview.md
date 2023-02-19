@@ -25,3 +25,13 @@ categories:
 ## 一些神奇的面试提问
 
 [面试官:你觉得你最大的缺点是什么?](https://juejin.cn/post/7120805355042373662)
+
+
+- promise
+- set map
+- requestAnimationFrame
+- nextTick
+- 宏任务、微任务
+- BFC、flex 布局
+- 自定义指令极其生命周期(vue2/3)
+- 全局注册组建、按需引入
