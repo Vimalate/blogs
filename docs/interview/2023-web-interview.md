@@ -30,8 +30,9 @@ categories:
 - promise
 - set map
 - requestAnimationFrame
-- nextTick
+- nextTick 及原理实现
+- vue diff 算法，响应式原理
 - 宏任务、微任务
 - BFC、flex 布局
 - 自定义指令极其生命周期(vue2/3)
-- 全局注册组建、按需引入
+- 全局注册组件、按需引入
