@@ -1064,6 +1064,33 @@ const { width, height } = useWindowResize();
 </style>
 ```
 
+## vue3 使用 render 函数渲染插槽
+
+```js
+h(
+  NPopconfirm,
+  {
+    onPositiveClick: () => positiveClick(),
+    negativeText: 'negativeText',
+    positiveText: 'positiveText'
+  },
+ {
+   trigger: () =>                                   //trigger插槽的内容
+     h(
+       NButton,
+       {},                                          //被render的元素的属性啥的,可以自定义
+       [
+         //h('i', {class: ['iconfont', 'icon-xiajia']}),  //这里是放被button包裹的元素
+         h('span', {}, 'button上的文字')
+       ]
+     ),
+   default: 'popconfirm的默认提示词'            //默认内容
+ }
+)
+```
+
+[参考](https://www.jianshu.com/p/260827a11efa)
+
 
 ## 参考
 
