@@ -783,4 +783,25 @@ export default {
 </script>
 ```
 
+## vue3 使用 useAttrs
+
+setup 里使用：
+```js
+import { useAttrs } from 'vue'
+const attrs = useAttrs()
+
+// 判断，父组件定义了事件 @reset，则使用，否则默认处理
+const reset = () => {
+  if (attrs.onReset) {
+    // 在 defineEmits 定义后在  attrs 将拿不到对应事件
+    emit('reset')
+  } else {
+    props.dropdownList.forEach((item) => {
+      // eslint-disable-next-line vue/no-mutating-props
+      props.form[item.key] = ''
+    })
+  }
+}
+```
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
