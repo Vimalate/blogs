@@ -783,4 +783,60 @@ export default {
 </script>
 ```
 
+## vue3 使用 useAttrs
+
+setup 里使用：
+```js
+import { useAttrs } from 'vue'
+const attrs = useAttrs()
+
+// 判断，父组件定义了事件 @reset，则使用，否则默认处理
+const reset = () => {
+  if (attrs.onReset) {
+    // 在 defineEmits 定义后在  attrs 将拿不到对应事件
+    emit('reset')
+  } else {
+    props.dropdownList.forEach((item) => {
+      // eslint-disable-next-line vue/no-mutating-props
+      props.form[item.key] = ''
+    })
+  }
+}
+```
+
+## vue 拖拽值至 input 输入框指定光标处
+
+- 1、需要拖动的元素加上draggable属性
+
+```html
+<div draggable="true" @dragstart="dragstart">{{ xxx }}</div>
+```
+- 2、拖进的元素上加事件，监听到已有元素进入
+
+```html
+<el-input
+  v-model="sourceName"
+  @dragover="(e) => e.preventDefault()"
+  @drop="dragEnter"
+></el-input>
+```
+
+- 3、拖拽赋值
+
+```js
+let currentDragText="";
+const dragstart = (e) => {
+  currentDragText = e.target.innerText;
+};
+const dragEnter = () => {
+  sourceName = currentDragText;
+};
+```
+
+[ vue使用draggable进行拖拽填充](https://blog.csdn.net/lucky_zouzou/article/details/124323600)
+
+- 4、获取input中光标位置，并且点击按钮在当前光标后追加指定内容
+
+[获取input中光标位置，并且点击按钮在当前光标后追加指定内容](https://blog.csdn.net/weixin_46054431/article/details/122978540)
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)

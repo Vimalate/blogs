@@ -160,4 +160,12 @@ git config core.ignorecase false
 >当前配置设置仅针对当前项目.git，其他项目需重新配置
 
 
+## 防止git自动将源文件转换为crlf
+
+```
+git config --global core.autocrlf false
+```
+
+[WARNING DELETE `␍` PRETTIER/PRETTIER（ESLINT配置的一些问题）](https://www.freesion.com/article/4532642129/)
+
 参考：[git 教程](https://juejin.im/post/5c67e70bf265da2de33f127c)、[使用Git进行多人协作开发](https://juejin.im/post/5ecb6b41f265da770d3dae6e)、[廖雪峰：多人协作](https://www.liaoxuefeng.com/wiki/896043488029600/900375748016320)、[vscode 本地分支合并远程分支，远程分支合并到本地分支](https://blog.csdn.net/qq_41732963/article/details/119942560)

@@ -44,4 +44,8 @@ axios.interceptors.response.use(
 );
 ```
 
+axiosv0.22.0之前取消请求是使用的cancel token API，而在v0.22.0开始使用的是AbortController
+
+## 参考
 [vue阻止重复请求](https://juejin.cn/post/7189231050806001719)
+[封装新版axios（v0.22.0）中的取消请求](https://juejin.cn/post/7204038175768100901)
