@@ -1064,7 +1064,7 @@ const { width, height } = useWindowResize();
 </style>
 ```
 
-## vue3 使用 render 函数渲染插槽
+## vue3 使用 h (render) 函数渲染插槽
 
 ```js
 h(
@@ -1089,7 +1089,7 @@ h(
 )
 ```
 
-[参考](https://www.jianshu.com/p/260827a11efa)
+[参考](https://www.jianshu.com/p/260827a11efa)、[渲染函数 API](https://cn.vuejs.org/api/render-function.html#h)
 
 
 ## 参考
