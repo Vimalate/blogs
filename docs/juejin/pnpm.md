@@ -9,13 +9,15 @@ categories:
 
 ## pnpm 是什么
 
+ pnpm 是 performant npm（高性能的 npm），它是一款快速的，节省磁盘空间的包管理工具，同时，它也较好地支持了 workspace 和 monorepos，简化开发者在多包组件开发下的复杂度和开发流程。
+
 pnpm 为 performant npm 的简称，意为高性能的 npm
 
 pnpm 主要有以下优点:
 
 - 快速: pnpm 比其他包管理工具快两倍;
 - 高效: node_modules 中的文件链接自特定的内容寻址存储库;
-- 支持monorepo: pnpm 内置了对存储库中的多个包的支持;
+- 支持 monorepo: pnpm 内置了对存储库中的多个包的支持;
 - 严格: pnpm 默认创建一个非平铺的 node_modules,因此代码不能访问任意包;
 
 
@@ -28,7 +30,11 @@ npm install -g pnpm
 ```
 
 
-新建文件夹作为工作区 ，例如我这里 ```shuge-ui```
+新建文件夹作为工作区 ，例如我这里新建文件夹 ``` monorepo-demo```
+
+cd 到目录下
+
+### 初始化环境
 
 - 初始化
 ```
@@ -37,18 +43,356 @@ pnpm init
 
 文件夹下生成了 ```package.json```
 
+根目录下新建 packages
+再新建 pnpm-workspace.yaml文件，用来声明对应的工作区，写入如下内容：
 
-根目录下新建 pnpm-workspace.yaml
-
-```
+```yaml
 packages:
-  # all packages in direct subdirs of packages/
+  # 存放组件库和其他工具库
   - 'packages/*'
-  # all packages in subdirs of components/
-  - 'components/**'
-  # exclude packages that are inside test directories
-  - '!**/test/**'
+  # 存放组件测试的代码
+  - 'example'
 ```
+
+这里我们打算把我们的组件库 components 放于 packages 下，这样如果后续有需要我们还可以在packages文件夹下添加工具库 utils，example 则为示例项目。
+
+接下来我们创建组件库项目和示例项目
+
+在根目录下执行：```pnpm create vite example```
+用 vite 创建一个vue3项目作为示例项目，为跟我们实际项目接近，我们暂时选择了安装这些
+
+![](./img/example1.png)
+
+
+接着在根目录下，执行：```pnpm create vite components```
+选择 Vue+JavaScript 两项
+
+```shell
+? Select a framework: » - Use arrow-keys. Return to submit.
+? Select a framework: » - Use arrow-keys. Return to submit.
+√ Select a framework: » Vue
+√ Select a variant: » JavaScript
+```
+
+这里我们用 vite 创建了一个vue3项目，后续我们的组件库将在此基础上开发
+
+### 编写一个组件
+
+我们进入 components 目录下，并运行以下 ```pnpm i`` 安装项目依赖,然后启动项目
+
+src文件夹下新建 button 文件夹和 index.js 文件（用于集中导出src下的所有组件），并写入以下文件，
+
+```js
+components
+···
+├─ src
+  ├─ button
+     ├─ src
+       └─ index.vue // 我们的组件代码
+  └─ index.js // 用于导出button组件
+└─ index.js // 集中导出src下的所有组件
+···
+```
+
+基本结构如上，src 中编写组件内容，index.js 中插件形式导出组件
+
+index.vue 编写我们的 button 组件代码如下
+```vue
+<template>
+  <button class="button" :class="typeClass" @click="$emit('click')">
+    <slot></slot>
+  </button>
+</template>
+
+// 两个 script 的形式，这个用于定义 name 属性
+<script>
+export default {
+  name: 'SButton',
+}
+</script>
+<script setup>
+import { computed } from 'vue'
+const props = defineProps({
+  type: {
+    type: String,
+    default: 'default'
+  }
+})
+const typeClass = computed(() => `button-${props.type}`)
+</script>
+
+<style lang="scss" scoped>
+.button {
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+
+  &-default {
+    background-color: #eee;
+    color: #333;
+  }
+
+  &-primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+}
+</style>
+```
+
+上面我们为了定义组件的 name ，采用了两个 script 标签的形式，这样虽然可以，但是写两个 script 标签不够优雅，有时候也让开发人员费解，我们希望可以```<script name="SButton" setup>``` 这样的形式，我们借助插件来实现
+
+- 安装 vite-plugin-vue-setup-extend -D
+
+components 目录下
+```shell
+pnpm add vite-plugin-vue-setup-extend -D
+```
+
+- vite.config.js 配置
+```js
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import VueSetupExtend from 'vite-plugin-vue-setup-extend'
+
+export default defineConfig({
+  plugins: [vue(),VueSetupExtend()]
+})
+```
+
+- 使用
+
+我们把 button 组件定义 name 的部分更改如下：
+```vue
+...
+
+<!-- 注释定义name 的 script -->
+<!-- <script>
+export default {
+  name: 'SButton',
+}
+</script> -->
+
+<!-- 利用安装的插件，直接于script 标签上定义 name 属性 -->
+<script name='SButton' setup>
+import { computed } from 'vue'
+const props = defineProps({
+  type: {
+    type: String,
+    default: 'default'
+  }
+})
+const typeClass = computed(() => `button-${props.type}`)
+</script>
+...
+```
+
+上面的组件样式部分用到了 scss ，所以我们需要进行安装，我们可以在 components 目录下执行 ```pnpm add sass -D```
+当然，除了进入子包目录 pnpm add pkgname 直接安装之外，还可以通过过滤参数 ```--filter```或 ```-F``` 指定命令作用范围
+
+例如，我们为 example 示例项目也安装 sass
+
+```shell
+# --filter 或者 -F <package_name> 可以在指定目录 package 执行任务
+pnpm -F example add sass   # 在根目录中向 example 目录安装 sass
+```
+
+更多的过滤配置可参考：[filtering](https://www.pnpm.cn/filtering)
+
+### 导出组件
+
+组件写完之后，我们需要将其导出，因为我们的组件想要在打包后支持全量引入和按需引入
+考虑到后面我们的组件库肯定还有很多组件，所以我们写一个导出方法
+components/src 下新建 utils/withInstall.js
+
+withInstall.js 写入以下：
+
+```js
+export default comp => {
+  comp.install = app => {
+    // 当组件是 script setup 的形式时，会自动以为文件名注册，会挂载到组件的__name 属性上
+    // 所以要加上这个条件
+    const name = comp.name || comp.__name
+    //注册组件
+    app.component(name, comp)
+  }
+  return comp
+}
+```
+
+
+使用刚刚封装的函数导出我们的组件：
+```src/button/index.js``` 文件导出刚刚的 button 组件
+
+```js
+// src/button/index.js
+import { withInstall } from '../utils/withInstall';
+import button from './src/index.vue';
+
+// 导出 install
+const Button = withInstall(button);
+// 导出button组件
+export default Button;
+```
+
+然后再在 src 下的 index.js 的文件下管理我们所有的组件（虽然目前我们只有一个 button 组件）
+
+```js
+// components/src/index.js
+import SButton from './button'
+
+
+export { SButton }
+
+export default [SButton]
+```
+
+components 组件库目录下新建 index.js 集中导出所有
+
+```js
+// components/index.js
+import components from './src/index';
+
+export * from './src/index';
+
+export default {
+  install: app => components.forEach(c => app.use(c)),
+};
+```
+
+组件库配置打包，更改components项目的 vite.config.js如下：
+
+```js
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import { resolve } from 'path'
+import VueSetupExtend from 'vite-plugin-vue-setup-extend'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [vue(),VueSetupExtend()],
+  base: './',
+  build: {
+    target: 'modules',
+    //打包文件目录
+    outDir: 'es',
+    //压缩
+    minify: true,
+    //css分离
+    //cssCodeSplit: true,
+    rollupOptions: {
+      //忽略打包vue文件
+      external: ['vue', 'element-plus'],
+      input: ['index.js'],
+      output: [
+        {
+          format: 'es',
+          //不用打包成.es.js,这里我们想把它打包成.js
+          entryFileNames: '[name].js',
+          //让打包目录和我们目录对应
+          preserveModules: true,
+          exports: 'named',
+          //配置打包根目录
+          dir: resolve(__dirname, './ui/es'),
+        },
+        {
+          format: 'cjs',
+          entryFileNames: '[name].js',
+          //让打包目录和我们目录对应
+          preserveModules: true,
+          exports: 'named',
+          //配置打包根目录
+          dir: resolve(__dirname, './ui/lib'),
+        },
+      ],
+    },
+    lib: {
+      entry: './index.js',
+      name: 'shuge',
+      formats: ['es', 'cjs'],
+    },
+  },
+})
+```
+
+## 引用组件库
+
+好，我们的组件已经写好了，那么我们想要看到效果呢，当然，我们可以启动 components项目，然后 app.vue 里引入编写的组件查看，那么我们该如何在示例项目 example 中使用刚刚开发的组件呢
+
+
+- 首先修改 package.json
+将组件库 components package.json name 修改为 @vmkt/shuge-ui,version修改为 0.0.1：
+```json
+{
+  "name": "@vmkt/shuge-ui",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "sass": "^1.59.3",
+    "vite": "^4.2.0",
+    "vite-plugin-vue-setup-extend": "^0.4.0"
+  }
+}
+```
+
+- example 安装组件库
+
+example 目录下执行```pnpm add @vmkt/shuge-ui``` 引用我们的组件库 
+
+然后可以看到 example 下的 package.json 添加上了依赖
+![](./img/example.png)
+
+我们在 example 里引入我们的组件测试一下，
+
+- 全局引入
+
+```js
+// example/src/main.js
+...
+import shuge from '@vmkt/shuge-ui'
+
+...
+app.use(shuge)
+...
+```
+
+app.vue 原有内容全部删除，然后写入：
+```vue
+<template>
+    <s-button type="primary">button1</s-button>
+  </header>
+</template>
+
+```
+
+启动 example 项目，可以看到按钮已经正常显示，说明我们的全局引入是成功的
+![](./img/example-button.png)
+
+- 按需引入
+**先注释掉刚刚 main.js 里的引入代码**
+改在具体页面引入，这里我们在app.vue进行引入，app.vue 修改后如下：
+
+```vue
+<template>
+    <s-button type="primary">button1</s-button>
+</template>
+
+<script setup>
+import { SButton } from '@vmkt/shuge-ui'
+</script>
+```
+
 
 
 - 安装包到根目录
@@ -96,3 +440,65 @@ pnpm 之所以不只使用软链接，是因为软链接有一些缺点：
 因此，pnpm 选择同时支持软链接和硬链接两种方式。对于在同一文件系统内的依赖，pnpm 使用硬链接，这样就可以减少磁盘空间的占用，同时保证依赖在同一文件系统内的兼容性。对于在不同文件系统内的依赖，pnpm 使用软链接，这样就可以跨越不同的文件系统，并避免由于文件移动而导致的软链接失效的问题。
 
 综上所述，pnpm 之所以不只使用软链接，是因为软链接存在一些局限性和兼容性，同时硬链接可以有效减少磁盘空间占用，因此在不同的情况下选择最适合的链接方式，可以更好地平衡不同的需求。
+
+
+## 安装依赖
+就这个demo来说，我们如果在根目录下安装依赖的话，这个依赖可以在所有的packages中使用，如果我们需要为具体的一个package安装依赖怎么办？
+
+```
+pnpm --filter <package_selector> <command>
+```
+>-F等价于--filter
+
+例如我们需要在@packages/components安装lodash，命令如下：
+```
+pnpm -F @packages/components add lodash
+```
+
+## 开发组件
+
+<script setup> 只要在script开启setup语法糖模式 单文件组件会自动根据文件名生成对应的 name 选项 例如 Tree.vue 那他的name 就是 Tree 自动生成，这样做有一个弊端如果想修改name需要修改组件名称如果有地方import 该组件需要一并修改。
+
+
+1. 写两个 script 标签
+
+最简单的方法就是写两个script 标签，一个用 setup 语法，一个不用 setup 语法，代码如下：
+```vue
+<script>
+    export default {
+        name: 'demo'
+    }
+</script>
+
+<script setup>
+    // do something...
+</script>
+```
+但是写两个 script 标签不够优雅，有时候也让开发人员费解
+
+2. 通过插件 vite-plugin-vue-setup-extend
+
+1、安装
+
+```shell
+pnpm add vite-plugin-vue-setup-extend -D
+```
+2、配置 ( vite.config.js )
+
+```js
+import { defineConfig } from 'vite'
+import VueSetupExtend from 'vite-plugin-vue-setup-extend'
+export default defineConfig({
+  plugins: [ VueSetupExtend() ]
+})
+```
+3、使用
+```vue
+<script lang="ts" setup name="demo">
+
+</script>
+```
+
+## 参考
+
+[pnpm+vite+vue3搭建业务组件库踩坑之旅](https://www.jianshu.com/p/392edbd5ce3b)

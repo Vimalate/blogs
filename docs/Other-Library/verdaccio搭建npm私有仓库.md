@@ -142,6 +142,7 @@ npm config ls
 要使用发布到私有仓库的npm包时，需要修改仓库地址
 
 ```shell
+#npm config set registry https://registry.npmjs.org
 npm set registry http://localhost:4873
 ```
 
