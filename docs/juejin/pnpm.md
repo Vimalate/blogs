@@ -9,7 +9,7 @@ categories:
 
 ## pnpm 是什么
 
- pnpm 是 performant npm（高性能的 npm），它是一款快速的，节省磁盘空间的包管理工具，同时，它也较好地支持了 workspace 和 monorepos，简化开发者在多包组件开发下的复杂度和开发流程。
+ pnpm 是 performant npm（高性能的 npm），它是一款快速的，节省磁盘空间的包管理工具，同时，它也较好地支持了 workspace 和 monorepo，简化开发者在多包组件开发下的复杂度和开发流程。
 
 pnpm 为 performant npm 的简称，意为高性能的 npm
 
@@ -99,7 +99,7 @@ components
 index.vue 编写我们的 button 组件代码如下
 ```vue
 <template>
-  <button class="button" :class="typeClass" @click="$emit('click')">
+  <button class="button" :class="typeClass">
     <slot></slot>
   </button>
 </template>
@@ -200,9 +200,45 @@ pnpm -F example add sass   # 在根目录中向 example 目录安装 sass
 
 更多的过滤配置可参考：[filtering](https://www.pnpm.cn/filtering)
 
+
+### 二次封装 el-input 组件
+
+上面我们写了一个简单的 button 组件，但是实际开发中，我们更多的其实是基于现有组件库做二次封装，这里我们选择基于 element-ui 做二次封装。
+
+如此前这篇文章[当我们对组件二次封装时我们在封装什么](https://juejin.cn/post/7127925414885851144#heading-4)提到的封装思路，我们想基于 el-input 实现这样一个需求：希望 el-input 默认可清空，即 clearable 默认为 ture
+
+首先，我们给 components 项目安装 element-ui，这里安装不再赘述，大家可以直接按[官网](https://element-plus.gitee.io/zh-CN/guide/installation.html#%E7%8E%AF%E5%A2%83%E6%94%AF%E6%8C%81)来
+
+安装完毕后，我们在src下新建input文件夹，里面文件结构和 button 一致，基于 el-input 的 input 组件封装如下：
+```vue
+// index.vue
+<template>
+  <el-input v-bind="$attrs" :placeholder="placeholder" :clearable="clearable">
+     <template #[slotName] v-for="(slot, slotName) in $slots" >
+      <slot :name="slotName" />
+    </template>
+  </el-input>
+</template>
+
+<script name="SInput" setup>
+defineProps({
+  clearable: {
+    type: Boolean,
+    default: true
+  },
+  placeholder: {
+    type: String,
+    default: '请输入'
+  }
+})
+</script>
+
+<style lang="scss" scoped></style>
+```
+
 ### 导出组件
 
-组件写完之后，我们需要将其导出，因为我们的组件想要在打包后支持全量引入和按需引入
+组件写完之后，我们需要将其导出，因为我们的组件想要在打包后支持```全量引入```和```按需引入```
 考虑到后面我们的组件库肯定还有很多组件，所以我们写一个导出方法
 components/src 下新建 utils/withInstall.js
 
@@ -223,7 +259,7 @@ export default comp => {
 
 
 使用刚刚封装的函数导出我们的组件：
-```src/button/index.js``` 文件导出刚刚的 button 组件
+```src/button/index.js``` 文件导出刚刚的 button 组件,
 
 ```js
 // src/button/index.js
@@ -236,19 +272,22 @@ const Button = withInstall(button);
 export default Button;
 ```
 
-然后再在 src 下的 index.js 的文件下管理我们所有的组件（虽然目前我们只有一个 button 组件）
+>input 组件也类似步骤导出
+
+然后再在 src 下的 index.js 的文件下管理我们所有的组件
 
 ```js
 // components/src/index.js
 import SButton from './button'
+import SInput from './input'
 
 
-export { SButton }
+export { SButton, SInput }
 
-export default [SButton]
+export default [SButton, SInput]
 ```
 
-components 组件库目录下新建 index.js 集中导出所有
+最后 components 组件库目录下新建 index.js 集中导出所有
 
 ```js
 // components/index.js
@@ -282,7 +321,7 @@ export default defineConfig({
     //css分离
     //cssCodeSplit: true,
     rollupOptions: {
-      //忽略打包vue文件
+      //忽略打包vue、element-plus
       external: ['vue', 'element-plus'],
       input: ['index.js'],
       output: [
@@ -322,12 +361,22 @@ export default defineConfig({
 
 
 - 首先修改 package.json
-将组件库 components package.json name 修改为 @vmkt/shuge-ui,version修改为 0.0.1：
+将组件库 ```components package.json``` name 修改为 @vmkt/shuge-ui(以便我们后续包的引入),version修改为 0.0.1，private 修改为 false 我们这个组件库需要对外发布，并添加打包后的入口
+```json
+// 使用 require('xxx') 方式引入时, 引入的是这个文件
+"main": "./ui/lib/index.js",
+// 使用 import x from 'xxx' 方式引入组件时，引入的是这个文件
+"module": "./ui/es/index.js",
+```
+最终修改后的 package.json 如下：
+
 ```json
 {
   "name": "@vmkt/shuge-ui",
-  "private": true,
+  "private": false,
   "version": "0.0.1",
+  "main": "./ui/lib/index.js",
+  "module": "./ui/es/index.js",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -335,6 +384,7 @@ export default defineConfig({
     "preview": "vite preview"
   },
   "dependencies": {
+    "element-plus": "^2.3.0",
     "vue": "^3.2.47"
   },
   "devDependencies": {
@@ -345,6 +395,15 @@ export default defineConfig({
   }
 }
 ```
+- 打包组件库
+
+上面配置都完成后，我们于 components 目录下执行 ```pnpm run build```将组件库进行打包
+
+![](./img/pnpm-build.png)
+
+同时components根目录下可以看到多出了我们打包后的组件
+
+![](./img/pnpm-ui.png)
 
 - example 安装组件库
 
@@ -360,7 +419,12 @@ example 目录下执行```pnpm add @vmkt/shuge-ui``` 引用我们的组件库
 ```js
 // example/src/main.js
 ...
+// 我们的组件 input 依赖于 element-ui，example 项目同样先安装再引入
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+
 import shuge from '@vmkt/shuge-ui'
+import  '@vmkt/shuge-ui/ui/es/style.css'
 
 ...
 app.use(shuge)
@@ -370,10 +434,22 @@ app.use(shuge)
 app.vue 原有内容全部删除，然后写入：
 ```vue
 <template>
-    <s-button type="primary">button1</s-button>
-  </header>
+  <div>
+    <s-button @click="onClick" type="primary">button</s-button>
+    <s-input v-model="value">
+      <template #prepend>Http://</template>
+    </s-input>
+  </div>
 </template>
 
+<script setup>
+import { ref } from 'vue'
+import { SButton, SInput } from '@vmkt/shuge-ui'
+const value = ref('')
+const onClick = () => {
+  console.log('click')
+}
+</script>
 ```
 
 启动 example 项目，可以看到按钮已经正常显示，说明我们的全局引入是成功的
