@@ -36,3 +36,4 @@ categories:
 - BFC、flex 布局
 - 自定义指令极其生命周期(vue2/3)
 - 全局注册组建、按需引入
+- CI/CD

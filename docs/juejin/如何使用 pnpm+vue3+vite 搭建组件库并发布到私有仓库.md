@@ -20,7 +20,6 @@ pnpm 主要有以下优点:
 - 支持 monorepo: pnpm 内置了对存储库中的多个包的支持;
 - 严格: pnpm 默认创建一个非平铺的 node_modules,因此代码不能访问任意包;
 
-
 ## 快速入门
 
 安装 pnpm 
@@ -361,7 +360,7 @@ export default defineConfig({
 
 
 - 首先修改 package.json
-将组件库 ```components package.json``` name 修改为 @vmkt/shuge-ui(以便我们后续包的引入),version修改为 0.0.1，private 修改为 false 我们这个组件库需要对外发布，并添加打包后的入口
+将组件库 ```components package.json``` name 修改为 @vmkt/shuge-ui(以便我们后续包的引入),version修改为 0.0.1，private 修改为 false 代表我们这个组件库需要对外发布，然后添加打包后的入口
 ```json
 // 使用 require('xxx') 方式引入时, 引入的是这个文件
 "main": "./ui/lib/index.js",
@@ -373,11 +372,18 @@ export default defineConfig({
 ```json
 {
   "name": "@vmkt/shuge-ui",
+  // 代表我们这个组件库需要对外发布
   "private": false,
   "version": "0.0.1",
+  // 使用 require('xxx') 方式引入时
   "main": "./ui/lib/index.js",
+  // 使用 import x from 'xxx' 方式引入组件时
   "module": "./ui/es/index.js",
   "type": "module",
+  // 配置打包上传文件到npm的文件夹内容
+  "files": [
+    "ui"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -457,19 +463,228 @@ const onClick = () => {
 
 - 按需引入
 **先注释掉刚刚 main.js 里的引入代码**
-改在具体页面引入，这里我们在app.vue进行引入，app.vue 修改后如下：
+改在具体页面引入，这里我们在app.vue进行引入```import { SButton, SInput } from '@vmkt/shuge-ui'```，app.vue 修改后如下：
 
 ```vue
 <template>
-    <s-button type="primary">button1</s-button>
+  <div>
+    <s-button @click="onClick" type="primary">button</s-button>
+    <s-input v-model="value">
+      <template #prepend>Http://</template>
+    </s-input>
+  </div>
 </template>
 
 <script setup>
-import { SButton } from '@vmkt/shuge-ui'
+import { ref } from 'vue'
+import { SButton, SInput } from '@vmkt/shuge-ui'
+const value = ref('')
+const onClick = () => {
+  console.log('click')
+}
+</script>
+```
+ 可以看到页面也是正常显示的
+
+
+至此，我们利用 vue3+pnpm monorepo 开发组件库已经完成，下面我们将打包后的组件库发布的私有仓库
+
+## verdaccio 搭建npm私有仓库
+
+verdaccio 是一个轻量级的 npm 缓存终端，按需缓存所有依赖项,并加速本地或私有网络中的安装，是搭建 npm 私服较为流行的方案之一
+
+- 全局安装 verdaccio
+
+```shell
+npm i -g verdaccio
+```
+
+- 然后，在终端中输入 verdaccio 命令启动 verdaccio：
+
+```shell
+verdaccio
+```
+
+启动成功，终端输出如下
+
+![](./img/verdaccio-start.png)
+
+里面是它的配置文件位置、启动的服务地址等信息
+
+默认 verdaccio 启动的服务都会在 4873 这个端口，在浏览器中输入 http://localhost:4873/ 出现如上页面就说明服务启动成功了：
+
+![](./img/4873.png)
+
+### 本地发布 npm 包到私有仓库
+
+在此之前，你需要先[注册 npm 的账号](https://www.npmjs.com/)
+
+**1、 登录**
+
+```shell
+npm adduser --registry  http://localhost:4873
+```
+输入npm账号用户名、密码和邮箱,登录成功后如下：
+
+```shell
+Username: yourUsername
+Password: 
+Email: (this IS public) 1xxxx@qq.com
+Logged in as yourUsername on http://localhost:4873/.
+```
+
+**2、发布 npm 包到私有仓库**
+
+进入到我们的组件库 components 目录下，执行
+
+```
+npm publish --registry http://localhost:4873/
+```
+
+发布成功以后如下：
+```shell
+npm notice 
+npm notice package: @vmkt/shuge-ui@0.0.4
+npm notice === Tarball Contents ===
+npm notice 285B ui/es/style.css
+npm notice 134B ui/es/_virtual/_plugin-vue_export-helper.js
+npm notice 202B ui/lib/_virtual/_plugin-vue_export-helper.js
+npm notice 257B ui/es/index.js
+npm notice 126B ui/es/src/button/index.js
+npm notice 145B ui/es/src/index.js
+npm notice 126B ui/es/src/input/index.js
+npm notice 153B ui/es/src/utils/withinstall/index.js
+npm notice 327B ui/lib/index.js
+npm notice 231B ui/lib/src/button/index.js
+npm notice 269B ui/lib/src/index.js
+npm notice 231B ui/lib/src/input/index.js
+npm notice 223B ui/lib/src/utils/withinstall/index.js
+npm notice 694B ui/es/src/button/src/index.vue.js
+npm notice 989B ui/es/src/input/src/index.vue.js
+npm notice 611B ui/lib/src/button/src/index.vue.js
+npm notice 770B ui/lib/src/input/src/index.vue.js
+npm notice 41B  ui/es/src/button/src/index.vue2.js
+npm notice 41B  ui/es/src/input/src/index.vue2.js
+npm notice 138B ui/lib/src/button/src/index.vue2.js
+npm notice 138B ui/lib/src/input/src/index.vue2.js
+npm notice 509B package.json
+npm notice 535B README.md
+npm notice === Tarball Details ===
+npm notice name:          @vmkt/shuge-ui
+npm notice version:       0.0.4
+npm notice package size:  2.9 kB
+npm notice unpacked size: 7.2 kB
+npm notice shasum:        16a8e623842e7028a3bb8445af177efd9ec99c75
+npm notice integrity:     sha512-79a9TMF41gv55[...]cQ5ISub13FUvQ==
+npm notice total files:   23
+npm notice
++ @vmkt/shuge-ui@0.0.4
+```
+
+在浏览器中刷新 http://localhost:4873 页面
+
+![](./img/vmkt.png)
+
+可以看到，我们的组件库 shuge-ui 已经发布成功，接下来我们对其安装使用一下
+
+### 使用私有仓库npm包
+
+我们首先起一个项目，找一个空白文件，cmd 输入：
+```
+pnpm create vite demo
+```
+
+选择创建一个 vue 项目，安装依赖并启动
+
+
+下载我们发布到私有仓库的npm包时，需要修改仓库地址，具体操作如下
+
+```shell
+npm set registry http://localhost:4873
+```
+
+在执行这条命令以后，再使用```pnpm add @vmkt/shuge-ui```命令就会优先去我们自己的私有仓库下载npm包，如何没有找到，则会从npm中央仓库下载
+
+```shell
+ackages: +22
+++++++++++++++++++++++
+Progress: resolved 80, reused 55, downloaded 3, added 22, done
+
+dependencies:
++ @vmkt/shuge-ui 0.0.4
+
+The integrity of 4629 files was checked. This might have caused installation to take longer.
+Done in 33.7s
+```
+
+安装成功后会如上显示输出
+
+
+因为我们的组件库还依赖于 element-plus
+所以我们同样进行安装一下 
+```shell
+pnpm add element-ui
+```
+
+最后我们和 example 里操作一样，全局引入和按需引入测试一下我们的组件库,如全局引入：
+
+```js
+// main.js
+import { createApp } from 'vue'
+import './style.css'
+import App from './App.vue'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+import shuge from '@vmkt/shuge-ui'
+import  '@vmkt/shuge-ui/ui/es/style.css'
+
+const app = createApp(App)
+
+app.use(ElementPlus)
+app.use(shuge)
+
+app.mount('#app')
+```
+
+```vue
+// app.vue
+<template>
+  <div>
+    <s-button @click="onClick" type="primary">button</s-button>
+    <s-input v-model="value">
+      <template #prepend>Http://</template>
+    </s-input>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+const value = ref('')
+const onClick = () => {
+  console.log('click')
+}
 </script>
 ```
 
+http://localhost:5173/ 刷新页面，可以看到，我们的组件库使用正常
 
+
+至此，我们使用 vue3+ pnpm monorepo 搭建组件库发布到私有仓库，并在项目中使用的教程就到这里结束了
+
+## 参考
+[pnpm官网](https://pnpm.io/zh/)
+[pnpm+vite+vue3搭建业务组件库踩坑之旅](https://www.jianshu.com/p/392edbd5ce3b)
+
+## 往期回顾
+[vue3 正式发布两年后，我才开始学 — vue3+setup+ts 🔥](https://juejin.cn/post/7158331832512020511)
+<br>
+[2022年了，我才开始学 typescript ，晚吗？（7.5k字总结）](https://juejin.cn/post/7124117404187099172)
+<br>
+[当我们对组件二次封装时我们在封装什么](https://juejin.cn/post/7127925414885851144)
+<br>
+[vue 项目开发，我遇到了这些问题](https://juejin.cn/post/7119018849353072677)
+<br>
+[关于首屏优化，我做了哪些](https://juejin.cn/post/7117515006714839047)
 
 - 安装包到根目录
 
