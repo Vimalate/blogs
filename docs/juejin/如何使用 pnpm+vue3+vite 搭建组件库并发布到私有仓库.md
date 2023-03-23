@@ -1,5 +1,5 @@
 ---
-title: pnpm
+title: 如何使用 pnpm+vue3+vite 搭建组件库并发布到私有仓库
 date: 2023-02-16
 tags:
  - 技巧
