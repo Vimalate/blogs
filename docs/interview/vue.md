@@ -14,14 +14,10 @@ categories:
 - **更新阶段：** 父 beforeUpdate -> 子 beforeUpdate -> 子 updated -> 父 updated
 - **销毁阶段：** 父 beforeDestroy -> 子 beforeDestroy -> 子 destroyed -> 父 destroyed
 
+## this.$nextTick 原理（vue2/3）
 
-- 二级
- - 三级
- - 三级
- - 三级
-- 一级
- - 二级
-  -三级 
+[this.$nextTick你真的理解了吗？](https://juejin.cn/post/7177681326861418556)
+
 
 vue2 的初始化过程做了哪些事情？
 
