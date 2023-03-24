@@ -8,6 +8,21 @@ categories:
  - 面试
 ---
 
+## 父子组件的生命周期
+
+- **加载渲染阶段：** 父beforeCreate => 父created => 父beforeMount => 子beforeCreate => 子created => 子beforeMount => 子 mounted => 父 mounted
+- **更新阶段：** 父 beforeUpdate -> 子 beforeUpdate -> 子 updated -> 父 updated
+- **销毁阶段：** 父 beforeDestroy -> 子 beforeDestroy -> 子 destroyed -> 父 destroyed
+
+
+- 二级
+ - 三级
+ - 三级
+ - 三级
+- 一级
+ - 二级
+  -三级 
+
 vue2 的初始化过程做了哪些事情？
 
 ```js
@@ -84,3 +99,5 @@ diff 算法的整体策略是：深度优先，同层比较
 ## 项目按钮权限
 
 [面试官问我按钮级别权限怎么控制](https://juejin.cn/post/7209648356530896953)
+
+
