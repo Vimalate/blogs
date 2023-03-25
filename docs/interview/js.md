@@ -67,6 +67,36 @@ js 的加载、解析和执行会阻塞页面的渲染过程，因此我们希�
 *   展开
 ```
 
+## promise.all 执行顺序
+
+```js
+// 方法a，返回一个Promise对象
+function a() {
+	return new Promise((r, j) => {
+		setTimeout(() => {
+			console.log('a')
+			r('a')
+		}, 3000)
+	})
+}
+// 方法b，返回一个Promise对象
+function b() {
+	return new Promise((r, j) => {
+		setTimeout(() => {
+			console.log('b')
+			r('b')
+		}, 1000)
+	})
+}
+Promise.all([a(), b()]).then(r => {
+	console.log(r)
+})
+// 输出情况
+b
+a
+['a', 'b']
+```
+all()中的Promise对象执行先后顺序由自己快慢控制，全部执行完毕后，按照放入all()的先后顺序放入Promise.all().then的 resolve 中。
 
 ## 参考
 
