@@ -331,6 +331,7 @@ module.exports = {
         "面试题整理",
         "工程化",
         "html",
+        "http",
         "js",
         "vue",
       ],
