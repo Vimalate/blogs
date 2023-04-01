@@ -333,6 +333,7 @@ module.exports = {
         "html",
         "http",
         "js",
+        "css",
         "vue",
       ],
       "/docs/前端性能优化与实践/": [
