@@ -92,7 +92,7 @@ function initMixin (Vue) {
 
 ## 简单说下 Vue 的 diff 算法
 
-![](./img/diff算法.png)
+![](./img/diff.png)
 
 diff 算法是一种通过同层的树节点进行比较的高效算法
 
