@@ -41,7 +41,7 @@ npm init vue@latest
 - ref: 用来给基本数据类型绑定响应式数据，访问时需要通过 .value 的形式， tamplate 会自动解析,不需要 .value
 -  reactive: 用来给 复杂数据类型 绑定响应式数据，直接访问即可
 
->ref其实也是内部调用来reactive实现的
+>ref其实也是内部调用来reactive实现的，ref(obj)等价于 reactive({value: obj})，如果使用 reactive，那就得把基础类型的数据改成 object
 
 
 ```

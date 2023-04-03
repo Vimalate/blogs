@@ -98,3 +98,20 @@ diff 算法的整体策略是：深度优先，同层比较
 [面试官问我按钮级别权限怎么控制](https://juejin.cn/post/7209648356530896953)
 
 
+## vite
+
+
+### vite 原理
+
+1. 通过 koa 开启一个服务，回去请求的静态文件内容
+2. 通过```es-module-lexer```解析```ast```拿到 import 的内容
+3. 判断 import 倒入模块是否为第三方模块，是的话做路径的替换，换成了 /@modules/ 返回给浏览器，浏览器发起对 /@modules/ 的请求，并且由 vite 再次拦截，返回node_module下的模块， 如 import vue 返回 import './@modules/vue'
+4. 如果是.vue文件，vite 拦截对应的请求，读取.vue 文件内容进行编译，把一个 .vue 的文件拆成了三个请求（分别对应 script、style 和template） ，浏览器会先收到包含 script 逻辑的 App.vue 的响应，然后解析到 template 和 style 的路径后，会再次发起 HTTP 请求来请求对应的资源，此时 Vite 对其拦截并再次处理后返回相应的内容。
+5. 通过 babel parse 对 js 进行编译，最终返回编译后的 js 文件
+
+
+>Vite 主要对应的场景是开发模式（生产模式是用 rollup 打包）
+
+Vite 的是通过 WebSocket 来实现的热更新通信，监听来自服务端的 HMR 消息推送。
+
+[](https://juejin.cn/post/6844904146915573773)
