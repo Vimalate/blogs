@@ -30,6 +30,19 @@ undefined 在 js 中不是一个保留字，这意味着我们可以使用 undef
 ​
 当我们对两种类型使用 typeof 进行判断的时候，Null 类型化会返回 “object”，这是一个历史遗留的问题。当我们使用双等 号对两种类型的值进行比较时会返回 true，使用三个等号时会返回 false。
 
+## == 运算符
+
+```js
+obj={
+  x:1
+}
+if(obj.a==null){}
+```
+
+相当于：```if(obj.a === null || obj.a === undefined){}```
+
+>实际开发中，除了 == null外，建议其他使用 ====
+
 ## 谈谈你对 this、call、apply 和 bind 的理解
 
 1. 浏览器中，全局范围内 this 指向 window 对象
@@ -121,6 +134,18 @@ console.log(fn(obj));//false
   
 Reflect.ownKeys(obj).length===0
 
+## async/await 和 Promise 的关系
+
+async/await 是基于 Promise 的语法糖，它们都是用于处理异步操作的 JavaScript 特性。Promise 通过 then 和 catch 方法来处理异步操作的结果，而 async/await 则使用像同步代码一样的语法来处理异步操作。async 函数内部可以使用 await 来等待一个返回 Promise 对象的表达式执行完毕，并将其解析为一个值或抛出错误。因此，在某种程度上，async/await 可以看作是一种更加简单易用的 Promise 的封装。
+
+
+
+- 执行 async 函数，返回的是 Promise 对象
+- await 相当于是 Promise 的then
+- try... catch 可用来捕获异常，相当于 Promise 的 catch
+
+>await 后面的内容都可以看做是异步 callback 里的内容
+
 ## promise.all 执行顺序
 
 ```js
@@ -151,6 +176,15 @@ a[('a', 'b')]
 ```
 
 all()中的 Promise 对象执行先后顺序由自己快慢控制，全部执行完毕后，按照放入 all()的先后顺序放入 Promise.all().then 的 resolve 中。
+
+## 依据什么来定义宏任务和微任务
+
+- 微任务是ES6语法规定
+- 宏任务是由浏览器规定
+
+## 简述闭包
+
+所有自由变量的查找，**是在函数定义的地方，向上级作用域查找，而不是在执行的地方**
 
 ## 参考
 
