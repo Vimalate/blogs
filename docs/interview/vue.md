@@ -147,3 +147,58 @@ Vite 的是通过 WebSocket 来实现的热更新通信，监听来自服务端�
 3. 单页面路由目前主要两种方式：`hash 模式，history模式`
 4. hash 模式：通过 hashchange 事件监听路由变化 `window.addEventListener('hashchange', （)=>{})`
 5. history 模式: 通过 pushState() 和 replaceState() 方法，实现网历史记录添加新的或替换对应的浏览记录，通过 popSate 事件监听 路由变化，`window.addEventListener('popstate', ())=>{})`
+
+
+## vue2是怎么做到监听数组的
+
+在 Vue2 中，监听数组的实现是通过重写数组变异方法（mutation methods）来实现的。
+
+具体地说，Vue2 中使用了一个名为 Observer 的类来观察数据对象，如果数据对象是一个数组，则会对其进行特殊处理。在处理数组时，Vue2 会获取数组原型上的变异方法（例如 push、pop、shift、unshift、splice 等），然后对这些方法进行改写，以便在执行这些方法时能够发出变化通知。
+
+具体来说，Vue2 会将这些变异方法重写成如下形式：
+```js
+const arrayProto = Array.prototype
+const arrayMethods = Object.create(arrayProto)
+
+;['push', 'pop', 'shift', 'unshift', 'splice', 'sort', 'reverse'].forEach(function (method) {
+  const original = arrayProto[method]
+  def(arrayMethods, method, function mutator (...args) {
+    const result = original.apply(this, args)
+    const ob = this.__ob__
+    let inserted
+    switch (method) {
+      case 'push':
+      case 'unshift':
+        inserted = args
+        break
+      case 'splice':
+        inserted = args.slice(2)
+        break
+    }
+    if (inserted) ob.observeArray(inserted)
+    // notify change
+    ob.dep.notify()
+    return result
+  })
+})
+```
+
+>Object.defineProperty 实际是可以做到监听数组的，通过 arr[index]=val 监听数组下标来做到，但是为了性能取舍而没有这样做
+
+```
+var arr = [1,2,3,4]
+arr.forEach((item,index)=>{
+    Object.defineProperty(arr,index,{
+        set:function(val){
+            console.log('set')
+            item = val
+        },
+        get:function(val){
+            console.log('get')
+            return item
+        }
+    })
+})
+arr[1]; // get  2
+arr[1] = 1; // set  1
+```
