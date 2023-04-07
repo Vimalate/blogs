@@ -177,6 +177,36 @@ a[('a', 'b')]
 
 all()中的 Promise 对象执行先后顺序由自己快慢控制，全部执行完毕后，按照放入 all()的先后顺序放入 Promise.all().then 的 resolve 中。
 
+## 用promise如何实现异步加载图片，说下大概思路
+
+1. 创建一个Promise对象，该对象包含一个异步操作，例如加载图片。
+2. 在异步操作中，使用Image对象加载图片，并监听其onload和onerror事件。
+3. 如果图片加载成功，调用resolve方法，并将Image对象作为参数传递给resolve方法。
+4. 如果图片加载失败，调用reject方法，并将错误信息作为参数传递给reject方法。
+5. 在使用异步操作时，调用Promise对象的then方法，如果图片加载成功，则在then方法中获取Image对象并使用它；如果图片加载失败，则在catch方法中处理错误。
+
+```js
+function loadImg (url) {
+  return new Promise((resolve, reject) => {
+    const img = new Image()
+    img.onload = () => {
+      resolve(img)
+    }
+    img.onerror = () => {
+      reject(`图片加载失败-${url}`)
+    }
+    img.url = url
+  })
+}
+
+// 使用
+loadImg('xxx.png').then(res => {
+  console.log(res)
+}).catch(error => {
+  console.log(error)
+})
+```
+
 ## 依据什么来定义宏任务和微任务
 
 - 微任务是ES6语法规定
