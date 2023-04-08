@@ -243,6 +243,13 @@ arr[1] = 1; // set  1
 - ref 是一个对象（不丢失响应式），value  存储值
 - 通过 .value 属性的 get 和 set 实现响应式
 
+## vue3 更快了，它做了哪些优化
+- proxy 响应式
+- tree-shaking
+- 静态提升
+
+  - 将静态节点的定义，提升到父级别，缓存起来
+  - 多个相邻的静态节点会被合并
 
 
-## hooks useForm useDialog
+## hooks useForm useDialo
