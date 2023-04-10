@@ -19,6 +19,15 @@ categories:
 7. 组合式api，hooks 更好的逻辑复用
 8. 更好的ts 支持 
 
+## v-for 和 v-if 为什么不推荐一起使用
+
+在V2当中，v-for的优先级更高，而在V3当中，则是v-if的优先级更高
+
+方案一： 先在 computed 里过滤 数组。
+方案二： 在v-for 里面 在套一层 ```<template v-if="item.id === 1">
+// do something
+</template>```
+
 ## 父子组件的生命周期
 
 - **加载渲染阶段：** 父 beforeCreate => 父 created => 父 beforeMount => 子 beforeCreate => 子 created => 子 beforeMount => 子 mounted => 父 mounted
@@ -251,5 +260,10 @@ arr[1] = 1; // set  1
   - 将静态节点的定义，提升到父级别，缓存起来
   - 多个相邻的静态节点会被合并
 
+
+
+## 为什么Proxy一定要配合Reflect使用？
+
+[为什么Proxy一定要配合Reflect使用？](https://juejin.cn/post/7080916820353351688#heading-5)
 
 ## hooks useForm useDialo
