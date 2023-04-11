@@ -134,6 +134,38 @@ console.log(fn(obj));//false
   
 Reflect.ownKeys(obj).length===0
 
+## for in、for of和Object.keys 区别
+
+for-in、for-of、Object.keys()都是用于遍历对象的属性或数组、字符串的方法，但它们之间有一些区别：
+
+- for-in遍历的是对象的可枚举属性，包括自身属性和继承属性，不适合遍历数组和字符串。
+
+- for-of遍历的是可迭代对象的元素，包括数组、字符串、Set、Map等，不适合遍历对象。
+
+- Object.keys()返回一个由对象的可枚举属性组成的数组，只遍历对象自身的属性，不包括继承属性，也不适合遍历其他类型的可迭代对象。
+
+- for-in和Object.keys()遍历的属性顺序是不确定的，而for-of遍历的元素顺序是确定的。
+
+因此，如果需要遍历对象的自身属性，可以使用Object.keys()或for-in。如果需要遍历数组或字符串的元素，可以使用for-of。如果需要遍历对象的所有属性，包括继承属性，可以使用for-in。需要注意的是，for-in和Object.keys()不适合遍历其他类型的可迭代对象，例如Set和Map。
+
+## clientHeight、offsetHeight、scrollHeight的区别
+
+这三个属性都是用来获取元素高度的，但是它们所获取的高度是不同的：
+
+- offsetHeight：元素可视区域的高度加上上下边框和上下内边距的高度，但不包括水平滚动条和外边距（border + padding + content）。
+- clientHeight：元素可视区域的高度，不包括水平滚动条、边框和外边距（padding + content）。
+- scrollHeight：元素内容的总高度，包括由于溢出而无法显示的部分，但不包括外边距（padding + 实际内容尺寸）
+
+
+举个例子，如果一个元素的高度为200px，上下边框和内边距各为20px，内容高度为300px，而水平滚动条和外边距都为0，那么这三个属性的值分别为：
+
+clientHeight：160px（200 - 20 - 20）
+offsetHeight：200px（160 + 20 + 20）
+scrollHeight：300px
+在实际开发中，我们可以根据需要选择使用这三个属性来获取元素的高度。
+
+
+
 ## async/await 和 Promise 的关系
 
 async/await 是基于 Promise 的语法糖，它们都是用于处理异步操作的 JavaScript 特性。Promise 通过 then 和 catch 方法来处理异步操作的结果，而 async/await 则使用像同步代码一样的语法来处理异步操作。async 函数内部可以使用 await 来等待一个返回 Promise 对象的表达式执行完毕，并将其解析为一个值或抛出错误。因此，在某种程度上，async/await 可以看作是一种更加简单易用的 Promise 的封装。

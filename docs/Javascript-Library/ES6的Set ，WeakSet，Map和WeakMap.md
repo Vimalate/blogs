@@ -159,6 +159,11 @@ WeakMap 中，每个键对自己所引用对象的引用都是弱引用，在没
 
 不能遍历，方法有 get、set、has、delete
 
+Vue正是利用了WeakMap 是弱引用这一特点，使用WeakMap来存储一些临时的映射关系，以便在对象被销毁时，自动删除对应的映射关系，避免内存泄漏。如：
+
+- 在src/core/instance/proxy.js中，Vue使用WeakMap来存储代理对象和原始对象之间的映射关系，以便在代理对象被销毁时，自动删除对应的原始对象。
+- 在src/core/instance/lifecycle.js中，Vue使用WeakMap来存储组件实例和对应的Watcher对象之间的映射关系，以便在组件实例被销毁时，自动删除对应的Watcher对象。
+
 ## 总结
 Set
 - 是一种叫做集合的数据结构
