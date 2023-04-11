@@ -19,6 +19,34 @@ categories:
 7. 组合式api，hooks 更好的逻辑复用
 8. 更好的ts 支持 
 
+## Vue3 为什么支持多个根节点，实现原理是什么
+
+Vue2 中只能有一个根节点，而 Vue3 中支持多个根节点，本质上 Vue3 每个组件还是一个根节点，因为 DOM 树只能是树状结构的，只是 Vue3 在编译阶段新增了判断，如果当前组件不只一个根元素，就添加一个 fragment 组件把这个多根组件的给包起来，相当于这个组件还是只有一个根节点。而 fragment 跟 keep-alive 一样是一个不会被渲染出来的内置组件
+
+例如，在 Vue 3 中，下面的模板：
+```vue
+<template>
+  <div>第一个节点</div>
+  <div>第二个节点</div>
+</template>
+```
+
+会被编译成下面的代码:
+```vue
+import { createVNode, Fragment } from 'vue'
+
+return () => [
+  createVNode(Fragment, null, [
+    createVNode('div', null, '第一个节点'),
+    createVNode('div', null, '第二个节点')
+  ])
+]
+```
+
+Vue 3 使用了 createVNode 函数创建了一个 Fragment 节点，并将多个子节点作为参数传入。在渲染时，这个 Fragment 节点会被忽略，只渲染其中的子节点。
+
+通过使用 Fragment，Vue 3 实现了支持多个根节点的功能，同时也避免了在页面中多余的节点，提高了性能。
+
 ## v-for 和 v-if 为什么不推荐一起使用
 
 在V2当中，v-for的优先级更高，而在V3当中，则是v-if的优先级更高
@@ -27,6 +55,33 @@ categories:
 方案二： 在v-for 里面 在套一层 ```<template v-if="item.id === 1">
 // do something
 </template>```
+
+## vue3中，ref是基于reactive 来实现的，为什么 ref 要返回一个包装对象？
+
+在 Vue 3 中，ref 是基于 reactive 来实现的。ref 可以将一个基本数据类型（如字符串、数字、布尔值等）转换为一个响应式对象，使它可以在模板中双向绑定，或在 JavaScript 代码中进行响应式处理。
+
+在 ref 中，返回一个包装对象是为了解决基本数据类型不可响应的问题。因为基本数据类型是不可变的，无法直接进行响应式处理。因此，ref 会将基本数据类型包装成一个对象，并为这个对象添加一个 value 属性，这个 value 属性才是响应式的。
+
+
+因为对象引用类型，可以用来做代理或劫持，如果只返回基础类型的话，存储在栈中，执行栈里执行完就会被回收，没有办法添加代理或劫持，也就没办法追踪到后续的变化。
+
+例如，使用 ref 创建一个字符串类型的响应式对象：
+```vue
+import { ref } from 'vue'
+
+const str = ref('hello')
+console.log(str.value) // 'hello'
+```
+
+在上面的代码中，ref 返回了一个包装对象，这个对象有一个 value 属性，它才是响应式的。因此，在使用这个字符串时，需要使用 str.value 来访问它的值。
+
+当 str 的值发生变化时，value 属性也会发生变化，从而触发响应式更新。
+
+总之，ref 返回一个包装对象，是为了解决基本数据类型不可响应的问题，使它们也可以进行响应式处理。
+
+总结：
+- ref 是一个对象（不丢失响应式），value  存储值
+- 通过 .value 属性的 get 和 set 实现响应式
 
 ## 父子组件的生命周期
 
@@ -99,6 +154,20 @@ function initMixin (Vue) {
 在初始化的最后，检测到如果有 el 属性，则调用 vm.$mount 方法挂载 vm，挂载的目标就是把模板渲染成最终的 DOM。
 ```
 
+## 说一下你对vue响应式的理解，vue2/3有何区别？
+
+所谓的响应式就是我们能够根据数据的变化做出对应的响应机制
+
+在vue中，当我们定义在响应式数据发生变化时，视图就会立即更新
+
+vue2中，对象数据类型通过 Object.defineProperty() 的方式定义数据拦截，当数据被访问或发生变化时，我们感知并作出响应；然后如果是数组的话则是重写了数组对象原型上的7个方法，这种机制很好的解决了响应式数据的问题，但是实际使用中还是存在一些问问题，比如初始化的递归遍历造成的性能损失，得使用Vue.set/delete 新增删除属性才能做到对应的响应式处理，对于es6中新产生的Map、Set这些数据结构不支持，对于这些数据结构的监听需要开发者自行实现（Vue.observable()）
+
+而vue3中使用 proxy 来实现响应式，很好的解决了这些问题，Vue3的响应式具有惰性，具体来说，Vue3的响应式系统使用Proxy对象来代理原始数据对象，当访问代理对象的属性时，才会进行数据劫持和依赖收集。当数据变化时，Vue3会根据依赖关系进行有针对性的更新，这在多层级对象数据时尤其明显，因为只在访问对象的属性时才会进行数据劫持和依赖收集，而不是像Vue2那样进行全量更新，从而提高了性能。
+
+>当然你可以将reactive函数和ref函数的第二个参数设置为{ recursive: true }，这时Vue3会递归地将对象的所有属性都转换为响应式的，从而实现对对象的递归监听。
+
+
+
 ## 简单说下 Vue 的 diff 算法
 
 ![](./img/diff.png)
@@ -120,6 +189,11 @@ diff 算法的整体策略是：深度优先，同层比较
 
 1. 设置新旧 VNode 的头尾指针
 2. 新旧指针头尾进行比较，向中间靠拢，再根据情况调用 patchVNode 进行 patch 重复流程，调用 createElem 创建一个新节点，从哈希表寻找 key 值一致的 VNode 再分情况进行后续操作
+
+## Vue 的三个核心模块
+- Reactivity Module - 响应式模块
+- Complier Module - 编译器模块
+- Renderer Module - 渲染模块
 
 ## vue组件渲染过程
 
@@ -247,11 +321,6 @@ arr[1]; // get  2
 arr[1] = 1; // set  1
 ```
 
-## ref 为什么需要 .value
-
-- ref 是一个对象（不丢失响应式），value  存储值
-- 通过 .value 属性的 get 和 set 实现响应式
-
 ## vue3 更快了，它做了哪些优化
 - proxy 响应式
 - tree-shaking
@@ -266,4 +335,8 @@ arr[1] = 1; // set  1
 
 [为什么Proxy一定要配合Reflect使用？](https://juejin.cn/post/7080916820353351688#heading-5)
 
-## hooks useForm useDialo
+## hooks useForm useDialog
+
+
+## 参考
+[历时一个月，2.6W字！50+Vue经典面试题源码级详解，你值得收藏！](https://juejin.cn/post/7097067108663558151)
