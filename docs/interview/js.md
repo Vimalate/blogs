@@ -152,9 +152,9 @@ for-in、for-of、Object.keys()都是用于遍历对象的属性或数组、字�
 
 这三个属性都是用来获取元素高度的，但是它们所获取的高度是不同的：
 
-- offsetHeight：元素可视区域的高度加上上下边框和上下内边距的高度，但不包括水平滚动条和外边距（border + padding + content）。
-- clientHeight：元素可视区域的高度，不包括水平滚动条、边框和外边距（padding + content）。
-- scrollHeight：元素内容的总高度，包括由于溢出而无法显示的部分，但不包括外边距（padding + 实际内容尺寸）
+- offsetHeight：元素可视区域的高度加上上下边框和上下内边距的高度，但不包括水平滚动条和外边距，即（border + padding + content）。
+- clientHeight：元素可视区域的高度，不包括水平滚动条、边框和外边距，即（padding + content）。
+- scrollHeight：元素内容的总高度，包括由于溢出而无法显示的部分，但不包括外边距，即（padding + 实际内容尺寸）
 
 
 举个例子，如果一个元素的高度为200px，上下边框和内边距各为20px，内容高度为300px，而水平滚动条和外边距都为0，那么这三个属性的值分别为：
@@ -243,6 +243,12 @@ loadImg('xxx.png').then(res => {
 
 - 微任务是ES6语法规定
 - 宏任务是由浏览器规定
+
+## requestAnimationFrame
+
+requestAnimationFrame是浏览器提供的一个API，用于在下一帧动画之前执行指定的函数。与setTimeout相比，requestAnimationFrame的优势在于它可以根据浏览器的刷新频率来调整动画的帧数，从而避免掉帧现象，提高动画的流畅度和性能。**如果你想在下一次浏览器重绘之前再次调用回调函数更新动画，那么就需要在回调函数内部递归调用 window.requestAnimationFrame 函数**
+
+[介绍一下requestAnimationFrame和requestIdleCallback](https://juejin.cn/post/7217601930917855269)
 
 ## 简述闭包
 

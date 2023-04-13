@@ -19,6 +19,97 @@ categories:
 7. 组合式api，hooks 更好的逻辑复用
 8. 更好的ts 支持 
 
+## Vue 组件通讯有哪几种方式
+
+- props 和 $emit：父组件 props 传递数据给子组件，子组件通过 $emit 触发一个自定义事件，并且可以传递参数
+- $parent / $children: 可以通过 $parent 和 $children 来访问组件的父级和子级组件实例。
+- $refs: 可以使用 $refs 获取子组件实例或者 dom 元素。
+- eventBus 兄弟组件数据传递 这种情况下可以使用事件总线的方式
+- vuex 状态管理
+- provide 和 inject：父组件通过 provide 提供数据，子组件通过 inject 注入数据。这种方式适用于层级较深的组件之间的通讯。
+
+## vue2和vue3使用provide和inject
+
+- vue 2 中
+
+在父组件中，通过 provide 提供数据：
+```vue
+export default {
+  provide: {
+    message: 'Hello a, shuge!'
+  }
+}
+```
+
+子组件中，可以通过 inject 来注入父组件提供的数据:
+```vue
+export default {
+  inject: ['message'],
+  mounted() {
+    console.log(this.message); // 输出 'Hello, World!'
+  }
+}
+```
+
+**provide 和 inject 绑定的数据是非响应式的，即如果提供的数据发生变化，不会触发子组件的重新渲染。**
+
+>需要注意的是如果提供的数据是一个对象或数组，那么在子组件中修改该对象或数组的值会影响到父组件中的值。
+
+
+- Vue3 中的 provide 和 inject
+
+用法与 Vue 2.x 中基本相同，不过有以下几点变化：
+1. provide 和 inject 中可以使用 ref 和 reactive，这意味着提供的数据可以是响应式的。、
+2. inject 可以使用 default 来设置默认值。
+
+父组件中使用 provide：
+```vue
+import { provide, ref } from 'vue';
+
+export default {
+  setup() {
+    const message = ref('Hello, World!');
+    provide('message', message);
+  }
+}
+```
+
+子组件中使用 inject:
+```vue
+import { inject } from 'vue';
+
+export default {
+  setup() {
+    const message = inject('message', 'Default message');
+    console.log(message.value); // 输出 'Hello, World!'
+  }
+}
+```
+
+上面的代码中，子组件使用 inject 注入了父组件提供的名为 message 的数据，并使用 default 设置了默认值为 'Default message'。在子组件中，可以通过 message.value 来访问 message 的值。
+
+## 追问：Vue 2 中的 provide 和 inject 父组件更新，会触发子组件的重新渲染吗，为什么
+
+不会，这是因为 Vue 2.x 中的响应式系统是基于 Object.defineProperty 实现的，而 provide 提供的数据是不会被 Vue 的响应式系统所追踪的，所以当提供的数据发生改变时，并不会触发子组件的重新渲染。
+
+但是可以通过 Vue.observable() 方法将一个对象包装成响应式的对象，并将其作为 provide 提供的数据。例如：
+
+<!-- todo -->
+
+```vue
+import Vue from 'vue';
+
+export default {
+  provide() {
+    return {
+      data: Vue.observable({
+        message: 'Hello, World!'
+      })
+    };
+  }
+}
+```
+
 ## Vue3 为什么支持多个根节点，实现原理是什么
 
 Vue2 中只能有一个根节点，而 Vue3 中支持多个根节点，本质上 Vue3 每个组件还是一个根节点，因为 DOM 树只能是树状结构的，只是 Vue3 在编译阶段新增了判断，如果当前组件不只一个根元素，就添加一个 fragment 组件把这个多根组件的给包起来，相当于这个组件还是只有一个根节点。而 fragment 跟 keep-alive 一样是一个不会被渲染出来的内置组件
@@ -189,6 +280,9 @@ diff 算法的整体策略是：深度优先，同层比较
 
 1. 设置新旧 VNode 的头尾指针
 2. 新旧指针头尾进行比较，向中间靠拢，再根据情况调用 patchVNode 进行 patch 重复流程，调用 createElem 创建一个新节点，从哈希表寻找 key 值一致的 VNode 再分情况进行后续操作
+
+**vue2 双端对比，逐渐向中间靠拢**
+**vue3 最长递增子序列** 
 
 ## Vue 的三个核心模块
 - Reactivity Module - 响应式模块

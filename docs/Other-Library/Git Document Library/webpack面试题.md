@@ -18,6 +18,10 @@ Webpack 把一切当成模块，当webpack处理应用程序时，它会递归�
 
 ```Plugin```:即插件，基于事件流框架 ```Tapable```,插件用来扩展webpack的功能。在webpack运行的生命周期会广播许多事件。Plugin能够监听这些事件，在合适的时机通过webpack提供的api改变输出结果。
 
+Plugin 是用于扩展 Webpack 功能的，它们会在整个打包过程中执行一些额外的任务，例如：优化输出文件、自动生成 HTML 文件等。
+
+Plugin 的作用是在 Webpack 打包的不同阶段执行一些额外的任务。Plugin 可以在整个打包过程中执行自定义的逻辑，例如：修改 Webpack 配置、向输出文件中注入代码、优化输出文件大小等。
+
 ## 有哪些常见的Loader
 - ```file-loader```:把文件输出到一个文件夹中，在代码中通过相对URL去引用输出的文件。
 - ```source-map-loader```:和file-loader 相似，区别是用户可以设置一个阈值，大于阈值会交给 file-loader 处理，小于阈值时返回文件 base64 形式编码 (处理图片和字体)
