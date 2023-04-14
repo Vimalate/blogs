@@ -147,7 +147,7 @@ Vue 3 使用了 createVNode 函数创建了一个 Fragment 节点，并将多个
 // do something
 </template>```
 
-## vue3中，ref是基于reactive 来实现的，为什么 ref 要返回一个包装对象？
+## vue3中，ref是基于 reactive 来实现的，为什么 ref 要返回一个包装对象？
 
 在 Vue 3 中，ref 是基于 reactive 来实现的。ref 可以将一个基本数据类型（如字符串、数字、布尔值等）转换为一个响应式对象，使它可以在模板中双向绑定，或在 JavaScript 代码中进行响应式处理。
 
