@@ -249,7 +249,11 @@ BFC 是页面的一块渲染区域，拥有一套渲染规则，确定位于其�
 3.	清除浮动
 
 ## flex: 0 1 auto 表示什么意思
-弹性盒子默认值，分别表示 放大比例：```flex-grow```，缩小比例：  ```flex-shrink```和分配多余空间之前占的主轴比例： ```flex-basis``` 的简写，
+
+弹性盒子默认值，分别表示 
+放大比例：```flex-grow```，
+缩小比例：  ```flex-shrink```
+和分配多余空间之前占的主轴比例： ```flex-basis``` 的简写，
 
 ## CSS3 新特性
 -	边框属性:```border-radius、box-shadow和border-image```

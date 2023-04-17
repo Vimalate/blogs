@@ -54,6 +54,8 @@ if (obj.a == null) {
 6. apply、call、bind 都是 js 给函数内置的一些 API，调用他们可以为函数指定 this 的执行, 同时也可以传参。
 7. apply 参数数组形式，call 参数逗号分隔 apply，call 会立即执行，bind 加（）才会，react 常用 bind ，如按钮点击事件，并不想在未点击时调用
 
+>熟记技巧：apply 是以 a 开头，它传给 fun 的参数是 Array，也是以 a 开头的，
+
 ## js 延迟加载的方式有哪些
 
 js 的加载、解析和执行会阻塞页面的渲染过程，因此我们希望 js 脚本能够尽可能的延迟加载，提高页面的渲染速度。
@@ -403,6 +405,70 @@ function myInstanceOf (obj, constructorFn) {
   return false
 }
 ```
+## 手写 apply call
+
+>区别：传参不同，apply 第二个参数为数组，a开头，参数也是arrry形式，call 后边参数为函数本身的参数，一个个传
+
+- call
+
+```js
+/**
+ * 
+ * 如果传入值类型，返回对应类型构造函数创建的实例
+ * 如果传入对象，则返回对象本身
+ * 如果传入 undefined 或者 null 会返回空对象
+ */
+Function.prototype._call = function (ctx, ...args) {
+  if (ctx == null) ctx = globalThis
+  if (typeof ctx !== 'object') ctx = new Object(ctx)
+   //给context新增一个独一无二的属性以免覆盖原有属性
+  const key = Symbol()
+  ctx[key] = this
+  // 立即执行一次
+  const res = ctx[key](...args)
+  // 删除这个属性，防止污染
+  delete ctx[key]
+  // 把函数的返回值赋值给_call的返回值
+  return res
+}
+
+let name = '一尾流莺'
+const obj = {
+  name: 'warbler',
+}
+function foo() {
+  console.dir(this);
+  return 'success'
+}
+
+foo._call(undefined) // window
+foo._call(null) // window
+foo._call(1) // Number
+foo._call('11') // String
+foo._call(true) // Boolean
+foo._call(obj) // {name: 'warbler'}
+console.log(foo._call(obj)); // success
+```
+
+- apply
+
+```js
+Function.prototype._apply = function (ctx, args = []) {
+  if (ctx == null) ctx = globalThis
+  if (typeof ctx !== 'object') ctx = new Object(ctx)
+   //给context新增一个独一无二的属性以免覆盖原有属性
+  const key = Symbol()
+  ctx[key] = this
+  // 立即执行一次
+  const res = ctx[key](...args)
+  // 删除这个属性
+  delete ctx[key]
+  // 把函数的返回值赋值给_apply的返回值
+  return res
+}
+```
+
+[参考](https://juejin.cn/post/7030759884542967821)
 
 ## 手写bind
 
@@ -412,7 +478,7 @@ bind() 方法会创建一个新函数，当这个新函数被调用时，bind() 
 Function.prototype.myBind = function(context, ...args1) {
   const self = this; // 当前的函数本身
   return function(...args2) {
-    return self.apply(context, [...args1, ...args2]);
+    return self.apply(context, [...args1, ...args2]); // apply 参数数组
   }
 }
 ```
