@@ -270,7 +270,7 @@ loadImg('xxx.png')
 
  宏任务：
 - setTimeout 、setInterval
-- requestAnimationFrame：用于浏览器下一次绘制之前执行
+- requestAnimationFrame[?具体一些讨论](https://zhuanlan.zhihu.com/p/360507457)：用于浏览器下一次绘制之前执行
 - 事件：（click，load）
 - i/o, 特殊的完成回调 (e.g. 文件读取)
 - ui 渲染 (浏览器)
