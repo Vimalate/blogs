@@ -168,6 +168,26 @@ offsetHeight：200px（160 + 20 + 20）
 scrollHeight：300px
 在实际开发中，我们可以根据需要选择使用这三个属性来获取元素的高度。
 
+## 简单介绍一哈 promise
+
+
+- Promise.all()
+
+ Promise.all()将多个Promise放在一个数组中，当整个数组的全部promise成功时才会返回成功(返回顺序就是定义数组的速度)，当数组中的promise有一个出现失败时就返回失败 (失败的原因是第一个失败promise的结果)。
+
+使用场景：
+
+ **多个表单同时校验**
+
+ - Promise.race() 赛跑，竞速
+
+同样，将对个promise实例放于一个数组中，数组中有一个最先得到结果，不管成功或者失败，那么这个 race方法即放回这个结果。
+
+使用场景：
+**点击按钮，发送请求，超过一定时间，还未返回结果的话，提示用户请求超时**
+
+>race 方法传入数组里，一个promise是定时器，如规定多少秒的超时提醒，另外一个为接口请求
+
 ## async/await 和 Promise 的关系
 
 async/await 是基于 Promise 的语法糖，它们都是用于处理异步操作的 JavaScript 特性。Promise 通过 then 和 catch 方法来处理异步操作的结果，而 async/await 则使用像同步代码一样的语法来处理异步操作。async 函数内部可以使用 await 来等待一个返回 Promise 对象的表达式执行完毕，并将其解析为一个值或抛出错误。因此，在某种程度上，async/await 可以看作是一种更加简单易用的 Promise 的封装。
@@ -245,6 +265,21 @@ loadImg('xxx.png')
 
 - 微任务是 ES6 语法规定
 - 宏任务是由浏览器规定
+
+**宏任务微任务有哪些**
+
+ 宏任务：
+- setTimeout 、setInterval
+- requestAnimationFrame：用于浏览器下一次绘制之前执行
+- 事件：（click，load）
+- i/o, 特殊的完成回调 (e.g. 文件读取)
+- ui 渲染 (浏览器)
+
+微任务：
+- Promise 回调函数中的 then、catch、finally 方法
+- MutationObserve：监听dom变化并执行
+- process.nexttick (node.js)
+
 
 ## requestAnimationFrame
 
@@ -482,6 +517,10 @@ Function.prototype.myBind = function(context, ...args1) {
   }
 }
 ```
+
+## 垃圾回收机制
+
+
 
 ## 参考
 
