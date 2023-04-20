@@ -54,7 +54,7 @@ if (obj.a == null) {
 6. apply、call、bind 都是 js 给函数内置的一些 API，调用他们可以为函数指定 this 的执行, 同时也可以传参。
 7. apply 参数数组形式，call 参数逗号分隔 apply，call 会立即执行，bind 加（）才会，react 常用 bind ，如按钮点击事件，并不想在未点击时调用
 
->熟记技巧：apply 是以 a 开头，它传给 fun 的参数是 Array，也是以 a 开头的，
+>熟记技巧：apply 是以 a 开头，它传给 fun 的参数是 Array，也是以 a 开头的
 
 ## js 延迟加载的方式有哪些
 
