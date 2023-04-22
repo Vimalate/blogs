@@ -158,6 +158,10 @@ vue nextTick 的源码实现，异步优先级判断，总结就是 ```Promise -
 
 [this.$nextTick 你真的理解了吗？](https://juejin.cn/post/7177681326861418556)
 
+## mounted 或者 updated 可以获取到最新的 dom 结构吗？
+
+并不能保证所有子组件都渲染完成，所以你应该在其中使用 $nextTick
+
 ### nextTick 为什么要优先使用微任务实现？
 
 因为根据 event-loop 和浏览器更新渲染时机，宏任务 -> 微任务 -> 渲染更新，而使用微任务，本次 event loop 就可以货渠道更新的 dom
