@@ -262,6 +262,17 @@ diff 算法的整体策略是：深度优先，同层比较
 - Complier Module - 编译器模块
 - Renderer Module - 渲染模块
 
+## vue 的编译流程
+
+模板 => 词法分析 => 语法分析 => 模板 AST => Transform => Javascript AST => 代码生成 => 渲染函数
+
+Vue 编译流程的三大步：
+
+1. parse：通过 parse 函数，把模板编译为 AST 对象(**源代码的抽象语法的树状结构表示**)
+2. Transform： 通过 Transform 函数，把 ASt 转换为 Javascript AST
+3. generate：通过 generate 函数，把 Javascript AST 转换为 render（渲染函数）
+
+
 ## vue 组件渲染过程
 
 Vue 组件的渲染过程可以分为以下几个阶段：
