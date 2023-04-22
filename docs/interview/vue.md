@@ -249,7 +249,6 @@ diff 算法的整体策略是：深度优先，同层比较
   4.  如果 oldNode 没有子节点而 VNode 有，则将 VNode 的子节点真实化后添加到 el
   5.  如果两者都有子节点，则执行 updateChildren 函数比较子节点
 - 其中 updateChildren 做了以下操作
-
 1. 设置新旧 VNode 的头尾指针
 2. 新旧指针头尾进行比较，向中间靠拢，再根据情况调用 patchVNode 进行 patch 重复流程，调用 createElem 创建一个新节点，从哈希表寻找 key 值一致的 VNode 再分情况进行后续操作
 
