@@ -162,6 +162,14 @@ vue nextTick 的源码实现，异步优先级判断，总结就是 ```Promise -
 
 并不能保证所有子组件都渲染完成，所以你应该在其中使用 $nextTick
 
+```js
+mounted() {
+  this.$nextTick(() => {
+    // 所有子组件都已经渲染完成
+  })
+}
+```
+
 ### nextTick 为什么要优先使用微任务实现？
 
 因为根据 event-loop 和浏览器更新渲染时机，宏任务 -> 微任务 -> 渲染更新，而使用微任务，本次 event loop 就可以货渠道更新的 dom
@@ -233,7 +241,33 @@ vue2 中，对象数据类型通过 Object.defineProperty() 的方式定义数�
 
 > 当然你可以将 reactive 函数和 ref 函数的第二个参数设置为{ recursive: true }，这时 Vue3 会递归地将对象的所有属性都转换为响应式的，从而实现对对象的递归监听。
 
-## 手写 vue3 reactive 以及 effect
+## 使用 Vue3 设计一个心跳组件，每个一秒打印 hello
+
+```vue
+<template>
+  <div>心跳组件{{ num }}</div>
+</template>
+
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+const timer = ref(null)
+const num = ref(0)
+const fn = () => {
+  console.log(`hello${num.value++}`)
+  // “心跳”尽量避免用 setInterval 会有坑
+  // 递归调用
+  timer.value = setTimeout(fn, 1000)
+}
+onMounted(() => {
+  setTimeout(fn, 1000)
+})
+
+// 组件销毁时候清理定时器
+onBeforeUnmount(() => {
+  timer.value && clearTimeout(timer.value)
+})
+</script>
+```
 
 ## 简单说下 Vue 的 diff 算法
 
@@ -253,6 +287,7 @@ diff 算法的整体策略是：深度优先，同层比较
   4.  如果 oldNode 没有子节点而 VNode 有，则将 VNode 的子节点真实化后添加到 el
   5.  如果两者都有子节点，则执行 updateChildren 函数比较子节点
 - 其中 updateChildren 做了以下操作
+
 1. 设置新旧 VNode 的头尾指针
 2. 新旧指针头尾进行比较，向中间靠拢，再根据情况调用 patchVNode 进行 patch 重复流程，调用 createElem 创建一个新节点，从哈希表寻找 key 值一致的 VNode 再分情况进行后续操作
 
@@ -274,7 +309,6 @@ Vue 编译流程的三大步：
 1. parse：通过 parse 函数，把模板编译为 AST 对象(**源代码的抽象语法的树状结构表示**)
 2. Transform： 通过 Transform 函数，把 ASt 转换为 Javascript AST
 3. generate：通过 generate 函数，把 Javascript AST 转换为 render（渲染函数）
-
 
 ## vue 组件渲染过程
 
@@ -517,7 +551,6 @@ receiver 是用于绑定 this 关键字的。在 get()、set()、has()、deleteP
 ## 根据 JSX 写出 render 函数或 VNode
 
 ![](./img/VNodeTree.png)
-
 
 - 写出对应 render 函数
 
