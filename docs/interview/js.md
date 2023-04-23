@@ -521,6 +521,18 @@ Function.prototype.myBind = function(context, ...args1) {
 ## 垃圾回收机制
 
 
+## 高阶函数
+
+满足两个条件：
+1. 函数可以作为参数传递
+2. 函数可以作为返回值输出
+
+>首先是个函数,参数或者返回值是函数
+
+常见的高阶函数：
+
+filter/map/reduce/sort
+
 
 ## js 的编译过程
 
