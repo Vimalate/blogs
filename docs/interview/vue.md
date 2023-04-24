@@ -86,6 +86,18 @@ import Vue from 'vue'; export default { provide() { return { data:
 Vue.observable({ message: 'Hello, World!' }) }; } }
 ```
 
+## keep-alive 用过吗，作用是什么，实现原理能讲讲吗？
+
+<keep-alive> 是 Vue 源码中实现的一个组件：一般和它搭配使用的有 component 动态组件或者是 router-view。
+
+缓存包裹的组件，避免组件切换时重新渲染，提高页面新能。
+
+缓存包裹的子组件vnode，将满足条件（include与exclude）的组件在cache对象中缓存起来，在需要重新渲染的时候再将vnode节点从cache对象中取出并渲染。
+
+**缓存淘汰策略LRU：LRU（Least recently used，最近最少使用）算法根据数据的历史访问记录来进行淘汰数据，其核心思想是“如果数据最近被访问过，那么将来被访问的几率也更高”。**
+
+[](https://www.cnblogs.com/wangjiachen666/p/11497200.html)
+
 ## Vue3 为什么支持多个根节点，实现原理是什么
 
 Vue2 中只能有一个根节点，而 Vue3 中支持多个根节点，本质上 Vue3 每个组件还是一个根节点，因为 DOM 树只能是树状结构的，只是 Vue3 在编译阶段新增了判断，如果当前组件不只一个根元素，就添加一个 fragment 组件把这个多根组件的给包起来，相当于这个组件还是只有一个根节点。而 fragment 跟 keep-alive 一样是一个不会被渲染出来的内置组件
@@ -543,6 +555,8 @@ function trigger(target, key) {
 receiver 是用于绑定 this 关键字的。在 get()、set()、has()、deleteProperty() 等方法中，this 关键字通常指向 Proxy 对象本身。但是，如果我们将 Proxy 对象作为其他对象的属性，那么 this 关键字就可能指向其他对象。此时，我们可以使用** receiver 参数来绑定 this 关键字，确保它指向正确的对象**。
 
 ## 为什么 Proxy 一定要配合 Reflect 使用？
+
+为了传递正确的上下文，
 
 [为什么 Proxy 一定要配合 Reflect 使用？](https://juejin.cn/post/7080916820353351688#heading-5)
 
