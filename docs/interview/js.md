@@ -518,8 +518,32 @@ Function.prototype.myBind = function(context, ...args1) {
 }
 ```
 
-## 垃圾回收机制
+## 函数柯里化
 
+**柯里化是一种将使用多个参数的一个函数转换成一系列使用一个参数的函数的技术**。
+
+>函数柯里化定义：接收一部分参数，返回一个函数接收剩余参数，接收足够参数后，执行原函数。
+
+实现：
+```js
+const myCurried = (fn, ...args) => {
+  if (args.length < fn.length) { // 未接受完参数
+    return (..._args) => myCurried(fn, ...args, ..._args)
+  } else { // 接受完所有参数，直接执行
+    return fn(...args)
+  }
+}
+
+function add (a, b, c) {
+  return a + b + c
+}
+
+const curriedAdd = myCurried(add)
+
+console.log(curriedAdd(1)(2)(3)) // 输出 6
+console.log(curriedAdd(1, 2)(3)) // 输出 6
+console.log(curriedAdd(1)(2, 3)) // 输出 6
+```
 
 ## 高阶函数
 
@@ -533,6 +557,8 @@ Function.prototype.myBind = function(context, ...args1) {
 
 filter/map/reduce/sort
 
+
+## 垃圾回收机制
 
 ## js 的编译过程
 
