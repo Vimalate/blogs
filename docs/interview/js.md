@@ -545,6 +545,10 @@ console.log(curriedAdd(1, 2)(3)) // 输出 6
 console.log(curriedAdd(1)(2, 3)) // 输出 6
 ```
 
+[前端常考JS编程题](https://juejin.cn/post/7223046446941110328)
+[彻底搞懂闭包，柯里化，手写代码，金九银十不再丢分！](https://juejin.cn/post/6864378349512065038)
+[十个高阶Javascript知识及用法](https://juejin.cn/post/7222838155605639226#heading-1)
+
 ## 高阶函数
 
 满足两个条件：
