@@ -104,9 +104,3 @@
 // console.log(memoizedAdd(2, 3)) // Calculating sum... 5
 // console.log(memoizedAdd(2, 3)) // 5 (from cache)
 
-
-
-function fn(a, b, ...rest = []) {
-  console.log(rest);
-}
-fn(1,2,3,4,5) // [3,4,5]
