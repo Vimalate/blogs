@@ -54,7 +54,7 @@ if (obj.a == null) {
 6. apply、call、bind 都是 js 给函数内置的一些 API，调用他们可以为函数指定 this 的执行, 同时也可以传参。
 7. apply 参数数组形式，call 参数逗号分隔 apply，call 会立即执行，bind 加（）才会，react 常用 bind ，如按钮点击事件，并不想在未点击时调用
 
->熟记技巧：apply 是以 a 开头，它传给 fun 的参数是 Array，也是以 a 开头的
+> 熟记技巧：apply 是以 a 开头，它传给 fun 的参数是 Array，也是以 a 开头的
 
 ## js 延迟加载的方式有哪些
 
@@ -170,23 +170,22 @@ scrollHeight：300px
 
 ## 简单介绍一哈 promise
 
-
 - Promise.all()
 
- Promise.all()将多个Promise放在一个数组中，当整个数组的全部promise成功时才会返回成功(返回顺序就是定义数组的速度)，当数组中的promise有一个出现失败时就返回失败 (失败的原因是第一个失败promise的结果)。
+Promise.all()将多个 Promise 放在一个数组中，当整个数组的全部 promise 成功时才会返回成功(返回顺序就是定义数组的速度)，当数组中的 promise 有一个出现失败时就返回失败 (失败的原因是第一个失败 promise 的结果)。
 
 使用场景：
 
- **多个表单同时校验**
+**多个表单同时校验**
 
- - Promise.race() 赛跑，竞速
+- Promise.race() 赛跑，竞速
 
-同样，将对个promise实例放于一个数组中，数组中有一个最先得到结果，不管成功或者失败，那么这个 race方法即放回这个结果。
+同样，将对个 promise 实例放于一个数组中，数组中有一个最先得到结果，不管成功或者失败，那么这个 race 方法即放回这个结果。
 
 使用场景：
 **点击按钮，发送请求，超过一定时间，还未返回结果的话，提示用户请求超时**
 
->race 方法传入数组里，一个promise是定时器，如规定多少秒的超时提醒，另外一个为接口请求
+> race 方法传入数组里，一个 promise 是定时器，如规定多少秒的超时提醒，另外一个为接口请求
 
 ## async/await 和 Promise 的关系
 
@@ -268,7 +267,8 @@ loadImg('xxx.png')
 
 **宏任务微任务有哪些**
 
- 宏任务：
+宏任务：
+
 - setTimeout 、setInterval
 - requestAnimationFrame[?具体一些讨论](https://zhuanlan.zhihu.com/p/360507457)：用于浏览器下一次绘制之前执行
 - 事件：（click，load）
@@ -276,10 +276,10 @@ loadImg('xxx.png')
 - ui 渲染 (浏览器)
 
 微任务：
-- Promise 回调函数中的 then、catch、finally 方法
-- MutationObserve：监听dom变化并执行
-- process.nexttick (node.js)
 
+- Promise 回调函数中的 then、catch、finally 方法
+- MutationObserve：监听 dom 变化并执行
+- process.nexttick (node.js)
 
 ## requestAnimationFrame
 
@@ -325,14 +325,14 @@ export function flattenDeep2(arr) {
 }
 ```
 
-## 自己动手实现一个 new 
+## 自己动手实现一个 new
 
 1. 创建一个新对象，该对象的原型链指向构造函数的原型对象
-2. 将构造函数作为普通对象调用，传入参数并绑定this作为为新对象
+2. 将构造函数作为普通对象调用，传入参数并绑定 this 作为为新对象
 3. 判断构造函数返回值是否为对象，如果是则返回该对象，否则返回新对象
 
 ```js
-function myNew (Constructor, ...args) {
+function myNew(Constructor, ...args) {
   //创建一个新对象，对象的原型链指向构造函数的原型对象
   const obj = Object.create(Constructor.prototype)
   // 将构造函数作为普通函数调用，传入参数并绑定this为新对象
@@ -341,34 +341,33 @@ function myNew (Constructor, ...args) {
 }
 ```
 
->Object.create()方法可以创建一个新对象，该对象的原型链指向指定的对象
+> Object.create()方法可以创建一个新对象，该对象的原型链指向指定的对象
 
 **验证**
 
 ```js
 function Person(name, age) {
-  this.name = name;
-  this.age = age;
+  this.name = name
+  this.age = age
 }
 
-const person = myNew(Person, 'Tom', 18);
-console.log(person); // { name: 'Tom', age: 18 }
-console.log(person instanceof Person); // true
+const person = myNew(Person, 'Tom', 18)
+console.log(person) // { name: 'Tom', age: 18 }
+console.log(person instanceof Person) // true
 ```
 
 **追问：Object.create()方法和{}对象字面量的区别**
 
 Object.create()方法接受两个参数:Object.create(obj,propertiesObject) ;
 
- obj:一个对象，应该是新创建的对象的原型。
+obj:一个对象，应该是新创建的对象的原型。
 
- propertiesObject：可选。该参数对象是一组属性与值，该对象的属性名称将是新创建的对象的属性名称，值是属性描述符（这些属性描述符的结构与Object.defineProperties()的第二个参数一样）。注意：该参数对象不能是 undefined，另外只有该对象中自身拥有的可枚举的属性才有效，
+propertiesObject：可选。该参数对象是一组属性与值，该对象的属性名称将是新创建的对象的属性名称，值是属性描述符（这些属性描述符的结构与 Object.defineProperties()的第二个参数一样）。注意：该参数对象不能是 undefined，另外只有该对象中自身拥有的可枚举的属性才有效，
 
-- Object.create()创建的新对象的原型指向指定的对象，而字面量创建的对象的原型链指向 ```Object.prototype```
-- Object.create()方法可以指定新对象的属性，而{}对象字面量创建的对象不可以指定属性。例如，可以使用Object.create(null)创建一个没有任何属性和原型链的对象。
+- Object.create()创建的新对象的原型指向指定的对象，而字面量创建的对象的原型链指向 `Object.prototype`
+- Object.create()方法可以指定新对象的属性，而{}对象字面量创建的对象不可以指定属性。例如，可以使用 Object.create(null)创建一个没有任何属性和原型链的对象。
 
-
-## 实现一个lazyMan
+## 实现一个 lazyMan
 
 ```js
 class LazyMan {
@@ -378,11 +377,11 @@ class LazyMan {
     console.log(`Hi! This is ${name}!`)
     setTimeout(() => this.next(), 0)
   }
-  addTask (task) {
+  addTask(task) {
     this.tasks.push(task)
     return this
   }
-  sleep (time) {
+  sleep(time) {
     const task = () => {
       setTimeout(() => {
         console.log(`Wake up after ${time}s!`)
@@ -392,25 +391,24 @@ class LazyMan {
 
     return this.addTask(task)
   }
-  eat (food) {
+  eat(food) {
     const task = () => {
       console.log(`Eat ${food}!`)
       this.next()
     }
     return this.addTask(task)
   }
-  next () {
+  next() {
     const task = this.tasks.shift()
     task && task()
   }
 }
 ```
 
-
 **测试**
 
 ```js
-function lazyMan (name) {
+function lazyMan(name) {
   return new LazyMan(name)
 }
 
@@ -421,10 +419,10 @@ lazyMan('Bob').sleep(2).eat('dinner').sleep(3).eat('橘子')
 
 **instanceOf 是用来判断一个对象是否是某个构造函数的实例**
 
-每个对象都有一个隐藏的属性__proto__，它指向了对象的原型。我们可以通过不断访问这个属性，直到找到null，来确定对象的原型链。如果原型链上存在指定的构造函数的原型
+每个对象都有一个隐藏的属性**proto**，它指向了对象的原型。我们可以通过不断访问这个属性，直到找到 null，来确定对象的原型链。如果原型链上存在指定的构造函数的原型
 
 ```js
-function myInstanceOf (obj, constructorFn) {
+function myInstanceOf(obj, constructorFn) {
   if (obj == null) return false // null undefined
   // 其他基础数据类型
   if (typeof obj !== 'object' && typeof obj !== 'function') return false
@@ -440,15 +438,16 @@ function myInstanceOf (obj, constructorFn) {
   return false
 }
 ```
+
 ## 手写 apply call
 
->区别：传参不同，apply 第二个参数为数组，a开头，参数也是arrry形式，call 后边参数为函数本身的参数，一个个传
+> 区别：传参不同，apply 第二个参数为数组，a 开头，参数也是 arrry 形式，call 后边参数为函数本身的参数，一个个传
 
 - call
 
 ```js
 /**
- * 
+ *
  * 如果传入值类型，返回对应类型构造函数创建的实例
  * 如果传入对象，则返回对象本身
  * 如果传入 undefined 或者 null 会返回空对象
@@ -456,7 +455,7 @@ function myInstanceOf (obj, constructorFn) {
 Function.prototype._call = function (ctx, ...args) {
   if (ctx == null) ctx = globalThis
   if (typeof ctx !== 'object') ctx = new Object(ctx)
-   //给context新增一个独一无二的属性以免覆盖原有属性
+  //给context新增一个独一无二的属性以免覆盖原有属性
   const key = Symbol()
   ctx[key] = this
   // 立即执行一次
@@ -472,7 +471,7 @@ const obj = {
   name: 'warbler',
 }
 function foo() {
-  console.dir(this);
+  console.dir(this)
   return 'success'
 }
 
@@ -482,7 +481,7 @@ foo._call(1) // Number
 foo._call('11') // String
 foo._call(true) // Boolean
 foo._call(obj) // {name: 'warbler'}
-console.log(foo._call(obj)); // success
+console.log(foo._call(obj)) // success
 ```
 
 - apply
@@ -491,7 +490,7 @@ console.log(foo._call(obj)); // success
 Function.prototype._apply = function (ctx, args = []) {
   if (ctx == null) ctx = globalThis
   if (typeof ctx !== 'object') ctx = new Object(ctx)
-   //给context新增一个独一无二的属性以免覆盖原有属性
+  //给context新增一个独一无二的属性以免覆盖原有属性
   const key = Symbol()
   ctx[key] = this
   // 立即执行一次
@@ -505,15 +504,15 @@ Function.prototype._apply = function (ctx, args = []) {
 
 [参考](https://juejin.cn/post/7030759884542967821)
 
-## 手写bind
+## 手写 bind
 
 bind() 方法会创建一个新函数，当这个新函数被调用时，bind() 的第一个参数将作为它运行时的 this，之后的一系列参数将会在传递的实参前传入作为它的参数。
 
 ```js
-Function.prototype.myBind = function(context, ...args1) {
-  const self = this; // 当前的函数本身
-  return function(...args2) {
-    return self.apply(context, [...args1, ...args2]); // apply 参数数组
+Function.prototype.myBind = function (context, ...args1) {
+  const self = this // 当前的函数本身
+  return function (...args2) {
+    return self.apply(context, [...args1, ...args2]) // apply 参数数组
   }
 }
 ```
@@ -522,19 +521,22 @@ Function.prototype.myBind = function(context, ...args1) {
 
 **柯里化是一种将使用多个参数的一个函数转换成一系列使用一个参数的函数的技术**。
 
->函数柯里化定义：接收一部分参数，返回一个函数接收剩余参数，接收足够参数后，执行原函数。
+> 函数柯里化定义：接收一部分参数，返回一个函数接收剩余参数，接收足够参数后，执行原函数。
 
 实现：
+
 ```js
 const myCurried = (fn, ...args) => {
-  if (args.length < fn.length) { // 未接受完参数
+  if (args.length < fn.length) {
+    // 未接受完参数
     return (..._args) => myCurried(fn, ...args, ..._args)
-  } else { // 接受完所有参数，直接执行
+  } else {
+    // 接受完所有参数，直接执行
     return fn(...args)
   }
 }
 
-function add (a, b, c) {
+function add(a, b, c) {
   return a + b + c
 }
 
@@ -545,15 +547,75 @@ console.log(curriedAdd(1, 2)(3)) // 输出 6
 console.log(curriedAdd(1)(2, 3)) // 输出 6
 ```
 
-[前端常考JS编程题](https://juejin.cn/post/7223046446941110328)
+[前端常考 JS 编程题](https://juejin.cn/post/7223046446941110328)
 [彻底搞懂闭包，柯里化，手写代码，金九银十不再丢分！](https://juejin.cn/post/6864378349512065038)
-[十个高阶Javascript知识及用法](https://juejin.cn/post/7222838155605639226#heading-1)
+[十个高阶 Javascript 知识及用法](https://juejin.cn/post/7222838155605639226#heading-1)
+
+## 实现单例模式
+
+**确保一个类只有一个实例**
+
+场景：Redux/Vuex 中的 store、JQ 的$
+
+```js
+let cache
+class A {
+  // ...
+}
+
+function getInstance() {
+  if (cache) return cache
+  return (cache = new A())
+}
+
+const x = getInstance()
+const y = getInstance()
+console.log(x === y) // true
+```
+
+## 函数记忆化
+
+使用缓存来保存函数的结果，从而避免重复计算。提高函数的性能
+
+```js
+function memoize (fn) {
+  const cache = {}
+  return (...args) => {
+    console.log(...args, 'args:', args)
+    const key = JSON.stringify(args)
+    if (cache[key]) return cache[key]
+    const result = fn(...args)
+    cache[key] = result
+    return result
+  }
+}
+
+function add (a, b) {
+  console.log("Calculating sum...")
+  return a + b
+}
+const memoizedAdd = memoize(add)
+console.log(memoizedAdd(2, 3)) // Calculating sum... 5
+console.log(memoizedAdd(2, 3)) // 5 (from cache)
+```
 
 ## 说说对闭包的理解
 
->闭包是指有权访问另外一个函数作用域中变量的函数
+>能够访问另外一个函数作用域中变量的函数就叫做闭包
+
+场景：
 
 
+## 垃圾回收机制
+
+## js 的编译过程
+
+- 分词：词法分析（词法单元token）
+  词法分析器使用正则表达式将源代码字符串划分为一个个的单词，这些单词也被称为token，它们是具有一定语意的代码单元，
+- 解析：语法分析（抽象语法树 AST）
+  将词法分析产生的词法单元转化为AST，并检查语法错误
+- 代码生成（可执行代码（机器指令））
+  代码生成器将AST转换为可执行的机器码或者字节码
 
 ## 高阶函数
 
@@ -567,17 +629,12 @@ console.log(curriedAdd(1)(2, 3)) // 输出 6
 
 filter/map/reduce/sort
 
+## js 中的几种模块规范
 
-## 垃圾回收机制
-
-## js 的编译过程
-
-- 分词：词法分析（词法单元token）
-  词法分析器使用正则表达式将源代码字符串划分为一个个的单词，这些单词也被称为token，它们是具有一定语意的代码单元，
-- 解析：语法分析（抽象语法树 AST）
-  将词法分析产生的词法单元转化为AST，并检查语法错误
-- 代码生成（可执行代码（机器指令））
-  代码生成器将AST转换为可执行的机器码或者字节码
+- commonjs：module.export 导出模块，require 引入模块
+- AMD：异步加载模块，不影响后面语句的加载，AMD 推崇依赖前置，在定义模块的时候就要声明其依赖的模块，在依赖模块加载完成后就直接执行依赖模块，依赖模块的执行顺序和我们书写的顺序不一定一致，require.js 实现了 AMD 规范
+- CMD：同样异步加载模块，sea.js 实现了 CMD 规范。CMD 推崇就近依赖，只有在用到某个模块的时候再去 require， CMD 在依赖模块加载完成后并不执行，只是下载而已，等到所有的依赖模块都加载好后，进入回调函数逻辑，遇到 require 语句 的时候才执行对应的模块，这样模块的执行顺序就和我们书写的顺序保持一致了
+- 第四种方案是 ES6 提出的方案，使用 import 和 export 的形式来导入导出模块。
 
 ## 怎么理解 js 中变量提升和函数提升
 
@@ -594,3 +651,4 @@ filter/map/reduce/sort
 ## 参考
 
 [金三银四，我为面试所准备的 100 道面试题以及答案](https://juejin.cn/post/7202639428132274234)
+```

@@ -64,22 +64,42 @@
 //     return fn.apply(this, ...args)
 //   }
 // }
-const myCurried = (fn, ...args) => {
-  if (args.length < fn.length) {
-    return (..._args) => myCurried(fn, ...args, ..._args)
-  } else {
-    return fn(...args)
+// const myCurried = (fn, ...args) => {
+//   if (args.length < fn.length) {
+//     return (..._args) => myCurried(fn, ...args, ..._args)
+//   } else {
+//     return fn(...args)
+//   }
+// }
+
+// function add (a, b, c) {
+//   return a + b + c
+// }
+
+// const curriedAdd = myCurried(add)
+
+// console.log(curriedAdd(1)(2)(3)) // 输出 6
+// console.log(curriedAdd(1, 2)(3)) // 输出 6
+// console.log(curriedAdd(1)(2, 3)) // 输出 6
+
+
+
+function memoize (fn) {
+  const cache = {}
+  return (...args) => {
+    console.log(...args, 'args:', args)
+    const key = JSON.stringify(args)
+    if (cache[key]) return cache[key]
+    const result = fn(...args)
+    cache[key] = result
+    return result
   }
 }
 
-function add (a, b, c) {
-  return a + b + c
+function add (a, b) {
+  console.log("Calculating sum...")
+  return a + b
 }
-
-const curriedAdd = myCurried(add)
-
-console.log(curriedAdd(1)(2)(3)) // 输出 6
-console.log(curriedAdd(1, 2)(3)) // 输出 6
-console.log(curriedAdd(1)(2, 3)) // 输出 6
-
-
+const memoizedAdd = memoize(add)
+console.log(memoizedAdd(2, 3)) // Calculating sum... 5
+console.log(memoizedAdd(2, 3)) // 5 (from cache)
