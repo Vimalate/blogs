@@ -44,6 +44,20 @@ if (obj.a == null) {
 
 > 实际开发中，除了 == null 外，建议其他使用 ====
 
+
+## 谈谈对this的理解
+
+**全局环境中**
+- 全局环境中：this 指向全局对象（视宿主环境而定，浏览器 window，node global）
+
+**函数中**
+- 普通函数调用：this指向全局对象
+- 对象方法调用：指向所属对象
+- 作为构造函数调用：指向实例化对象
+- 通过call, apply, bind调用：如果指定了第一个参数thisArg，this的值就是thisArg的值（如果是原始值，会包装为对象）；如果不传thisArg，要判断严格模式，严格模式下this是undefined，非严格模式下this指向全局对象。
+- 箭头函数的 this 比较特殊，他的 this 为父作用域的 this，不是调用时的 this,前四种方式, 都是调用时确定, 也就是动态的, 而箭头函数的 this 指向是静态的, 声明的时候就确定了下来；
+
+
 ## 谈谈你对 this、call、apply 和 bind 的理解
 
 1. 浏览器中，全局范围内 this 指向 window 对象
@@ -327,7 +341,7 @@ export function flattenDeep2(arr) {
 
 ## 自己动手实现一个 new
 
-1. 创建一个新对象，该对象的原型链指向构造函数的原型对象
+1. 创建一个新对象，该对象的原型链```__proto__```指向构造函数的原型对象```prototype```
 2. 将构造函数作为普通对象调用，传入参数并绑定 this 作为为新对象
 3. 判断构造函数返回值是否为对象，如果是则返回该对象，否则返回新对象
 
@@ -443,6 +457,8 @@ function myInstanceOf(obj, constructorFn) {
 
 > 区别：传参不同，apply 第二个参数为数组，a 开头，参数也是 arrry 形式，call 后边参数为函数本身的参数，一个个传
 
+**在非严格模式下使用call或者apply时，如果第一个参数被指定为null或undefined，那么函数执行时的this指向全局对象（浏览器环境中是window）；如果第一个参数被指定为原始值，该原始值会被包装。**
+
 - call
 
 ```js
@@ -485,6 +501,8 @@ console.log(foo._call(obj)) // success
 ```
 
 - apply
+
+apply 传参为数组形式
 
 ```js
 Function.prototype._apply = function (ctx, args = []) {
@@ -572,6 +590,37 @@ const x = getInstance()
 const y = getInstance()
 console.log(x === y) // true
 ```
+
+## 剩余参数和 arguments 对象之间的区别
+
+>剩余参数允许我们将不定数量的参数表示为一个数组
+
+```js
+function add(a, ...args) {
+  return args.reduce((prev, curr) => {
+    return prev + curr
+  }, a)
+}
+```
+
+区别：
+- 剩余参数表示那些没有对应形参的实参，而 arguments 对象表示传递的所有实参
+- arguments 对象是一个类数组，而剩余参数是一个真正的array
+- 参数默认值赋值不同：当使用剩余参数时，我们可以为参数提供默认值。但是，无法针对arguments对象设置默认参数值。
+
+```js
+function fn(a, b, rest = []) {
+  console.log(rest);
+}
+fn(1,2,3,4,5) // [3,4,5]
+```
+
+>类数组：类数组（ArrayLike）对象具备一个非负的length属性，并且可以通过从0开始的索引去访问元素，让人看起来觉得就像是数组，比如NodeList，但是类数组默认没有数组的那些内置方法，比如push, pop, forEach, map。
+
+剩余语法和展开运算符看起来很相似，然而从功能上来说，是完全相反的。
+
+>剩余语法(Rest syntax) 看起来和展开语法完全相同，不同点在于, 剩余参数用于解构数组和对象。从某种意义上说，剩余语法与展开语法是相反的：展开语法将数组展开为其中的各个元素，而剩余语法则是将多个元素收集起来并“凝聚”为单个元素。
+
 
 ## 函数记忆化
 

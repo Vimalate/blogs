@@ -84,22 +84,29 @@
 
 
 
-function memoize (fn) {
-  const cache = {}
-  return (...args) => {
-    console.log(...args, 'args:', args)
-    const key = JSON.stringify(args)
-    if (cache[key]) return cache[key]
-    const result = fn(...args)
-    cache[key] = result
-    return result
-  }
-}
+// function memoize (fn) {
+//   const cache = {}
+//   return (...args) => {
+//     console.log(...args, 'args:', args)
+//     const key = JSON.stringify(args)
+//     if (cache[key]) return cache[key]
+//     const result = fn(...args)
+//     cache[key] = result
+//     return result
+//   }
+// }
 
-function add (a, b) {
-  console.log("Calculating sum...")
-  return a + b
+// function add (a, b) {
+//   console.log("Calculating sum...")
+//   return a + b
+// }
+// const memoizedAdd = memoize(add)
+// console.log(memoizedAdd(2, 3)) // Calculating sum... 5
+// console.log(memoizedAdd(2, 3)) // 5 (from cache)
+
+
+
+function fn(a, b, ...rest = []) {
+  console.log(rest);
 }
-const memoizedAdd = memoize(add)
-console.log(memoizedAdd(2, 3)) // Calculating sum... 5
-console.log(memoizedAdd(2, 3)) // 5 (from cache)
+fn(1,2,3,4,5) // [3,4,5]
