@@ -102,5 +102,10 @@
 // }
 // const memoizedAdd = memoize(add)
 // console.log(memoizedAdd(2, 3)) // Calculating sum... 5
-// console.log(memoizedAdd(2, 3)) // 5 (from cache)
+// console.log(memoizedAdd(2, 3)) // 5 (from cache) 
 
+function isEqual(num1, num2) {
+  return Math.abs(num1 - num2) < Number.EPSILON;
+}
+
+console.log(isEqual(0.1 + 0.2, 0.3)); // true

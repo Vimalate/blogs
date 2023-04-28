@@ -44,19 +44,37 @@ if (obj.a == null) {
 
 > 实际开发中，除了 == null 外，建议其他使用 ====
 
+## js 中如何让 0.1+0.2===0.3
 
-## 谈谈对this的理解
+[Why 系列：0.1 + 0.2 != 0.3](https://juejin.cn/post/6972154067573440525)
+
+由于计算机浮点数的精度限制
+
+**使用 JS 内置的 Number.EPSILON 常量**
+
+解决这个问题，直接的办法就是设置一个误差范围，通常称为机器精度，对于 js 来说，这个值就是 2 的负 52 次方， 而 Number.EPSILON 就是这个值
+
+```js
+function isEqual(num1, num2) {
+  return Math.abs(num1 - num2) < Number.EPSILON
+}
+
+console.log(isEqual(0.1 + 0.2, 0.3)) // true
+```
+
+## 谈谈对 this 的理解
 
 **全局环境中**
+
 - 全局环境中：this 指向全局对象（视宿主环境而定，浏览器 window，node global）
 
 **函数中**
-- 普通函数调用：this指向全局对象
+
+- 普通函数调用：this 指向全局对象
 - 对象方法调用：指向所属对象
 - 作为构造函数调用：指向实例化对象
-- 通过call, apply, bind调用：如果指定了第一个参数thisArg，this的值就是thisArg的值（如果是原始值，会包装为对象）；如果不传thisArg，要判断严格模式，严格模式下this是undefined，非严格模式下this指向全局对象。
+- 通过 call, apply, bind 调用：如果指定了第一个参数 thisArg，this 的值就是 thisArg 的值（如果是原始值，会包装为对象）；如果不传 thisArg，要判断严格模式，严格模式下 this 是 undefined，非严格模式下 this 指向全局对象。
 - 箭头函数的 this 比较特殊，他的 this 为父作用域的 this，不是调用时的 this,前四种方式, 都是调用时确定, 也就是动态的, 而箭头函数的 this 指向是静态的, 声明的时候就确定了下来；
-
 
 ## 谈谈你对 this、call、apply 和 bind 的理解
 
@@ -341,7 +359,7 @@ export function flattenDeep2(arr) {
 
 ## 自己动手实现一个 new
 
-1. 创建一个新对象，该对象的原型链```__proto__```指向构造函数的原型对象```prototype```
+1. 创建一个新对象，该对象的原型链`__proto__`指向构造函数的原型对象`prototype`
 2. 将构造函数作为普通对象调用，传入参数并绑定 this 作为为新对象
 3. 判断构造函数返回值是否为对象，如果是则返回该对象，否则返回新对象
 
@@ -429,7 +447,23 @@ function lazyMan(name) {
 lazyMan('Bob').sleep(2).eat('dinner').sleep(3).eat('橘子')
 ```
 
-## instanceOf 的原理是什么，如何手写实现一个
+## 数据类型检测
+
+- typeof
+
+数组，对象，null 会被判断为 object，其他类型判断正确
+
+- instanceof
+
+其运行机制是判断在其原型链中能否找到该对象的原型
+
+能够正确判断引用数据类型，不能判断基础数据类型
+
+- Object.prototype.toString.call()
+
+使用 Object 对象原型上的 toString 方法来判断数据类型
+
+## instanceof 的原理是什么，如何手写实现一个
 
 **instanceOf 是用来判断一个对象是否是某个构造函数的实例**
 
@@ -457,7 +491,7 @@ function myInstanceOf(obj, constructorFn) {
 
 > 区别：传参不同，apply 第二个参数为数组，a 开头，参数也是 arrry 形式，call 后边参数为函数本身的参数，一个个传
 
-**在非严格模式下使用call或者apply时，如果第一个参数被指定为null或undefined，那么函数执行时的this指向全局对象（浏览器环境中是window）；如果第一个参数被指定为原始值，该原始值会被包装。**
+**在非严格模式下使用 call 或者 apply 时，如果第一个参数被指定为 null 或 undefined，那么函数执行时的 this 指向全局对象（浏览器环境中是 window）；如果第一个参数被指定为原始值，该原始值会被包装。**
 
 - call
 
@@ -593,7 +627,7 @@ console.log(x === y) // true
 
 ## 剩余参数和 arguments 对象之间的区别
 
->剩余参数允许我们将不定数量的参数表示为一个数组
+> 剩余参数允许我们将不定数量的参数表示为一个数组
 
 ```js
 function add(a, ...args) {
@@ -604,30 +638,36 @@ function add(a, ...args) {
 ```
 
 区别：
+
 - 剩余参数表示那些没有对应形参的实参，而 arguments 对象表示传递的所有实参
-- arguments 对象是一个类数组，而剩余参数是一个真正的array
-- 参数默认值赋值不同：当使用剩余参数时，我们可以为参数提供默认值。但是，无法针对arguments对象设置默认参数值。
+- arguments 对象是一个类数组，而剩余参数是一个真正的 array
+- 参数默认值赋值不同：当使用剩余参数时，我们可以为参数提供默认值。但是，无法针对 arguments 对象设置默认参数值。
 
 ```js
 function fn(a, b, rest = []) {
-  console.log(rest);
+  console.log(rest)
 }
-fn(1,2,3,4,5) // [3,4,5]
+fn(1, 2, 3, 4, 5) // [3,4,5]
 ```
 
->类数组：类数组（ArrayLike）对象具备一个非负的length属性，并且可以通过从0开始的索引去访问元素，让人看起来觉得就像是数组，比如NodeList，但是类数组默认没有数组的那些内置方法，比如push, pop, forEach, map。
+> 类数组：类数组（ArrayLike）对象具备一个非负的 length 属性，并且可以通过从 0 开始的索引去访问元素，让人看起来觉得就像是数组，比如 NodeList，但是类数组默认没有数组的那些内置方法，比如 push, pop, forEach, map。
+
+**类数组转换为数组：**
+
+- Array.prototype.slice.call(arrayLike)
+- Array.prototype.splice(arrayLike,0)
+- Array.from(arrayLike)
 
 剩余语法和展开运算符看起来很相似，然而从功能上来说，是完全相反的。
 
->剩余语法(Rest syntax) 看起来和展开语法完全相同，不同点在于, 剩余参数用于解构数组和对象。从某种意义上说，剩余语法与展开语法是相反的：展开语法将数组展开为其中的各个元素，而剩余语法则是将多个元素收集起来并“凝聚”为单个元素。
-
+> 剩余语法(Rest syntax) 看起来和展开语法完全相同，不同点在于, 剩余参数用于解构数组和对象。从某种意义上说，剩余语法与展开语法是相反的：展开语法将数组展开为其中的各个元素，而剩余语法则是将多个元素收集起来并“凝聚”为单个元素。
 
 ## 函数记忆化
 
 使用缓存来保存函数的结果，从而避免重复计算。提高函数的性能
 
 ```js
-function memoize (fn) {
+function memoize(fn) {
   const cache = {}
   return (...args) => {
     console.log(...args, 'args:', args)
@@ -639,8 +679,8 @@ function memoize (fn) {
   }
 }
 
-function add (a, b) {
-  console.log("Calculating sum...")
+function add(a, b) {
+  console.log('Calculating sum...')
   return a + b
 }
 const memoizedAdd = memoize(add)
@@ -650,29 +690,29 @@ console.log(memoizedAdd(2, 3)) // 5 (from cache)
 
 ## 说说对闭包的理解
 
->能够访问另外一个函数作用域中变量的函数就叫做闭包
+> 能够访问另外一个函数作用域中变量的函数就叫做闭包
 
 场景：
-
 
 ## 垃圾回收机制
 
 ## js 的编译过程
 
-- 分词：词法分析（词法单元token）
-  词法分析器使用正则表达式将源代码字符串划分为一个个的单词，这些单词也被称为token，它们是具有一定语意的代码单元，
+- 分词：词法分析（词法单元 token）
+  词法分析器使用正则表达式将源代码字符串划分为一个个的单词，这些单词也被称为 token，它们是具有一定语意的代码单元，
 - 解析：语法分析（抽象语法树 AST）
-  将词法分析产生的词法单元转化为AST，并检查语法错误
+  将词法分析产生的词法单元转化为 AST，并检查语法错误
 - 代码生成（可执行代码（机器指令））
-  代码生成器将AST转换为可执行的机器码或者字节码
+  代码生成器将 AST 转换为可执行的机器码或者字节码
 
 ## 高阶函数
 
 满足两个条件：
+
 1. 函数可以作为参数传递
 2. 函数可以作为返回值输出
 
->首先是个函数,参数或者返回值是函数
+> 首先是个函数,参数或者返回值是函数
 
 常见的高阶函数：
 
@@ -687,7 +727,7 @@ filter/map/reduce/sort
 
 ## 怎么理解 js 中变量提升和函数提升
 
-在js中，变量或者函数的声明会被提升到当前作用域的顶部，这就是所谓的变量提升和函数提升
+在 js 中，变量或者函数的声明会被提升到当前作用域的顶部，这就是所谓的变量提升和函数提升
 
 变量提升：只有变量的声明会被提升，赋值不会，如果在变量被声明之前就进行了访问或赋值，那么会得到一个 undefined 的值。
 
@@ -695,9 +735,12 @@ filter/map/reduce/sort
 
 **JS 中函数提升的优先级高于变量提升:**这意味着如果在同一个作用域中同时存在一个函数声明和一个变量声明，那么该函数的声明将被提升到该作用域的顶部，而变量将被提升到函数声明的下面。
 
->需要注意的是，函数表达式和箭头函数并不会被提升，只有函数声明才会被提升
+> 需要注意的是，函数表达式和箭头函数并不会被提升，只有函数声明才会被提升
 
 ## 参考
 
 [金三银四，我为面试所准备的 100 道面试题以及答案](https://juejin.cn/post/7202639428132274234)
+
+```
+
 ```
