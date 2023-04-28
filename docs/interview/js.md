@@ -592,6 +592,7 @@ function add(a, b, c) {
   return a + b + c
 }
 
+
 const curriedAdd = myCurried(add)
 
 console.log(curriedAdd(1)(2)(3)) // 输出 6
