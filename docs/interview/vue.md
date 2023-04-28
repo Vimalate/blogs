@@ -166,7 +166,13 @@ import { ref } from 'vue' const str = ref('hello') console.log(str.value) //
 
 ## this.$nextTick 原理（vue2/3）
 
+Vue更新dom是异步的，当数据发生变化时，Vue将开启一个异步更新队列，并且缓冲在同一事件循环中所发生的所有数据变更，如果一个watcher被触发多次，那么只会被推入队列一次。
+
 vue nextTick 的源码实现，异步优先级判断，总结就是 ```Promise -> MutationObserver -> setImmediate -> setTimeout
+
+使用场景：
+- created 中进行dom操作
+- 想要在修改数据后立即获取更新后的dom
 
 [this.$nextTick 你真的理解了吗？](https://juejin.cn/post/7177681326861418556)
 
@@ -282,6 +288,8 @@ onBeforeUnmount(() => {
 ```
 
 ## 简单说下 Vue 的 diff 算法
+
+**diff算法的目的是找出差异，最小化的更新试图**
 
 ![](./img/diff.png)
 
