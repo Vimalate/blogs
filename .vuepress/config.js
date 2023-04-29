@@ -178,6 +178,10 @@ module.exports = {
             "link":"/docs/Vue-Library/"
           },
           {
+            "text":"React-Library",
+            "link":"/docs/React-Library/"
+          },
+          {
             "text": "Other-Library",
             "link": "/docs/Other-Library/"
           },
@@ -271,6 +275,10 @@ module.exports = {
         "Vue项目启动时间太慢",
         "vue项目问题总结",
         "vue中的$attrs和$listeners"
+      ],
+      "/docs/React-Library/": [
+        "",
+        "react-study",
       ],
       "/docs/Other-Library/": [
         "",
