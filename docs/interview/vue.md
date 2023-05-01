@@ -82,8 +82,19 @@ inject('message', 'Default message'); console.log(message.value); // 输出
 <!-- todo -->
 
 ```vue
-import Vue from 'vue'; export default { provide() { return { data:
-Vue.observable({ message: 'Hello, World!' }) }; } }
+import Vue from 'vue';
+
+const parentDataObj = {
+  count: 123,
+};
+
+export default {
+  provide() {
+    return {
+      dataObj: Vue.observable(parentDataObj),
+    };
+  },
+};
 ```
 
 ## keep-alive 用过吗，作用是什么，实现原理能讲讲吗？

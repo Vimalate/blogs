@@ -52,5 +52,8 @@ handleClick() {
   });
 }
 ```
+>React18版本之后 setState默认是异步
 
 setState 本身并非异步的，但state 的处理机制给人异步的假象，state 处理一般发生在生命周期变化的时候
+
+[setState是同步还是异步？原理是什么？](https://juejin.cn/post/7066423854259765279)

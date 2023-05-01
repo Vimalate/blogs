@@ -204,7 +204,7 @@ scrollHeight：300px
 
 - Promise.all()
 
-Promise.all()将多个 Promise 放在一个数组中，当整个数组的全部 promise 成功时才会返回成功(返回顺序就是定义数组的速度)，当数组中的 promise 有一个出现失败时就返回失败 (失败的原因是第一个失败 promise 的结果)。
+Promise.all()将多个 Promise 放在一个数组中，当整个数组的全部 promise 成功时才会返回成功(**返回顺序就是定义数组的顺序**)，当数组中的 promise 有一个出现失败时就返回失败 (**失败的原因是第一个失败 promise 的结果**)。
 
 使用场景：
 
