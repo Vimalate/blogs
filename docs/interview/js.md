@@ -272,13 +272,13 @@ all()中的 Promise 对象执行先后顺序由自己快慢控制，全部执行
 function loadImg(url) {
   return new Promise((resolve, reject) => {
     const img = new Image()
+    img.url = url
     img.onload = () => {
       resolve(img)
     }
     img.onerror = () => {
       reject(`图片加载失败-${url}`)
     }
-    img.url = url
   })
 }
 
@@ -569,6 +569,30 @@ Function.prototype.myBind = function (context, ...args1) {
 }
 ```
 
+## 实现jsonp
+
+其原理是通过动态创建```<script>```标签，给该标签设置src属性，以达到跨域请求数据的目的。服务端应返回一段JavaScript代码，并在其中调用回调函数，将请求到的数据作为参数传入回调函数中，从而实现数据的传递。
+
+```js
+function jsonp(url, callbackName, success) {
+  const script = document.createElement('script')
+  script.src = `${url}?callback=${callbackName}`
+  document.body.appendChild(script)
+  window[callbackName] = (data) => {
+    success(data)
+    document.body.removeChild(script)
+  }
+}
+
+jsonp(url, 'handleResponse', (data) => console.log(data)) 
+
+// 服务端将返回响应
+handleResponse({
+  name:'树哥',
+  age:18
+})
+```
+
 ## 函数柯里化
 
 **柯里化是一种将使用多个参数的一个函数转换成一系列使用一个参数的函数的技术**。
@@ -697,6 +721,14 @@ console.log(memoizedAdd(2, 3)) // 5 (from cache)
 场景：
 
 ## 垃圾回收机制
+
+浏览器中的垃圾回收机制是一种自动管理内存的机制，用于回收已经不再使用的对象以释放内存空间。
+
+- 标记清除：基本思想是根据一个对象是否被访问来决定是否需要被回收。他会从根对象开始遍历整个对象树，将所有被引用的对象进行标记，然后清除未被标记的对象。根对象是指在全局作用域中定义的变量及函数，以及当前调用栈上的局部变量和参数。
+
+- 引用计数： 其基本思想是维护每个对象被引用的次数。当一个对象被引用时，引用计数就+1，当一个对象的引用被取消时，就-1，当这个对象的引用计数为0，则说明该对象已经不再被任何其他对象引用，可以被垃圾回收器回收。**但是，引用计数有一个明显的缺陷，就是不能解决循环引用的问题。**
+
+>标记清除的优点是可以处理循环引用
 
 ## js 的编译过程
 

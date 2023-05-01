@@ -104,8 +104,131 @@
 // console.log(memoizedAdd(2, 3)) // Calculating sum... 5
 // console.log(memoizedAdd(2, 3)) // 5 (from cache) 
 
-function isEqual(num1, num2) {
-  return Math.abs(num1 - num2) < Number.EPSILON;
+// function isEqual(num1, num2) {
+//   return Math.abs(num1 - num2) < Number.EPSILON;
+// }
+
+// console.log(isEqual(0.1 + 0.2, 0.3)); // true
+
+
+// function jsonp (url, callbackName, success) {
+//   const script = document.createElement('script')
+//   script.src = `${url}?callback=${callbackName}`
+//   document.body.appendChild(script)
+//   window['callbackName'] = (response) => {
+//     success(response)
+//     document.body.removeChild(script)
+//   }
+// }
+
+// jsonp(url, 'handleResponse', (response) => console.log(response)) 
+
+// // 服务端将返回响应
+// handleResponse({
+//   name:'树哥',
+//   age:18
+// })
+
+// function mySetinterval (fn, delay) {
+//   let timerId = setTimeout(function tick () {
+//     fn()
+//     setTimeout(tick, delay)
+//   }, delay)
+//   return {
+//     cancel: () => clearTimeout(timerId)
+//   }
+// }
+
+// function mySetinterval(callback, interval) {
+//   let timerId
+//   const intervalWrapper = () => {
+//     callback()
+//     timerId = setTimeout(intervalWrapper, interval)
+//   }
+//   timerId = setTimeout(intervalWrapper, interval)
+//   return {
+//     cancel: () => clearTimeout(timerId)
+//   }
+// }
+
+// function mySetinterval(callback, interval) {
+//   let timeoutId = null
+
+//   function repeat() {
+//     callback()
+//     timeoutId = setTimeout(repeat, interval)
+//   }
+
+//   repeat()
+
+//   return {
+//     cancel: () => clearTimeout(timeoutId)
+//   }
+// }
+
+// const interval = mySetinterval(() => console.log('Hello'), 1000)
+
+// setTimeout(() => {
+//   interval.cancel()
+// }, 5000)
+
+// function _flat (arr, depth) {
+//   if (!Array.isArray(arr) || depth <= 0) {
+//     return arr
+//   }
+//   return arr.reduce((prev, cur) => {
+//     if (Array.isArray(cur)) {
+//       return prev.concat(_flat(cur, depth - 1))
+//     } else {
+//       return prev.concat(cur)
+//     }
+//   }, [])
+// }
+
+
+// const list = [1, 2, [3, 4, [5]], 6, 7]
+
+// console.log(_flat(list, 1))
+
+// const task = (color, timeout) => {
+//   return new Promise((resolve) => {
+//     setTimeout(() => resolve(console.log(color)), timeout)
+//   })
+// }
+
+// const task = (light, timeout) => {
+//   return new Promise((resolve) => {
+//       setTimeout(() => resolve(console.log(light)), timeout);
+//   })
+// }
+
+// const taskRunner = async () => {
+//   await task('red', 1000)
+//   await task('green', 2000)
+//   await task('yellow', 3000)
+//   taskRunner()
+// }
+
+// taskRunner()
+
+
+function lengthOfLongestSubstring (s) {
+  let i = 0, j = 0
+  let maxLen = 0
+  const set = new Set()
+
+  while (j < s.length) {
+    if (!set.has(s[j])) {
+      set.add(s[j])
+      j++
+      maxLen = Math.max(maxLen, set.size)
+    } else {
+      set.delete(s[i])
+      i++
+    }
+  }
+  console.log(set)
+  return maxLen
 }
 
-console.log(isEqual(0.1 + 0.2, 0.3)); // true
+console.log(lengthOfLongestSubstring('abcabcbb'))
