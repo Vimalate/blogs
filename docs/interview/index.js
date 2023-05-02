@@ -211,24 +211,107 @@
 
 // taskRunner()
 
+// function create (obj) {
+//   function F () { }
+//   F.prototype = obj
+//   return new F()
+// }
 
-function lengthOfLongestSubstring (s) {
-  let i = 0, j = 0
-  let maxLen = 0
-  const set = new Set()
+// function myInstanceof (obj, constructor) {
+//   while (obj !== null) {
+//     if (obj.__proto__ === constructor.prototype) {
+//       return true
+//     }
+//     obj = obj.__proto__
+//   }
+//   return false
+// }
 
-  while (j < s.length) {
-    if (!set.has(s[j])) {
-      set.add(s[j])
-      j++
-      maxLen = Math.max(maxLen, set.size)
-    } else {
-      set.delete(s[i])
-      i++
-    }
-  }
-  console.log(set)
-  return maxLen
-}
+// function Person(name) {
+//   this.name = name;
+// }
 
-console.log(lengthOfLongestSubstring('abcabcbb'))
+// const person1 = new Person('John');
+
+// console.log(myInstanceof(person1, Person));  // true
+// console.log(myInstanceof(person1, Object));  // true
+// console.log(myInstanceof({}, Person));       // false
+// console.log(myInstanceof([], Object));       // true
+
+
+// function debounce (fn, delay = 500) {
+//   let timer = null
+//   return function () {
+//     timer && clearTimeout(timer)
+//     timer = setTimeout(() => {
+//       fn.apply(this, arguments)
+//       timer = null
+//     }, delay)
+//   }
+// }
+
+// function throttle (fn, delay = 500) {
+//   let timer
+//   return function (...args) {
+//     if (timer) return
+//     timer = setTimeout(() => {
+//       fn.apply(this, args)
+//       timer = null
+//     }, delay)
+//   }
+// }
+
+// function throttle (fn, delay = 500) {
+//   let start = +Date.now()
+//   return function (...args) {
+//     const now = +Date.now()
+//     if (now - start >= delay) {
+//       fn.apply(this, ...args)
+//       start = now
+//     }
+//   }
+// }
+
+// function sleep (time) {
+//   return new Promise(resolve => {
+//     setTimeout(resolve, time)
+//   })
+// }
+
+// async function test() {
+//   console.log('start');
+//   await sleep(2000);
+//   console.log('end');
+// }
+// test();
+// const list = [1, 2, 3, 4, 5]
+// Array.prototype.myPush = function (...args) {
+//   const length = this.length
+//   for (let i = 0; i < args.length; i++) {
+//     this[this.length + i] = args[i]
+//   }
+//   return this.length
+// }
+
+// Array.prototype.myFilter = function (callback) {
+//   const newArr = []
+//   for (let i = 0; i < this.length; i++) {
+//     if (callback(this[i], i, this)) {
+//       newArr.push(this[i])
+//     }
+//   }
+//   return newArr
+// }
+
+// Array.prototype.myMap = function (callback) {
+//   const newArr = []
+//   for (let i = 0; i < this.length; i++) {
+//     newArr.push(callback(this[i], i, this))
+//   }
+//   return newArr
+// }
+
+
+// console.log(list.myPush(6),list)
+// console.log(list.myFilter(i => i > 3))
+// console.log(list.myMap(i => i + 1))
