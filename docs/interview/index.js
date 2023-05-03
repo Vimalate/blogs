@@ -315,3 +315,44 @@
 // console.log(list.myPush(6),list)
 // console.log(list.myFilter(i => i > 3))
 // console.log(list.myMap(i => i + 1))
+
+
+// class Subject {
+//   constructor() {
+//     this.observers = []
+//   }
+
+//   addObserver (observer) {
+//     this.observers.push(observer)
+//   }
+//   removeObserver (observer) {
+//     this.observers = this.observers.filter(item => item !== observer)
+//   }
+
+//   notify () {
+//     this.observers.forEach(observer => observer.update())
+//   }
+// }
+
+// class Observer {
+//   constructor(data) {
+//     this.data = data
+//   }
+//   update () {
+//     console.log('data：', this.data)
+//   }
+// }
+
+// // 创建主题对象
+// const subject = new Subject()
+
+// // 创建两个观察者对象
+// const observer1 = new Observer('Hello啊，树哥!')
+// const observer2 = new Observer('Hello')
+
+// // 将观察者添加到主题对象中
+// subject.addObserver(observer1)
+// subject.addObserver(observer2)
+
+// // 通知观察者
+// subject.notify()
