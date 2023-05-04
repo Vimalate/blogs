@@ -356,3 +356,13 @@
 
 // // 通知观察者
 // subject.notify()
+
+
+const getSearchParams = () => {
+  const searchPar = new URLSearchParams(window.location.search)
+  const paramsObj = {}
+  for (const [key, value] of searchPar.entries()) {
+    paramsObj[key] = value
+  }
+  return paramsObj
+}
