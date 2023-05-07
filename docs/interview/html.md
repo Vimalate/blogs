@@ -53,3 +53,10 @@ categories:
 **对可用性产生负面影响的元素**：
 ​
 `<frameset>`,`<noframes>`和`<frame>`；
+
+## script 标签中 defer 和 async 的区别？
+
+- script 会阻碍 html 的解析，只有下载并且执行好脚本后才会继续解析 html
+- script + async 解析 html 过程中会异步下载脚本，下载成功后立马执行 html ，可能会阻碍 html 的解析，多个带有 async 属性的脚本无法保证执行顺序。
+- script + defer ，脚本在 HTML 文件解析完成后被执行，多个带有 defer 属性的脚本会按顺序在文档解析完成后依次执行，且在 DOMContentLoaded 事件之前完成。
+

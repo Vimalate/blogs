@@ -315,7 +315,7 @@ loadImg('xxx.png')
 
 ## requestAnimationFrame
 
-requestAnimationFrame 是浏览器提供的一个 API，用于在下一帧动画之前执行指定的函数。与 setTimeout 相比，requestAnimationFrame 的优势在于它可以根据浏览器的刷新频率来调整动画的帧数，从而避免掉帧现象，提高动画的流畅度和性能。**如果你想在下一次浏览器重绘之前再次调用回调函数更新动画，那么就需要在回调函数内部递归调用 window.requestAnimationFrame 函数**
+requestAnimationFrame 是浏览器提供的一个 API，你希望执行动画，并且要求浏览器在下一次执行重绘前调用指定的回到函数来更新动画。与 setTimeout 相比，requestAnimationFrame 的优势在于它可以根据浏览器的刷新频率来调整动画的帧数，从而避免掉帧现象，提高动画的流畅度和性能。**如果你想在下一次浏览器重绘之前再次调用回调函数更新动画，那么就需要在回调函数内部递归调用 window.requestAnimationFrame 函数**
 
 [介绍一下 requestAnimationFrame 和 requestIdleCallback](https://juejin.cn/post/7217601930917855269)
 

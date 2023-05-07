@@ -35,6 +35,7 @@ categories:
 - 宏任务、微任务
 - BFC、flex 布局
 - 自定义指令极其生命周期(vue2/3)
+- jwt
 
 1. 注册方式：Vue2中自定义指令使用Vue.directive()方法进行注册，而Vue3中使用app.directive()方法进行注册。Vue3中取消了全局指令的概念，所有指令都需要在组件中进行注册。
 
