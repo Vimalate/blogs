@@ -313,6 +313,14 @@ loadImg('xxx.png')
 - MutationObserve：监听 dom 变化并执行
 - process.nexttick (node.js)
 
+**event loop 执行顺序**
+
+- 首先执行同步代码，这属于宏任务（script）
+- 执行完同步代码后，查询是否有异步代码需要执行
+- 执行所有微任务
+- 执行完微任务后，如有必要进行页面渲染
+- 开始下一轮 event loop
+
 ## requestAnimationFrame
 
 requestAnimationFrame 是浏览器提供的一个 API，你希望执行动画，并且要求浏览器在下一次执行重绘前调用指定的回到函数来更新动画。与 setTimeout 相比，requestAnimationFrame 的优势在于它可以根据浏览器的刷新频率来调整动画的帧数，从而避免掉帧现象，提高动画的流畅度和性能。**如果你想在下一次浏览器重绘之前再次调用回调函数更新动画，那么就需要在回调函数内部递归调用 window.requestAnimationFrame 函数**
