@@ -258,6 +258,7 @@ proxy 优势 ：
 - 多达 13 种拦截方法，不限于 apply、ownKeys、deleteProperty、has等等是 Object.defineProperty 所不具备的
 - 返回一个新对象，我们的操作只对于新对象，而 Object.defineProperty 只能遍历对象属性进行更改
 - 性能红利 
+- Object.defineProperty 会直接改变原始数据，而 Proxy 不会直接修改原始数据
 
 >在Vue中，Object.defineProperty无法监控到数组下标的变化，导致直接通过数组的下标给数组设置值，不能实时响应。 为了解决这个问题，经过vue内部处理后可以使用以下几种方法来监听数组
 （其实，Object.defineProperty本身是可以监控到数组下标的变化的，具体可参[Vue为什么不能检测数组变动](https://segmentfault.com/a/1190000015783546#comment-area)）

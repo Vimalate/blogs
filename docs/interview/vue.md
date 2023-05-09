@@ -19,6 +19,21 @@ categories:
 7. 组合式 api，hooks 更好的逻辑复用
 8. 更好的 ts 支持
 
+>Object.defineProperty 会直接改变原始数据，而 Proxy 不会直接修改原始数据
+
+## 对于虚拟dom（vnode）的理解
+
+本质上是一个js对象，通过对象的形式来表示dom结构，配合不同的渲染工具，跨平台渲染成为可能（React Native 、ssr），直接操作真实的 DOM 会消耗大量的计算资源和内存开销，因此虚拟 DOM 的出现可以减少大量的 DOM 操作以及重排、重绘，提高了性能和用户体验。
+
+优点：
+- 无需手动获取dom ，操作 DOM 
+- 跨平台： 虚拟 DOM 本质上是 JavaScript 对象,而 真实DOM 与平台强相关，相比之下虚拟 DOM 可以进行更方便地跨平台操作，例如服务器渲染 （SSR，uniapp） 开发等等。
+- 虚拟DOM具有批处理和高效的Diff算法,最终表现在更新视图时只会渲染变化的部分，可以保证非常高效的渲染,优化性能 ；
+
+缺点：
+- **首次渲染大量 dom **时，由于多了一层虚拟 dom 的计算，回避直接使用 innerHTML 插入慢
+
+
 ## Vue 组件通讯有哪几种方式
 
 - props 和 $emit：父组件 props 传递数据给子组件，子组件通过 $emit 触发一个自定义事件，并且可以传递参数
@@ -151,6 +166,10 @@ Vue 3 使用了 createVNode 函数创建了一个 Fragment 节点，并将多个
 方案二： 在 v-for 里面 在套一层 `<template v-if="item.id === 1">
 // do something
 </template>`
+
+## vue 中 key 的作用
+
+作为 vue中 vnode的唯一标识，通过这个key，diff算法能更准确和更高效
 
 ## vue3 中，ref 是基于 reactive 来实现的，为什么 ref 要返回一个包装对象？
 
