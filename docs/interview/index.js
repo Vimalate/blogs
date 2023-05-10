@@ -366,3 +366,18 @@ const getSearchParams = () => {
   }
   return paramsObj
 }
+
+// 树结构转数组
+function treeToArray(tree) {
+  const list=[]
+  const traverse = (node) => {
+    list.push(node)
+    if (node.children) {
+      for (let i = 0; i < node.children.length; i++) {
+        traverse(node.children[i])
+      }
+    }
+  }
+}
+
+// 数组转树状结构

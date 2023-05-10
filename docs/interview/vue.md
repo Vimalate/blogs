@@ -114,6 +114,20 @@ export default {
 };
 ```
 
+## vue3 中获取this
+
+```js
+<script setup>
+import {getCurrentInstance} from 'vue'
+
+// proxy 就是当前组件实例，可以理解为组件级别的 this
+const {proxy,appContext} from 'getCurrentInstance'
+
+// 这个 global 就是全局实例
+const global = appContext.config.globalProperties
+```
+
+
 ## keep-alive 用过吗，作用是什么，实现原理能讲讲吗？
 
 <keep-alive> 是 Vue 源码中实现的一个组件：一般和它搭配使用的有 component 动态组件或者是 router-view。
