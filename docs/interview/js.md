@@ -371,6 +371,9 @@ export function flattenDeep2(arr) {
 
 ```js
 function intersection(arr1,arr2){
+  if (arr1.length === 0 || arr2.length === 0) {
+    return [];
+  }
   const set1 = new Set(arr1)
   const set2 = new Set(arr2)
   return [...set1].filter(item => set2.has(item))
@@ -382,6 +385,9 @@ function intersection(arr1,arr2){
 ```js
 function intersection(arr1,arr2){
   const newArr = []
+  if (arr1.length === 0 || arr2.length === 0) {
+    return newArr
+  }
   for (let i = 0; i < arr1.length; i++) {
     for (let j = 0; j < arr2.length; j++) {
       if (arr1[i] === arr2[j]&&!newArr.includes(arr1[i])) {
@@ -815,6 +821,4 @@ filter/map/reduce/sort
 
 [金三银四，我为面试所准备的 100 道面试题以及答案](https://juejin.cn/post/7202639428132274234)
 
-```
-
-```
+[2022高频前端面试题合集之JavaScript篇（中）](https://juejin.cn/post/7155647370233905188)

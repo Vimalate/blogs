@@ -60,3 +60,13 @@ categories:
 - script + async 解析 html 过程中会异步下载脚本，下载成功后立马执行 html ，可能会阻碍 html 的解析，多个带有 async 属性的脚本无法保证执行顺序。
 - script + defer ，脚本在 HTML 文件解析完成后被执行，多个带有 defer 属性的脚本会按顺序在文档解析完成后依次执行，且在 DOMContentLoaded 事件之前完成。
 
+## attribute 和 property 的区别是什么？
+
+property 和 attribute 非常容易混淆，两个单词的中文翻译也都非常相近（property：属性，attribute：特性），但实际上，二者是不同的东西，属于不同的范畴。
+
+- property是DOM中的属性，是JavaScript里的对象；
+- attribute是HTML标签上的特性，它的值只能够是字符串；
+
+简单理解，Attribute就是dom节点自带的属性，例如html中常用的id、class、title、align等。
+而Property是这个DOM元素作为对象，其附加的内容，例如childNodes、firstChild等。
+

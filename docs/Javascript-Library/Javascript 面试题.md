@@ -204,6 +204,13 @@ console.log(toString.call(undefined));              //[object Undefined]
 console.log(toString.call(null));                   //[object Null]
 ```
 优点：精准判断数据类型 缺点：写法繁琐不容易记，推荐进行封装后使用
+
+在 JavaScript 中，所有对象都继承了 Object 类型中的 toString 方法。当直接对一个 Object 对象调用 toString() 方法时，它会返回 [object Object]。这是因为 Object.prototype.toString() 方法被默认实现为返回一个字符串 "[object " + 类型名 + "]" 的方式来获取对象类型信息。
+
+但是，对于自定义的其他对象（例如数组、函数等），它们也都继承了 Object 类型中的 toString 方法，但是其 toString() 方法通常已经被重写以提供更有用的输出信息。例如，对于数组对象，其 toString() 方法将返回一个包含数组元素的逗号分隔字符串。对于函数对象，其 toString() 方法将返回函数的定义代码。
+
+**如果希望获取一个对象的类型信息，可以使用 call/apply 来改变 Object.prototype.toString 的执行上下文(this 指向)。**
+
 ## [] == ![]结果是什么？为什么？
 
 == 中两边转换为数字后开始比较
