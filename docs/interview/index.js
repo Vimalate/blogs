@@ -368,16 +368,35 @@ const getSearchParams = () => {
 }
 
 // 树结构转数组
-function treeToArray(tree) {
-  const list=[]
-  const traverse = (node) => {
-    list.push(node)
-    if (node.children) {
-      for (let i = 0; i < node.children.length; i++) {
-        traverse(node.children[i])
-      }
-    }
-  }
-}
+// function treeToArray(tree) {
+//   const list=[]
+//   const traverse = (node) => {
+//     list.push(node)
+//     if (node.children) {
+//       for (let i = 0; i < node.children.length; i++) {
+//         traverse(node.children[i])
+//       }
+//     }
+//   }
+// }
 
-// 数组转树状结构
+// 两个数组求交集
+
+// function intersection(arr1,arr2){
+//   const newArr = []
+//   for (let i = 0; i < arr1.length; i++) {
+//     for (let j = 0; j < arr2.length; j++) {
+//       if (arr1[i] === arr2[j]&&!newArr.includes(arr1[i])) {
+//         newArr.push(arr1[i])
+//         break
+//       }
+//     }
+//   }
+//   return newArr
+// }
+
+// function intersection(arr1,arr2){
+//   const set1 = new Set(arr1)
+//   const set2 = new Set(arr2)
+//   return [...set1].filter(item => set2.has(item))
+// }

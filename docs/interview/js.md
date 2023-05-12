@@ -365,6 +365,35 @@ export function flattenDeep2(arr) {
 }
 ```
 
+## 两个数组求交集
+
+- 用 set
+
+```js
+function intersection(arr1,arr2){
+  const set1 = new Set(arr1)
+  const set2 = new Set(arr2)
+  return [...set1].filter(item => set2.has(item))
+}
+```
+
+- 双重 for 循环
+
+```js
+function intersection(arr1,arr2){
+  const newArr = []
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      if (arr1[i] === arr2[j]&&!newArr.includes(arr1[i])) {
+        newArr.push(arr1[i])
+        break
+      }
+    }
+  }
+  return newArr
+}
+```
+
 ## 自己动手实现一个 new
 
 1. 创建一个新对象，该对象的原型链`__proto__`指向构造函数的原型对象`prototype`
