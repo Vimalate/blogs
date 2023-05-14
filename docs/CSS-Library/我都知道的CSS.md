@@ -261,7 +261,7 @@ BFC 是页面的一块渲染区域，拥有一套渲染规则，确定位于其�
 -	渐变：```线性渐变（Linear Gradients）、径向渐变（Radial Gradients）```
 -	盒模型:```resize、box-sizing、outline```
 -	弹性盒：```flex```
--	动画：```transtion、animation```
+-	动画：```transition、animation```
 
 ## CSS优先级
 !important>行内样式>id选择器>类选择器>标签>*通配符>继承>浏览器默认属性

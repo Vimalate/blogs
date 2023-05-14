@@ -88,7 +88,7 @@ src（resource） 时指向外部的资源位置，指向的内容将会嵌入�
    
 2. cookie不是很安全，别人可以分析存放在本地的cookie并进行cookie欺骗，考虑到安全应当使用session 
    
-3. ession 如果在生效期访内量过大，会占用服务器性能
+3. session 如果在生效期访内量过大，会占用服务器性能
    
 4. session中保存的是对象，cookie中保存的是字符串 
 
