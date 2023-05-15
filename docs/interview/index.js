@@ -401,3 +401,27 @@ const getSearchParams = () => {
 //   return [...set1].filter(item => set2.has(item))
 // }
 
+// 防抖
+function debounce(fn, delay = 500) {
+  let timer = null
+  return function (...args) {
+    if (timer) clearTimeout(timer)
+    timer = setTimeout(() => {
+      fn.apply(this, args)
+      timer = null
+    }, delay)
+  }
+}
+
+
+// 节流
+function throttle(fn, delay = 500) {
+  let timer
+  return function (...args) {
+    if (timer) return
+    timer = setTimeout(() => {
+      fn.apply(this, args)
+      timer = null
+    }, delay)
+  }
+}

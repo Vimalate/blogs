@@ -33,7 +33,7 @@ categories:
 ```
 ## http1.0 1.1 2.0的区别
 - 长链接：HTTP1.0需要使用keep-alive来建立长连接，HTTP1.1默认支持长连接
-- 缓存处理：HTTP1.1多了Entity tag，If-Unmodified-Since, If-Match, If-None-Match等缓存信息（HTTTP1.0 If-Modified-Since,Expires）
+- 缓存处理：HTTP1.1多了Entity tag，If-Unmodified-Since, If-Match, If-None-Match等缓存信息（HTTP1.0 If-Modified-Since,Expires）
 - 节约宽带：（设置虚拟站点，也就是说，web server上的多个虚拟站点可以共享同一个ip端口）：HTTP1.0没有host域
 
 HTTP2的优化
