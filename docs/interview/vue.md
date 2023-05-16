@@ -414,11 +414,11 @@ Vue 组件的渲染过程可以分为以下几个阶段：
 4. 如果是.vue 文件，vite 拦截对应的请求，读取.vue 文件内容进行编译，把一个 .vue 的文件拆成了三个请求（分别对应 script、style 和 template） ，浏览器会先收到包含 script 逻辑的 App.vue 的响应，然后解析到 template 和 style 的路径后，会再次发起 HTTP 请求来请求对应的资源，此时 Vite 对其拦截并再次处理后返回相应的内容。
 5. 通过 babel parse 对 js 进行编译，最终返回编译后的 js 文件
 
-> Vite 主要对应的场景是开发模式（生产模式是用 rollup 打包）
+> Vite 主要对应的场景是开发模式（生产模式是用 rollup 打包）,使用 rollup 打包而不是速度惊人的esbuild，这是因为 esbuild 针对构建应用的重要功能仍然还在持续开发中 —— 特别是代码分割和css处理方面，rollup在应用打包方面更加的成熟且灵活；
 
 Vite 的是通过 WebSocket 来实现的热更新通信，监听来自服务端的 HMR 消息推送。
 
-[](https://juejin.cn/post/6844904146915573773)
+[参考](https://juejin.cn/post/6844904146915573773)、[面试官快问快答：webpack VS vite](https://juejin.cn/post/7219567168316276796)
 
 ## vuex 原理
 
