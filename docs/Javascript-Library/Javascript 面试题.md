@@ -156,7 +156,7 @@ typeof console.log // 'function'
 ```
 **instanceof**
 
-instanceof 能够区分Array、Object和Function，适合用于判断自定义的类实例对象,但是对于 Number，Boolean，String基本数据类型不能判断
+instanceof 能够区分 Array、Object和Function，适合用于判断自定义的类实例对象,但是对于 Number，Boolean，String基本数据类型不能判断
 
 >instanceof 可以正确的判断对象的类型，因为内部机制是通过判断对象的原型链中是不是能找到类型的 prototype
 
