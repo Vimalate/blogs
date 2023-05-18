@@ -177,3 +177,31 @@ css:
   margin-left: -200px;
 }
 ```
+
+## web worker 和 service worker
+
+- Web Worker 
+是在与主线程分离的独立线程中执行 JavaScript 的 API，常用来做**计算密集型或者执行耗时较长**的任务
+
+使用：
+
+```js
+// worker.js 文件
+self.addEventListener('message', function (e) {
+  var result = doWork(e.data)
+  self.postMessage(result)
+})
+
+function doWork (data) {
+  // 计算密集型任务的实现
+}
+
+// 主线程中使用
+var worker = new Worker('worker.js')
+worker.onmessage = function (e) {
+  console.log('Result:', e.data)
+}
+worker.postMessage(someData)
+```
+
+- Service Worker 则是一种与页面完全分离的脚本，它是一种独立的 JavaScript 线程，可以拦截网络请求并缓存资源，从而实现网络代理的功能。Service Worker 可以**离线使用**，又可以在后台自动更新，这使得它成为实现 Web **应用离线化、推送通知**等功能的重要技术手段。

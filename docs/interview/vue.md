@@ -134,7 +134,7 @@ const global = appContext.config.globalProperties
 
 缓存包裹的组件，避免组件切换时重新渲染，提高页面新能。
 
-缓存包裹的子组件vnode，将满足条件（include与exclude）的组件在cache对象中缓存起来，在需要重新渲染的时候再将vnode节点从cache对象中取出并渲染。
+缓存包裹的子组件vnode，将满足条件（include与exclude）的组件在cache对象中缓存起来，在需要重新渲染的时候再将vnode节点从cache对象中取出并渲染。渲染被 keep-alive 缓存的组件时，Vue 会直接从缓存池中取出对应的 VNode 对象，并将其转化为真实 DOM 元素进行渲染。**因为这些 VNode 对象已经是渲染过的，并且保留了组件实例的状态信息，所以这种方式可以实现组件的状态保持和重用，从而提高应用的性能。**
 
 **缓存淘汰策略LRU：LRU（Least recently used，最近最少使用）算法根据数据的历史访问记录来进行淘汰数据，其核心思想是“如果数据最近被访问过，那么将来被访问的几率也更高”。**
 
@@ -147,7 +147,7 @@ ue 中的 slot 实现原理主要分为编译阶段和运行阶段两个部分�
 - 编译阶段：Vue 会遍历模板，并将其转化为渲染函数。当遇到一个包含 <slot> 标记的组件时，Vue 需要解析这个插槽，并生成对应的 VNode。
 - 在运行阶段，当 Vue 在渲染子组件的模板时，会检查子组件是否有 slot，如果存在，就向其提供一个代表插槽的函数式组件。子组件会将自身的 VNode 传递给该组件，并通过 $slots 对象获取插槽的内容。
 
->子组件实例化时，获取到父组件传递的slot标签的内容，存放在 $slots 对象中，当组件执行渲染函数时，遇到 slot 标签，会使用 $slots 中的内容进行替换，这个时候可以为插槽传递数据，当存在数据是，这个插槽被称为作用域插槽。
+>子组件实例化时，获取到父组件传递的slot标签的内容，存放在 $slots 对象中，当组件执行渲染函数时，遇到 slot 标签，会使用 $slots 中的内容进行替换，这个时候可以为插槽传递数据，当存在数据时，这个插槽被称为作用域插槽。
 
 ## Vue3 为什么支持多个根节点，实现原理是什么
 
@@ -245,9 +245,9 @@ mounted() {
 
 ### nextTick 为什么要优先使用微任务实现？
 
-因为根据 event-loop 和浏览器更新渲染时机，宏任务 -> 微任务 -> 渲染更新，而使用微任务，本次 event loop 就可以货渠道更新的 dom
+因为根据 event-loop 和浏览器更新渲染时机，宏任务 -> 微任务 -> 渲染更新，而使用微任务，本次 event loop 就可以获取到更新的 dom
 
-如果使用微任务，那么得下次 event loop 才能获取到更新的 dom
+如果使用宏任务，那么得下次 event loop 才能获取到更新的 dom
 
 vue2 的初始化过程做了哪些事情？
 
@@ -377,7 +377,7 @@ diff 算法的整体策略是：深度优先，同层比较
 
 ## vue 的编译流程
 
-模板 => 词法分析 => 语法分析 => 模板 AST => Transform => Javascript AST => 代码生成 => 渲染函数
+模板 => 词法分析（token） => 语法分析 => 模板 AST => Transform => Javascript AST => 代码生成 => 渲染函数
 
 Vue 编译流程的三大步：
 
@@ -433,7 +433,7 @@ Vite 的是通过 WebSocket 来实现的热更新通信，监听来自服务端�
 1. 创建的页面路由会与该页面形成一个路由表（key value 形式，key 为该路由，value 为对应的页面）
 2. 监听 URL 变化，然后匹配路由规则，新路由页面替换旧页面，达到无需刷新的目的
 3. 单页面路由目前主要两种方式：`hash 模式，history模式`
-4. hash 模式：通过 hashchange 事件监听路由变化 `window.addEventListener('hashchange', （)=>{})`
+4. hash 模式：通过 hashchange 事件监听路由变化 `window.addEventListener('hashchange', ()=>{})`
 5. history 模式: 通过 pushState() 和 replaceState() 方法，实现网历史记录添加新的或替换对应的浏览记录，通过 popSate 事件监听 路由变化，`window.addEventListener('popstate', ())=>{})`
 
 ## vue history 模式 nginx 配置
@@ -615,7 +615,7 @@ function trigger(target, key) {
 }
 ```
 
-receiver 是用于绑定 this 关键字的。在 get()、set()、has()、deleteProperty() 等方法中，this 关键字通常指向 Proxy 对象本身。但是，如果我们将 Proxy 对象作为其他对象的属性，那么 this 关键字就可能指向其他对象。此时，我们可以使用** receiver 参数来绑定 this 关键字，确保它指向正确的对象**。
+receiver 是用于绑定 this 关键字的。在 get()、set()、has()、deleteProperty() 等方法中，this 关键字通常指向 Proxy 对象本身。但是，如果我们将 Proxy 对象作为其他对象的属性，那么 this 关键字就可能指向其他对象。此时，我们可以使用 **receiver 参数来绑定 this 关键字，确保它指向正确的对象**。
 
 ## 为什么 Proxy 一定要配合 Reflect 使用？
 
