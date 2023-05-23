@@ -747,6 +747,24 @@ Vue.js 是一个基于 MVVM 模式、用于构建用户界面的渐进式 JavaSc
 
 总之，Vue.js 从设计之初就注重了解耦与复用，采用了许多优秀的设计模式，从而成为一个灵活、高效、易于维护的渐进式框架。
 
+## Key是什么
+
+场景：
+
+- 当我们在使用v-for时，需要给单元加上key
+- 用+new Date()生成的时间戳作为key，手动强制触发重新渲染
+
+```js
+// 当拥有新值的rerender作为key时，拥有了新key的Comp出现了，那么旧key Comp会被移除，新key Comp触发渲染
+<Comp :key="+new Date()" />
+```
+
+>key是给每一个vnode的唯一id，也是diff的一种优化策略，可以根据key，更准确， 更快的找到对应的vnode节点
+
+## 自定义指令
+
+[什么是指令](https://vue3js.cn/interview/vue/directive.html#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E6%8C%87%E4%BB%A4)
+
 ## 参考
 [历时一个月，2.6W字！50+Vue经典面试题源码级详解，你值得收藏！](https://juejin.cn/post/7097067108663558151)
 ```
