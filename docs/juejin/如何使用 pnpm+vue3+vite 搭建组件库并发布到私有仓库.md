@@ -286,6 +286,8 @@ export { SButton, SInput }
 export default [SButton, SInput]
 ```
 
+>导出export default 是以Vue插件方式导出，适合用户全局引入，而 export{ SButton } 导出是为了支持按需导入
+
 最后 components 组件库目录下新建 index.js 集中导出所有
 
 ```js
