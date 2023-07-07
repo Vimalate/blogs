@@ -334,6 +334,7 @@ module.exports = {
         "我迟来的 2022 年终总结：前已无通路，后不见归途",
         "如何使用 pnpm+vue3+vite 搭建组件库并发布到私有仓库",
         "常见手写代码",
+        "vue3 里使用jsx",
       ],
       "/docs/interview/": [
         "",
