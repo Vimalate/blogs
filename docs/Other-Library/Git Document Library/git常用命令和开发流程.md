@@ -166,6 +166,9 @@ git config core.ignorecase false
 git config --global core.autocrlf false
 ```
 
+## Git报错： Failed to connect to github.com port 443 解决方案
+
+[Git报错： Failed to connect to github.com port 443 解决方案](https://blog.csdn.net/zpf1813763637/article/details/128340109)
 
 
 ## git learn
