@@ -166,6 +166,31 @@ git config core.ignorecase false
 git config --global core.autocrlf false
 ```
 
+
+
+## git learn
+
+[](https://oschina.gitee.io/learn-git-branching/)
+
+## 如何使功能分支feature追踪develop
+
+```
+git branch --set-upstream-to=origin/develop feature
+```
+
+这将设置 feature 分支跟踪名为 origin/develop 的远程分支。这样，当你在 feature 分支上执行 git pull 或 git push 命令时，它们会自动与远程的 origin/develop 分支进行交互。
+
+另一种方法是在创建 feature 分支时直接设置跟踪关系：
+
+```
+git checkout -b feature origin/develop
+```
+
+这将创建一个名为 feature 的本地分支，并将其设置为跟踪名为 origin/develop 的远程分支。
+
+无论使用哪种方法，确保你的本地仓库已经克隆了远程仓库，并且远程仓库已经设置为名为 origin 的远程源。如果你的远程源名称不是 origin，请将上述命令中的 origin 替换为你的远程源名称。
+
+
 [WARNING DELETE `␍` PRETTIER/PRETTIER（ESLINT配置的一些问题）](https://www.freesion.com/article/4532642129/)
 
 参考：[git 教程](https://juejin.im/post/5c67e70bf265da2de33f127c)、[使用Git进行多人协作开发](https://juejin.im/post/5ecb6b41f265da770d3dae6e)、[廖雪峰：多人协作](https://www.liaoxuefeng.com/wiki/896043488029600/900375748016320)、[vscode 本地分支合并远程分支，远程分支合并到本地分支](https://blog.csdn.net/qq_41732963/article/details/119942560)、[开发中关于Git那些事
@@ -174,6 +199,3 @@ git config --global core.autocrlf false
 
 [Git操作详解以及在VScode中的使用](https://blog.csdn.net/qq_42688495/article/details/109538723)
 
-## git learn
-
-[](https://oschina.gitee.io/learn-git-branching/)
