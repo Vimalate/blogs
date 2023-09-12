@@ -320,7 +320,8 @@ module.exports = {
         "Vite初识",
         "一些工作中值得收藏的网站",
         "pnpm、vue3搭建组件库",
-        "WebRtc初探"
+        "WebRtc初探",
+        "Echarts常用配置",
       ],
       "/docs/juejin/": [
         "",
