@@ -171,3 +171,5 @@ git config --global core.autocrlf false
 参考：[git 教程](https://juejin.im/post/5c67e70bf265da2de33f127c)、[使用Git进行多人协作开发](https://juejin.im/post/5ecb6b41f265da770d3dae6e)、[廖雪峰：多人协作](https://www.liaoxuefeng.com/wiki/896043488029600/900375748016320)、[vscode 本地分支合并远程分支，远程分支合并到本地分支](https://blog.csdn.net/qq_41732963/article/details/119942560)、[开发中关于Git那些事
 ](https://www.cnblogs.com/chao8888/p/7803732.html#4-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86)
 [Git--多人协作开发](https://blog.csdn.net/m0_61560468/article/details/131624036)
+
+[Git操作详解以及在VScode中的使用](https://blog.csdn.net/qq_42688495/article/details/109538723)
