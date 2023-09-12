@@ -190,6 +190,11 @@ git checkout -b feature origin/develop
 
 无论使用哪种方法，确保你的本地仓库已经克隆了远程仓库，并且远程仓库已经设置为名为 origin 的远程源。如果你的远程源名称不是 origin，请将上述命令中的 origin 替换为你的远程源名称。
 
+**查看追踪关系**
+
+```
+git branch -vv
+```
 
 [WARNING DELETE `␍` PRETTIER/PRETTIER（ESLINT配置的一些问题）](https://www.freesion.com/article/4532642129/)
 
