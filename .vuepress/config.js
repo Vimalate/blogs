@@ -274,7 +274,8 @@ module.exports = {
         "vue项目路由权限配置",
         "Vue项目启动时间太慢",
         "vue项目问题总结",
-        "vue中的$attrs和$listeners"
+        "vue中的$attrs和$listeners",
+        "关于组件二次封装的又一步思考",
       ],
       "/docs/React-Library/": [
         "",
