@@ -199,6 +199,22 @@ git checkout -b feature origin/develop
 git branch -vv
 ```
 
+## 代码写错分支
+
+比如我的代码应该写在wzy分支上，但是我写到了xym这个分支，并且还提交了，怎么把代码移到wzy分支，并且撤回提交？
+
+1、(xym)git reset HEAD^
+
+2、(xym)git stash
+
+3、切换到wzy
+
+4、(wzy)git stash pop
+
+5、(wzy)commit
+
+[参考](https://zhuanlan.zhihu.com/p/595919748)
+
 ## git 删除远程和本地分支
 
 **删除本地分支**
