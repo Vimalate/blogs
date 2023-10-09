@@ -1,25 +1,25 @@
 module.exports = {
-  "title": "博客首页",
-  "description": "Vimalakirti blog",
-  "dest": "public",
-  "base": "/blogs/",
-  "head": [
+  title: "博客首页",
+  description: "Vimalakirti blog",
+  dest: "public",
+  base: "/blogs/",
+  head: [
     [
       "link",
       {
-        "rel": "icon",
-        "href": "/avatar.ico"
-      }
+        rel: "icon",
+        href: "/avatar.ico",
+      },
     ],
     [
       "meta",
       {
-        "name": "viewport",
-        "content": "width=device-width,initial-scale=1,user-scalable=no"
-      }
+        name: "viewport",
+        content: "width=device-width,initial-scale=1,user-scalable=no",
+      },
     ],
     // [
-    //   'script', 
+    //   'script',
     //   { "src": `https://unpkg.com/element-ui/lib/index.js` }
     // ],
     // [
@@ -30,7 +30,7 @@ module.exports = {
     //   }
     // ],
   ],
-  "plugins": {
+  plugins: {
     "@vuepress/pwa": {
       serviceWorker: true,
       updatePopup: {
@@ -38,7 +38,7 @@ module.exports = {
         buttonText: "刷新",
       },
     },
-    "demo-container":true,
+    "demo-container": true,
     // "@vuepress/back-to-top": true,
     "@vuepress/active-header-links": {
       sidebarLinkSelector: ".sidebar-link",
@@ -76,11 +76,14 @@ module.exports = {
     // },
     // "vuepress-plugin-nuggets-style-copy": true,
     "one-click-copy": {
-    copySelector: ['div[class*="language-"] pre', 'div[class*="aside-code"] aside'], // String or Array
-    copyMessage: '复制成功！', // default is 'Copy successfully and then paste it for use.'
-    showInMobile: false // whether to display on the mobile side, default: false.
+      copySelector: [
+        'div[class*="language-"] pre',
+        'div[class*="aside-code"] aside',
+      ], // String or Array
+      copyMessage: "复制成功！", // default is 'Copy successfully and then paste it for use.'
+      showInMobile: false, // whether to display on the mobile side, default: false.
     },
-    'vuepress-plugin-helper-live2d': {
+    "vuepress-plugin-helper-live2d": {
       // 是否开启控制台日志打印(default: false)
       log: false,
       live2d: {
@@ -88,7 +91,7 @@ module.exports = {
         enable: true,
         // 模型名称(default: hibiki)>>>取值请参考：
         // https://github.com/JoeyBling/hexo-theme-yilia-plus/wiki/live2d%E6%A8%A1%E5%9E%8B%E5%8C%85%E5%B1%95%E7%A4%BA
-        model: 'wanko',
+        model: "wanko",
         display: {
           position: "right", // 显示位置：left/right(default: 'right')
           width: 135, // 模型的长度(default: 135)
@@ -97,23 +100,22 @@ module.exports = {
           vOffset: 0, //  垂直偏移(default: 0)
         },
         mobile: {
-          show: true // 是否在移动设备上显示(default: false)
+          show: true, // 是否在移动设备上显示(default: false)
         },
         react: {
-          opacity: 0.8 // 模型透明度(default: 0.8)
-        }
-      }
+          opacity: 0.8, // 模型透明度(default: 0.8)
+        },
+      },
     },
-    "dynamic-title":
-    {
+    "dynamic-title": {
       showText: "(/≧▽≦/)咦！又好了！",
       hideText: "(●—●)喔哟，崩溃啦！",
-      recoverTime: 2000
+      recoverTime: 2000,
     },
     "ribbon-animation": {
-      size: 90,   // 默认数据
-      opacity: 0.3,  //  透明度
-      zIndex: -1,   //  层级
+      size: 90, // 默认数据
+      opacity: 0.3, //  透明度
+      zIndex: -1, //  层级
       opt: {
         // 色带HSL饱和度
         colorSaturation: "80%",
@@ -134,88 +136,92 @@ module.exports = {
         // 通过页面滚动上的因子垂直移动色带
         parallaxAmount: -0.5,
         // 随着时间的推移，为每个功能区添加动画效果
-        animateSections: true
+        animateSections: true,
       },
       ribbonShow: false, //  点击彩带  true显示  false为不显示
-      ribbonAnimationShow: true  // 滑动彩带
-    }
+      ribbonAnimationShow: true, // 滑动彩带
+    },
   },
-  "theme": "reco",
-  "themeConfig": {
-    "nav": [
+  theme: "reco",
+  themeConfig: {
+    nav: [
       {
-        "text": "首页",
-        "link": "/",
-        "icon": "reco-home"
+        text: "首页",
+        link: "/",
+        icon: "reco-home",
       },
       {
-        "text": "时间线",
-        "link": "/timeline/",
-        "icon": "reco-date"
+        text: "时间线",
+        link: "/timeline/",
+        icon: "reco-date",
       },
       {
-        "text": "文档",
-        "icon": "reco-message",
-        "items": [
+        text: "文档",
+        icon: "reco-message",
+        items: [
           // {
           //   "text": "vuepress-reco",
           //   "link": "/docs/theme-reco/"
           // },
           {
-            "text": "HTML-Library",
-            "link": "/docs/HTML-Library/"
+            text: "HTML-Library",
+            link: "/docs/HTML-Library/",
           },
           {
-            "text": "CSS-Library",
-            "link": "/docs/CSS-Library/"
+            text: "CSS-Library",
+            link: "/docs/CSS-Library/",
           },
           {
-            "text": "Javascript-Library",
-            "link": "/docs/Javascript-Library/"
+            text: "Javascript-Library",
+            link: "/docs/Javascript-Library/",
           },
           {
-            "text":"Vue-Library",
-            "link":"/docs/Vue-Library/"
+            text: "Vue-Library",
+            link: "/docs/Vue-Library/",
           },
           {
-            "text":"React-Library",
-            "link":"/docs/React-Library/"
+            text: "React-Library",
+            link: "/docs/React-Library/",
           },
           {
-            "text": "Other-Library",
-            "link": "/docs/Other-Library/"
+            text: "Other-Library",
+            link: "/docs/Other-Library/",
           },
           {
-            "text": "juejin",
-            "link": "/docs/juejin/"
+            text: "juejin",
+            link: "/docs/juejin/",
           },
           {
-            "text": "web-interview",
-            "link":"/docs/interview/"
+            text: "web-interview",
+            link: "/docs/interview/",
           },
           {
-            "text": "前端性能优化与实践",
-            "link": "/docs/前端性能优化与实践/"
+            text: "前端性能优化与实践",
+            link: "/docs/前端性能优化与实践/",
           },
           {
-            "text": "使用webpack定制前端开发环境",
-            "link": "/docs/使用webpack定制前端开发环境/"
-          }
-        ]
+            text: "使用webpack定制前端开发环境",
+            link: "/docs/使用webpack定制前端开发环境/",
+          },
+          {
+            text: "TypeScript全面进阶指南",
+            link: "/docs/TypeScript全面进阶指南/",
+          },
+        ],
       },
       {
-        "text": "Contact",
-        "icon": "reco-message",
-        "items": [
+        text: "Contact",
+        icon: "reco-message",
+        items: [
           {
-            "text": "GitHub",
-            "link": "https://github.com/Vimalate",
-            "icon": "reco-github"
-          }
-        ]
-      }
+            text: "GitHub",
+            link: "https://github.com/Vimalate",
+            icon: "reco-github",
+          },
+        ],
+      },
     ],
-    "sidebar": {
+    sidebar: {
       // "/docs/theme-reco/": [
       //   "",
       //   "theme",
@@ -225,14 +231,14 @@ module.exports = {
       "/docs/HTML-Library/": [
         // "",
         "HTML-Study",
-        "HTML技巧"
+        "HTML技巧",
       ],
       "/docs/CSS-Library/": [
         "",
         "那些奇妙的 CSS ",
         "我都知道的CSS",
         "CSS 技巧",
-        "别再问我布局了喔"
+        "别再问我布局了喔",
       ],
       "/docs/Javascript-Library/": [
         "",
@@ -254,7 +260,7 @@ module.exports = {
         "js继承",
         "js跳出循环的方法区别break,continue,return",
         "实现一个 new 操作符",
-        "reduce 的妙用"
+        "reduce 的妙用",
       ],
       "/docs/Vue-Library/": [
         "",
@@ -277,10 +283,7 @@ module.exports = {
         "vue中的$attrs和$listeners",
         "关于组件二次封装的又一步思考",
       ],
-      "/docs/React-Library/": [
-        "",
-        "react-study",
-      ],
+      "/docs/React-Library/": ["", "react-study"],
       "/docs/Other-Library/": [
         "",
         "常见手写",
@@ -355,29 +358,65 @@ module.exports = {
         "开篇：知识体系与小册格局",
         "存储篇 1：浏览器缓存机制介绍与缓存策略剖析",
         "存储篇 2：本地存储——从 Cookie 到 Web Storage、IndexDB",
-       "前方的路：希望以此为你的起点",
-       "网络篇 1：webpack 性能调优与 Gzip 原理",
-       "网络篇 2：图片优化——质量与性能的博弈",
-       "性能监测篇：Performance、LightHouse 与性能 API",
-       "渲染篇 1：服务端渲染的探索与实践",
-       "渲染篇 2：知己知彼——解锁浏览器背后的运行机制",
-       "渲染篇 3：对症下药——DOM 优化原理与基本实践",
-       "渲染篇 4：千方百计——Event Loop 与异步更新策略",
-       "应用篇 1：优化首屏体验——Lazy-Load 初探",
-       "应用篇 2：事件的节流（throttle）与防抖（debounce）",
-       "彩蛋篇：CDN 的缓存与回源机制解析"
+        "前方的路：希望以此为你的起点",
+        "网络篇 1：webpack 性能调优与 Gzip 原理",
+        "网络篇 2：图片优化——质量与性能的博弈",
+        "性能监测篇：Performance、LightHouse 与性能 API",
+        "渲染篇 1：服务端渲染的探索与实践",
+        "渲染篇 2：知己知彼——解锁浏览器背后的运行机制",
+        "渲染篇 3：对症下药——DOM 优化原理与基本实践",
+        "渲染篇 4：千方百计——Event Loop 与异步更新策略",
+        "应用篇 1：优化首屏体验——Lazy-Load 初探",
+        "应用篇 2：事件的节流（throttle）与防抖（debounce）",
+        "彩蛋篇：CDN 的缓存与回源机制解析",
+      ],
+      "/docs/TypeScript全面进阶指南/": [
+        "",
+        "1.开篇：用正确的方式学习 TypeScript",
+        "2.工欲善其事：打造最舒适的 TypeScript 开发环境",
+        "3.进入类型的世界：理解原始类型与对象类型",
+        "4.掌握字面量类型与枚举，让你的类型再精确一些",
+        "5.函数与 Class 中的类型：详解函数重载与面向对象",
+        "6.探秘内置类型：any、unknown、never 与类型断言",
+        "7.类型编程好帮手：TypeScript 类型工具（上）",
+        "8.类型编程好帮手：TypeScript 类型工具（下）",
+        "9.类型编程基石：TypeScript 中无处不在的泛型",
+        "10.结构化类型系统：类型兼容性判断的幕后",
+        "11.类型系统层级：从 Top Type 到 Bottom Type",
+        "12.类型里的逻辑运算：条件类型与 infer",
+        "13.内置工具类型基础：别再妖魔化工具类型了！",
+        "14.反方向类型推导：用好上下文相关类型",
+        "15.数类型：协变与逆变的比较",
+        "16.了解类型编程与类型体操的意义，找到平衡点",
+        "17.内置工具类型进阶：类型编程进阶",
+        "18.基础类型新成员：模板字符串类型入门",
+        "19.类型编程新范式：模板字符串工具类型进阶",
+        "20.工程层面的类型能力：类型声明、类型指令与命名空间",
+        "21.在 React 中愉快地使用 TypeScript：内置类型与泛型坑位",
+        "22.让 ESLint 来约束你的 TypeScript 代码：配置与规则集介绍",
+        "23.全链路 TypeScript 工具库，找到适合你的工具",
+        "24.说说 TypeScript 和 ECMAScript 之间那些事儿",
+        "25.装饰器与反射元数据：了解装饰器基本原理与应用",
+        "26.控制反转与依赖注入：基于装饰器的依赖注入实现",
+        "27.TSConfig 全解（上）：构建相关配置",
+        "28.TSConfig 全解（下）：检查相关、工程相关配置",
+        "29.基于 Prisma + NestJs 的 Node API ：前置知识储备",
+        "30.基于 Prisma + NestJs 的 Node API ：项目开发与基于 Heroku 部署",
+        "31.玩转 TypeScript AST：AST Checker 与 CodeMod",
+        "32.感谢相伴：是结束，也是开始",
+        "33.漫谈篇：面试中的 TypeScript",
       ],
     },
-    "type": "blog",
-    "blogConfig": {
-      "category": {
-        "location": 2,
-        "text": "分类"
+    type: "blog",
+    blogConfig: {
+      category: {
+        location: 2,
+        text: "分类",
       },
-      "tag": {
-        "location": 3,
-        "text": "标签"
-      }
+      tag: {
+        location: 3,
+        text: "标签",
+      },
     },
     // "friendLink": [
     //   {
@@ -393,19 +432,19 @@ module.exports = {
     //     "link": "https://vuepress-theme-reco.recoluan.com"
     //   }
     // ],
-    "logo": "/avatar.jpg",
-    "search": true,
-    "searchMaxSuggestions": 10,
-    "lastUpdated": "Last Updated",
-    "author": "呛再首",
-    "authorAvatar": "/avatar.jpg",
-    "record": "回到顶部",
-    "startYear": "2019"
+    logo: "/avatar.jpg",
+    search: true,
+    searchMaxSuggestions: 10,
+    lastUpdated: "Last Updated",
+    author: "呛再首",
+    authorAvatar: "/avatar.jpg",
+    record: "回到顶部",
+    startYear: "2019",
   },
-  "markdown": {
-    "lineNumbers": true
+  markdown: {
+    lineNumbers: true,
   },
-  chainWebpack: config => {
-    config.resolve.alias.set('core-js/library/fn', 'core-js/features')
-}
-}
+  chainWebpack: (config) => {
+    config.resolve.alias.set("core-js/library/fn", "core-js/features");
+  },
+};
