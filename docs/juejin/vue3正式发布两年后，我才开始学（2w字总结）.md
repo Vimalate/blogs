@@ -677,6 +677,8 @@ const getName = () => {
 </script>
 ```
 
+>定义节点 ref，const domRef= ref<HTMLElement|null>(null)
+
 
 >注意：defineProps 、defineEmits 、 defineExpose 和 withDefaults 这四个宏函数只能在 ```<script setup>``` 中使用。他们不需要导入，会随着``` <script setup> ```的处理过程中一起被编译。
 
@@ -1088,6 +1090,76 @@ h(
  }
 )
 ```
+
+## 接口请求类型定义
+
+```ts
+// 定义用户登录接口携带参数的泛型类型
+export interface LoginFormData {
+  username: string;
+  password: string;
+}
+
+// 定义接口返回数据的泛型类型
+export interface ResponseData<T> {
+  code: number;
+  message: string;
+  ok: boolean;
+  data: T; // 使用泛型表示具体的数据类型
+}
+
+// 定义登录接口返回数据类型
+export interface LoginResponseData extends ResponseData<string> {
+  // 在泛型类型中指定具体的数据类型为 string
+}
+
+// 定义获取用户信息返回数据类型
+export interface UserInfoResponseData extends ResponseData<{
+  routes: string[];
+  buttons: string[];
+  roles: string[];
+  name: string;
+  avatar: string;
+}> {
+  // 在泛型类型中指定具体的数据类型为对象类型
+}
+```
+
+直接使用泛型
+
+```ts
+// 定义接口返回数据的泛型类型
+export interface ResponseData<T = undefined> {
+  code: number;
+  message: string;
+  ok: boolean;
+  data?: T; // 使用泛型表示具体的数据类型，设为可选
+}
+```
+
+
+在上述代码中，我们使用了 T = undefined 来指定泛型 T 的默认类型为 undefined，这样在不需要具体数据类型的情况下，可以直接使用 ResponseData 类型。
+
+
+使用：
+```ts
+const responseData: ResponseData = {
+  code: 200,
+  message: "Success",
+  ok: true,
+};
+
+const responseDataWithData: ResponseData<string> = {
+  code: 200,
+  message: "Success",
+  ok: true,
+  data: "Hello, world!",
+};
+```
+
+responseData 使用了默认的 undefined 类型，而 responseDataWithData 指定了具体的数据类型为字符串类型。
+
+通过使用 ResponseData 泛型类型，你可以更灵活地处理接口返回数据的类型，并根据需要选择是否提供具体的数据类型。
 
 [参考](https://www.jianshu.com/p/260827a11efa)、[渲染函数 API](https://cn.vuejs.org/api/render-function.html#h)
 
