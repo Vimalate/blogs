@@ -839,4 +839,21 @@ const dragEnter = () => {
 
 [获取input中光标位置，并且点击按钮在当前光标后追加指定内容](https://blog.csdn.net/weixin_46054431/article/details/122978540)
 
+## element下拉组件改变下拉箭头图标
+
+```css
+.el-cascader {
+  .el-input__icon:before {
+    content: '\e790';
+  }
+}
+
+.el-select {
+  .el-select__caret:before {
+    content: '\e790';
+  }
+}
+```
+ [参考](https://www.cnblogs.com/ruyijiang/p/16935597.html)
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)

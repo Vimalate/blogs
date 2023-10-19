@@ -243,7 +243,6 @@ module.exports = {
       "/docs/Javascript-Library/": [
         "",
         "常见对象方法",
-        "常见手写代码",
         "常见数组方法",
         "常见字符串方法",
         "字符串技巧",
