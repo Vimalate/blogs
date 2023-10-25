@@ -856,4 +856,16 @@ const dragEnter = () => {
 ```
  [参考](https://www.cnblogs.com/ruyijiang/p/16935597.html)
 
+ ## el-table checkbox 全选添加自定义
+
+ ```scss
+ ::v-deep .el-table__header .el-table-column--selection .cell .el-checkbox:after {
+  color: #333;
+  content: "全选";
+  font-size: 14px;
+  margin-left: 12px;
+  color: aqua;
+}
+ ```
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
