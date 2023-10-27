@@ -868,4 +868,15 @@ const dragEnter = () => {
 }
  ```
 
+ ## element-ui el-row中有多个el-col的时候，某些情况下el-col显示错位
+
+ el-row 添加
+
+ ```css
+ .el-row{
+  display: flex;
+  flex-wrap: wrap;
+ }
+ ```
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
