@@ -879,4 +879,27 @@ const dragEnter = () => {
  }
  ```
 
+ ## for 循环发送 axios 请求
+
+ ```js
+ async function sendRequests() {
+  const results = [];
+
+  for await (const item of items) {
+    try {
+      const response = await axios.get(item.url); // 发送 Axios 请求
+      results.push(response.data); // 将请求结果保存到数组中
+    } catch (error) {
+      console.error(`Error in request: ${item.url}`, error);
+      results.push(null); // 发生错误时，将结果置为 null 或其他标识
+    }
+  }
+
+  // 处理所有请求完成后的结果
+  console.log('All requests completed:', results);
+}
+
+sendRequests();
+ ```
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
