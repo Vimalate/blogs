@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vue3正式发布两年后，我才开始学（2w字总结） | 博客首页</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/blogs/avatar.ico">
+    <meta name="description" content="Vimalakirti blog">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/blogs/assets/css/0.styles.8ee0588d.css" as="style"><link rel="preload" href="/blogs/assets/js/app.500cfb4c.js" as="script"><link rel="preload" href="/blogs/assets/js/3.ab704d4e.js" as="script"><link rel="preload" href="/blogs/assets/js/1.120dd0c6.js" as="script"><link rel="preload" href="/blogs/assets/js/176.239f927c.js" as="script"><link rel="preload" href="/blogs/assets/js/15.a0d3f198.js" as="script"><link rel="prefetch" href="/blogs/assets/js/10.22997040.js"><link rel="prefetch" href="/blogs/assets/js/100.fd6dfd82.js"><link rel="prefetch" href="/blogs/assets/js/101.137866a8.js"><link rel="prefetch" href="/blogs/assets/js/102.8e97ff4c.js"><link rel="prefetch" href="/blogs/assets/js/103.cd97319e.js"><link rel="prefetch" href="/blogs/assets/js/104.0e7eed5a.js"><link rel="prefetch" href="/blogs/assets/js/105.35566707.js"><link rel="prefetch" href="/blogs/assets/js/106.f0f9b63e.js"><link rel="prefetch" href="/blogs/assets/js/107.751e7979.js"><link rel="prefetch" href="/blogs/assets/js/108.244161be.js"><link rel="prefetch" href="/blogs/assets/js/109.8ba67618.js"><link rel="prefetch" href="/blogs/assets/js/11.123cec5f.js"><link rel="prefetch" href="/blogs/assets/js/110.a85d3a98.js"><link rel="prefetch" href="/blogs/assets/js/111.79b978e1.js"><link rel="prefetch" href="/blogs/assets/js/112.e136754e.js"><link rel="prefetch" href="/blogs/assets/js/113.9872522c.js"><link rel="prefetch" href="/blogs/assets/js/114.e50bf446.js"><link rel="prefetch" href="/blogs/assets/js/115.94e4f425.js"><link rel="prefetch" href="/blogs/assets/js/116.154333be.js"><link rel="prefetch" href="/blogs/assets/js/117.713f2f2e.js"><link rel="prefetch" href="/blogs/assets/js/118.5f2b2811.js"><link rel="prefetch" href="/blogs/assets/js/119.8d4ac096.js"><link rel="prefetch" href="/blogs/assets/js/12.b2660b05.js"><link rel="prefetch" href="/blogs/assets/js/120.04f64197.js"><link rel="prefetch" href="/blogs/assets/js/121.ca17861d.js"><link rel="prefetch" href="/blogs/assets/js/122.6e7d28fb.js"><link rel="prefetch" href="/blogs/assets/js/123.f7b5977c.js"><link rel="prefetch" href="/blogs/assets/js/124.213e4532.js"><link rel="prefetch" href="/blogs/assets/js/125.3fa29b40.js"><link rel="prefetch" href="/blogs/assets/js/126.a4039525.js"><link rel="prefetch" href="/blogs/assets/js/127.7f484897.js"><link rel="prefetch" href="/blogs/assets/js/128.fdc975c7.js"><link rel="prefetch" href="/blogs/assets/js/129.fe2abf96.js"><link rel="prefetch" href="/blogs/assets/js/13.27388741.js"><link rel="prefetch" href="/blogs/assets/js/130.7a2140c1.js"><link rel="prefetch" href="/blogs/assets/js/131.425f7c16.js"><link rel="prefetch" href="/blogs/assets/js/132.70567358.js"><link rel="prefetch" href="/blogs/assets/js/133.fbc58b05.js"><link rel="prefetch" href="/blogs/assets/js/134.dcc7d0ce.js"><link rel="prefetch" href="/blogs/assets/js/135.1141e9a6.js"><link rel="prefetch" href="/blogs/assets/js/136.99a04b7a.js"><link rel="prefetch" href="/blogs/assets/js/137.7e4c228d.js"><link rel="prefetch" href="/blogs/assets/js/138.3a987474.js"><link rel="prefetch" href="/blogs/assets/js/139.c970c8e9.js"><link rel="prefetch" href="/blogs/assets/js/14.3bb072f4.js"><link rel="prefetch" href="/blogs/assets/js/140.8a4a896e.js"><link rel="prefetch" href="/blogs/assets/js/141.6945715d.js"><link rel="prefetch" href="/blogs/assets/js/142.25a947bd.js"><link rel="prefetch" href="/blogs/assets/js/143.bbe141ba.js"><link rel="prefetch" href="/blogs/assets/js/144.07143997.js"><link rel="prefetch" href="/blogs/assets/js/145.9a9c230c.js"><link rel="prefetch" href="/blogs/assets/js/146.ff058b45.js"><link rel="prefetch" href="/blogs/assets/js/147.611b1a61.js"><link rel="prefetch" href="/blogs/assets/js/148.c4db457d.js"><link rel="prefetch" href="/blogs/assets/js/149.e84e7c9e.js"><link rel="prefetch" href="/blogs/assets/js/150.26165aef.js"><link rel="prefetch" href="/blogs/assets/js/151.bbc21f18.js"><link rel="prefetch" href="/blogs/assets/js/152.72161a54.js"><link rel="prefetch" href="/blogs/assets/js/153.e1641b61.js"><link rel="prefetch" href="/blogs/assets/js/154.e91db58a.js"><link rel="prefetch" href="/blogs/assets/js/155.887f2853.js"><link rel="prefetch" href="/blogs/assets/js/156.b22cfc20.js"><link rel="prefetch" href="/blogs/assets/js/157.63f68b5b.js"><link rel="prefetch" href="/blogs/assets/js/158.856832c1.js"><link rel="prefetch" href="/blogs/assets/js/159.92584876.js"><link rel="prefetch" href="/blogs/assets/js/16.6e74b879.js"><link rel="prefetch" href="/blogs/assets/js/160.1d21558a.js"><link rel="prefetch" href="/blogs/assets/js/161.bb564e9f.js"><link rel="prefetch" href="/blogs/assets/js/162.caec4409.js"><link rel="prefetch" href="/blogs/assets/js/163.c6f64985.js"><link rel="prefetch" href="/blogs/assets/js/164.66e928ae.js"><link rel="prefetch" href="/blogs/assets/js/165.e3cb517b.js"><link rel="prefetch" href="/blogs/assets/js/166.e7fd38f0.js"><link rel="prefetch" href="/blogs/assets/js/167.0817b0a0.js"><link rel="prefetch" href="/blogs/assets/js/168.11c5a1b6.js"><link rel="prefetch" href="/blogs/assets/js/169.617f3bc0.js"><link rel="prefetch" href="/blogs/assets/js/17.3a3181e0.js"><link rel="prefetch" href="/blogs/assets/js/170.e2da6722.js"><link rel="prefetch" href="/blogs/assets/js/171.e8b33425.js"><link rel="prefetch" href="/blogs/assets/js/172.bded7304.js"><link rel="prefetch" href="/blogs/assets/js/173.c6aef283.js"><link rel="prefetch" href="/blogs/assets/js/174.61c0e632.js"><link rel="prefetch" href="/blogs/assets/js/175.81e803dc.js"><link rel="prefetch" href="/blogs/assets/js/177.a4edfa3f.js"><link rel="prefetch" href="/blogs/assets/js/178.bef8fd54.js"><link rel="prefetch" href="/blogs/assets/js/179.b745b5db.js"><link rel="prefetch" href="/blogs/assets/js/18.fdfdabaf.js"><link rel="prefetch" href="/blogs/assets/js/180.1e6a265e.js"><link rel="prefetch" href="/blogs/assets/js/181.62663a80.js"><link rel="prefetch" href="/blogs/assets/js/182.58a29b9c.js"><link rel="prefetch" href="/blogs/assets/js/183.ae3152e7.js"><link rel="prefetch" href="/blogs/assets/js/184.83530a9e.js"><link rel="prefetch" href="/blogs/assets/js/185.8a5f69a9.js"><link rel="prefetch" href="/blogs/assets/js/186.d3e57211.js"><link rel="prefetch" href="/blogs/assets/js/187.566cbf78.js"><link rel="prefetch" href="/blogs/assets/js/188.01bc9809.js"><link rel="prefetch" href="/blogs/assets/js/189.0a7925a0.js"><link rel="prefetch" href="/blogs/assets/js/19.4238119d.js"><link rel="prefetch" href="/blogs/assets/js/190.d40196a9.js"><link rel="prefetch" href="/blogs/assets/js/191.e26da653.js"><link rel="prefetch" href="/blogs/assets/js/192.89da53bc.js"><link rel="prefetch" href="/blogs/assets/js/193.8fce4546.js"><link rel="prefetch" href="/blogs/assets/js/194.156d0532.js"><link rel="prefetch" href="/blogs/assets/js/195.bfc310d0.js"><link rel="prefetch" href="/blogs/assets/js/196.918c289c.js"><link rel="prefetch" href="/blogs/assets/js/197.f1facd93.js"><link rel="prefetch" href="/blogs/assets/js/198.9bb0334e.js"><link rel="prefetch" href="/blogs/assets/js/199.6003905b.js"><link rel="prefetch" href="/blogs/assets/js/20.07ce6e0b.js"><link rel="prefetch" href="/blogs/assets/js/200.3a254968.js"><link rel="prefetch" href="/blogs/assets/js/201.0069edba.js"><link rel="prefetch" href="/blogs/assets/js/202.e8c89894.js"><link rel="prefetch" href="/blogs/assets/js/203.5a8a01ee.js"><link rel="prefetch" href="/blogs/assets/js/204.0d214ba2.js"><link rel="prefetch" href="/blogs/assets/js/205.00ca5934.js"><link rel="prefetch" href="/blogs/assets/js/206.f397a1ec.js"><link rel="prefetch" href="/blogs/assets/js/207.fb5b45fd.js"><link rel="prefetch" href="/blogs/assets/js/208.63155633.js"><link rel="prefetch" href="/blogs/assets/js/209.2ed6ecc2.js"><link rel="prefetch" href="/blogs/assets/js/21.089865dd.js"><link rel="prefetch" href="/blogs/assets/js/210.cbc16c4b.js"><link rel="prefetch" href="/blogs/assets/js/211.3061bbff.js"><link rel="prefetch" href="/blogs/assets/js/212.ffb1aa5d.js"><link rel="prefetch" href="/blogs/assets/js/213.f5e03609.js"><link rel="prefetch" href="/blogs/assets/js/22.12d8fc10.js"><link rel="prefetch" href="/blogs/assets/js/23.02f8a3dc.js"><link rel="prefetch" href="/blogs/assets/js/24.84bc157e.js"><link rel="prefetch" href="/blogs/assets/js/25.9b49dd25.js"><link rel="prefetch" href="/blogs/assets/js/26.e8ffd492.js"><link rel="prefetch" href="/blogs/assets/js/27.73ccf8d1.js"><link rel="prefetch" href="/blogs/assets/js/28.b6ff0a49.js"><link rel="prefetch" href="/blogs/assets/js/29.ba8c9cd7.js"><link rel="prefetch" href="/blogs/assets/js/30.ed151282.js"><link rel="prefetch" href="/blogs/assets/js/31.ee5a9adc.js"><link rel="prefetch" href="/blogs/assets/js/32.c4d7f55d.js"><link rel="prefetch" href="/blogs/assets/js/33.455ab698.js"><link rel="prefetch" href="/blogs/assets/js/34.3dc6fd97.js"><link rel="prefetch" href="/blogs/assets/js/35.cef5a85f.js"><link rel="prefetch" href="/blogs/assets/js/36.157cb55a.js"><link rel="prefetch" href="/blogs/assets/js/37.7786986a.js"><link rel="prefetch" href="/blogs/assets/js/38.ace12f85.js"><link rel="prefetch" href="/blogs/assets/js/39.2680a1d9.js"><link rel="prefetch" href="/blogs/assets/js/4.4c5b9874.js"><link rel="prefetch" href="/blogs/assets/js/40.cfe4df2f.js"><link rel="prefetch" href="/blogs/assets/js/41.7f0d36a7.js"><link rel="prefetch" href="/blogs/assets/js/42.20cb24f9.js"><link rel="prefetch" href="/blogs/assets/js/43.5cda41ae.js"><link rel="prefetch" href="/blogs/assets/js/44.6dd13984.js"><link rel="prefetch" href="/blogs/assets/js/45.108e8bf0.js"><link rel="prefetch" href="/blogs/assets/js/46.0a58d921.js"><link rel="prefetch" href="/blogs/assets/js/47.fc236d73.js"><link rel="prefetch" href="/blogs/assets/js/48.937eaaa0.js"><link rel="prefetch" href="/blogs/assets/js/49.e3384d83.js"><link rel="prefetch" href="/blogs/assets/js/5.d80bb541.js"><link rel="prefetch" href="/blogs/assets/js/50.45a095ef.js"><link rel="prefetch" href="/blogs/assets/js/51.39c8338e.js"><link rel="prefetch" href="/blogs/assets/js/52.efd2112f.js"><link rel="prefetch" href="/blogs/assets/js/53.267c64b0.js"><link rel="prefetch" href="/blogs/assets/js/54.b5b820d2.js"><link rel="prefetch" href="/blogs/assets/js/55.0ef4f037.js"><link rel="prefetch" href="/blogs/assets/js/56.8f5851ca.js"><link rel="prefetch" href="/blogs/assets/js/57.05fdaea6.js"><link rel="prefetch" href="/blogs/assets/js/58.ab6ba5e2.js"><link rel="prefetch" href="/blogs/assets/js/59.d8573084.js"><link rel="prefetch" href="/blogs/assets/js/6.a288fb54.js"><link rel="prefetch" href="/blogs/assets/js/60.1b462558.js"><link rel="prefetch" href="/blogs/assets/js/61.4128f601.js"><link rel="prefetch" href="/blogs/assets/js/62.88a7491d.js"><link rel="prefetch" href="/blogs/assets/js/63.4461d91d.js"><link rel="prefetch" href="/blogs/assets/js/64.38ea9196.js"><link rel="prefetch" href="/blogs/assets/js/65.fd87f9fe.js"><link rel="prefetch" href="/blogs/assets/js/66.e5d09ccb.js"><link rel="prefetch" href="/blogs/assets/js/67.22554b65.js"><link rel="prefetch" href="/blogs/assets/js/68.0502589c.js"><link rel="prefetch" href="/blogs/assets/js/69.35937916.js"><link rel="prefetch" href="/blogs/assets/js/7.ed923a16.js"><link rel="prefetch" href="/blogs/assets/js/70.7e3deaae.js"><link rel="prefetch" href="/blogs/assets/js/71.46a84170.js"><link rel="prefetch" href="/blogs/assets/js/72.61136659.js"><link rel="prefetch" href="/blogs/assets/js/73.2202ef65.js"><link rel="prefetch" href="/blogs/assets/js/74.b9d82b76.js"><link rel="prefetch" href="/blogs/assets/js/75.206dca9b.js"><link rel="prefetch" href="/blogs/assets/js/76.4ca6fb0e.js"><link rel="prefetch" href="/blogs/assets/js/77.7f16f66d.js"><link rel="prefetch" href="/blogs/assets/js/78.3563bf98.js"><link rel="prefetch" href="/blogs/assets/js/79.bc63c39e.js"><link rel="prefetch" href="/blogs/assets/js/8.e6004ff9.js"><link rel="prefetch" href="/blogs/assets/js/80.77fe98fc.js"><link rel="prefetch" href="/blogs/assets/js/81.e72bbb3b.js"><link rel="prefetch" href="/blogs/assets/js/82.3221aa1f.js"><link rel="prefetch" href="/blogs/assets/js/83.a9574403.js"><link rel="prefetch" href="/blogs/assets/js/84.5b77709e.js"><link rel="prefetch" href="/blogs/assets/js/85.6ab70366.js"><link rel="prefetch" href="/blogs/assets/js/86.86e90588.js"><link rel="prefetch" href="/blogs/assets/js/87.6c30aaeb.js"><link rel="prefetch" href="/blogs/assets/js/88.91ed30aa.js"><link rel="prefetch" href="/blogs/assets/js/89.78360293.js"><link rel="prefetch" href="/blogs/assets/js/9.8e018535.js"><link rel="prefetch" href="/blogs/assets/js/90.77b1bca0.js"><link rel="prefetch" href="/blogs/assets/js/91.4376e5c4.js"><link rel="prefetch" href="/blogs/assets/js/92.12c60706.js"><link rel="prefetch" href="/blogs/assets/js/93.7e733384.js"><link rel="prefetch" href="/blogs/assets/js/94.f943c59f.js"><link rel="prefetch" href="/blogs/assets/js/95.35646351.js"><link rel="prefetch" href="/blogs/assets/js/96.869251c0.js"><link rel="prefetch" href="/blogs/assets/js/97.e12beed8.js"><link rel="prefetch" href="/blogs/assets/js/98.35e82b36.js"><link rel="prefetch" href="/blogs/assets/js/99.b683092f.js">
+    <link rel="stylesheet" href="/blogs/assets/css/0.styles.8ee0588d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>博客首页</h3> <p class="description" data-v-59e6cb88>Vimalakirti blog</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>呛再首</span>
+          
+        <span data-v-59e6cb88>2019 - </span>
+        2023
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blogs/" class="home-link router-link-active"><img src="/blogs/avatar.jpg" alt="博客首页" class="logo"> <span class="site-name">博客首页</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blogs/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/categories/css/" class="nav-link"><i class="undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/html/" class="nav-link"><i class="undefined"></i>
+  html
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/javascript/" class="nav-link"><i class="undefined"></i>
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/其他/" class="nav-link"><i class="undefined"></i>
+  其他
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/面试/" class="nav-link"><i class="undefined"></i>
+  面试
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/React/" class="nav-link"><i class="undefined"></i>
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/Vue/" class="nav-link"><i class="undefined"></i>
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/杂记/" class="nav-link"><i class="undefined"></i>
+  杂记
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/Typescript/" class="nav-link"><i class="undefined"></i>
+  Typescript
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/blogs/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      文档
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/docs/HTML-Library/" class="nav-link"><i class="undefined"></i>
+  HTML-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/CSS-Library/" class="nav-link"><i class="undefined"></i>
+  CSS-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/Javascript-Library/" class="nav-link"><i class="undefined"></i>
+  Javascript-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/Vue-Library/" class="nav-link"><i class="undefined"></i>
+  Vue-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/React-Library/" class="nav-link"><i class="undefined"></i>
+  React-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/Other-Library/" class="nav-link"><i class="undefined"></i>
+  Other-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/juejin/" class="nav-link router-link-active"><i class="undefined"></i>
+  juejin
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/interview/" class="nav-link"><i class="undefined"></i>
+  web-interview
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/前端性能优化与实践/" class="nav-link"><i class="undefined"></i>
+  前端性能优化与实践
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/使用webpack定制前端开发环境/" class="nav-link"><i class="undefined"></i>
+  使用webpack定制前端开发环境
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/TypeScript全面进阶指南/" class="nav-link"><i class="undefined"></i>
+  TypeScript全面进阶指南
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/Vimalate" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/blogs/avatar.jpg" alt="author-avatar" class="personal-img" data-v-1fad0c41> <h3 class="name" data-v-1fad0c41>
+    呛再首
+  </h3> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>187</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>20</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/blogs/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/categories/css/" class="nav-link"><i class="undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/html/" class="nav-link"><i class="undefined"></i>
+  html
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/javascript/" class="nav-link"><i class="undefined"></i>
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/其他/" class="nav-link"><i class="undefined"></i>
+  其他
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/面试/" class="nav-link"><i class="undefined"></i>
+  面试
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/React/" class="nav-link"><i class="undefined"></i>
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/Vue/" class="nav-link"><i class="undefined"></i>
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/杂记/" class="nav-link"><i class="undefined"></i>
+  杂记
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/Typescript/" class="nav-link"><i class="undefined"></i>
+  Typescript
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/blogs/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      文档
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/docs/HTML-Library/" class="nav-link"><i class="undefined"></i>
+  HTML-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/CSS-Library/" class="nav-link"><i class="undefined"></i>
+  CSS-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/Javascript-Library/" class="nav-link"><i class="undefined"></i>
+  Javascript-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/Vue-Library/" class="nav-link"><i class="undefined"></i>
+  Vue-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/React-Library/" class="nav-link"><i class="undefined"></i>
+  React-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/Other-Library/" class="nav-link"><i class="undefined"></i>
+  Other-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/juejin/" class="nav-link router-link-active"><i class="undefined"></i>
+  juejin
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/interview/" class="nav-link"><i class="undefined"></i>
+  web-interview
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/前端性能优化与实践/" class="nav-link"><i class="undefined"></i>
+  前端性能优化与实践
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/使用webpack定制前端开发环境/" class="nav-link"><i class="undefined"></i>
+  使用webpack定制前端开发环境
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/TypeScript全面进阶指南/" class="nav-link"><i class="undefined"></i>
+  TypeScript全面进阶指南
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/Vimalate" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <ul class="sidebar-links"><li><a href="/blogs/docs/juejin/" aria-current="page" class="sidebar-link">juejin</a></li><li><a href="/blogs/docs/juejin/20个js工具函数助力高效开发.html" class="sidebar-link">20个js工具函数助力高效开发</a></li><li><a href="/blogs/docs/juejin/当我们二次封装时我们在封装什么.html" class="sidebar-link">当我们二次封装时我们在封装什么</a></li><li><a href="/blogs/docs/juejin/关于首屏优化，我做了哪些.html" class="sidebar-link">关于首屏优化，我做了哪些</a></li><li><a href="/blogs/docs/juejin/使用VuePress搭建Element的组件库文档.html" class="sidebar-link">使用VuePress搭建Element的组件库文档</a></li><li><a href="/blogs/docs/juejin/Typescript学习指南.html" class="sidebar-link">Typescript学习指南</a></li><li><a href="/blogs/docs/juejin/vue3正式发布两年后，我才开始学（2w字总结）.html" class="active sidebar-link">vue3正式发布两年后，我才开始学（2w字总结）</a></li><li><a href="/blogs/docs/juejin/微前端实践.html" class="sidebar-link">微前端实践</a></li><li><a href="/blogs/docs/juejin/我迟来的 2022 年终总结：前已无通路，后不见归途.html" class="sidebar-link">我迟来的 2022 年终总结：前已无通路，后不见归途</a></li><li><a href="/blogs/docs/juejin/如何使用 pnpm+vue3+vite 搭建组件库并发布到私有仓库.html" class="sidebar-link">如何使用 pnpm+vue3+vite 搭建组件库并发布到私有仓库</a></li><li><a href="/blogs/docs/juejin/常见手写代码.html" class="sidebar-link">常见手写代码</a></li><li><a href="/blogs/docs/juejin/vue3 里使用jsx.html" class="sidebar-link">vue3 里使用jsx</a></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>vue3正式发布两年后，我才开始学（2w字总结）</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>呛再首</span>
+          
+        <span data-v-59e6cb88>2019 - </span>
+        2023
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page" style="padding-right:0;"><section style="display:;"><div class="page-title"><h1 class="title">vue3正式发布两年后，我才开始学（2w字总结）</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>呛再首</span></i> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>12/31/2022</span></i> <!----> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>Vue</span><span class="tag-item" data-v-8a445198>面试</span></i></div></div> <div class="theme-reco-content content__default"><blockquote><p>vue3 于 2020 年 09 月 18 日，正式发布，2022 年 2 月 7 日 vue3 成为新的默认版本</p></blockquote> <p>距离 vue3 正式发布已经过去两年有余, 成为默认版本也过去大半年了，以前还能说是对新技术、新特性的观望，到现在面试都直问 vue3 源码了。</p> <p>我想，不管什么原因，是时候学习 vue3 了</p> <p>所以这次我也顺便把学习的过程记录下来，算个总结，也有利于日后梳理。</p> <h2 id="前置介绍"><a href="#前置介绍" class="header-anchor">#</a> 前置介绍</h2> <p>在 vue3.2 中，我们只需在script标签中添加setup。就可以做到，组件只需引入不用注册，属性和方法也不用 return 才能于 template 中使用，也不用写setup函数，也不用写export default ，甚至是自定义指令也可以在我们的template中自动获得。</p> <p>本次我们的学习也是在 setup 语法糖下进行。</p> <h2 id="环境搭建"><a href="#环境搭建" class="header-anchor">#</a> 环境搭建</h2> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token function">npm</span> init vue@latest
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="使用工具"><a href="#使用工具" class="header-anchor">#</a> 使用工具</h2> <p><code>&lt;script setup lang=&quot;ts&quot;&gt; + VSCode + Volar</code></p> <blockquote><p>安装 Volar 后，注意禁用 vetur</p></blockquote> <p>好的，准备工作已经完成，下面我们开始进入到 vue3 setup 的正式学习</p> <h2 id="ref-和-reactive"><a href="#ref-和-reactive" class="header-anchor">#</a> ref 和 reactive</h2> <ul><li>ref: 用来给基本数据类型绑定响应式数据，访问时需要通过 .value 的形式， tamplate 会自动解析,不需要 .value</li> <li>reactive: 用来给 复杂数据类型 绑定响应式数据，直接访问即可</li></ul> <blockquote><p>ref其实也是内部调用来reactive实现的，ref(obj)等价于 reactive({value: obj})，如果使用 reactive，那就得把基础类型的数据改成 object</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;{{title}}&lt;/p&gt;
+    &lt;h4&gt;{{userInfo}}&lt;/h4&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup lang=&quot;ts&quot;&gt;
+import { ref, reactive } from &quot;vue&quot;;
+type Person = {
+    name: string;
+    age: number;
+    gender?: string;
+};
+const title = ref&lt;string&gt;(&quot;彼时彼刻，恰如此时此刻&quot;);
+const userInfo = reactive&lt;Person&gt;({
+  name: '树哥',
+  age: 18
+})
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h2 id="toref、torefs、toraw"><a href="#toref、torefs、toraw" class="header-anchor">#</a> toRef、toRefs、toRaw</h2> <h3 id="toref"><a href="#toref" class="header-anchor">#</a> toRef</h3> <p>toRef 如果原始对象是非响应式的,数据会变,但不会更新视图</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div&gt;
+     &lt;button @click=&quot;change&quot;&gt;按钮&lt;/button&gt;
+     {{state}}
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup lang=&quot;ts&quot;&gt;
+import { reactive, toRef } from 'vue'
+
+const obj = {
+  name: '树哥',
+  age: 18
+}
+
+const state = toRef(obj, 'age')
+
+const change = () =&gt; {
+  state.value++
+  console.log('obj:',obj,'state:', state);
+}
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3318d3d2f895427f99bd10444f3c5af3~tplv-k3u1fbpfcp-watermark.image?" alt="toRef.png"></p> <p>可以看到，点击按钮，当原始对象是非响应式时，使用toRef 的数据改变，但是试图并没有更新</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;button @click=&quot;change&quot;&gt;按钮&lt;/button&gt;
+    {{state}}
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup lang=&quot;ts&quot;&gt;
+import { reactive, toRef } from 'vue'
+
+const obj = reactive({
+  name: '树哥',
+  age: 18
+})
+
+const state = toRef(obj, 'age')
+
+const change = () =&gt; {
+  state.value++
+  console.log('obj:', obj, 'state:', state);
+}
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b9d0bbbe7f1545e18c615cfc4164ea9d~tplv-k3u1fbpfcp-watermark.image?" alt="toRef1.png"></p> <p>当我们把 obj 用 reactive 包裹，再使用 toRef，点击按钮时，可以看到视图和数据都变了</p> <blockquote><p>toRef返回的值是否具有响应性取决于被解构的对象本身是否具有响应性。响应式数据经过toRef返回的值仍具有响应性，非响应式数据经过toRef返回的值仍没有响应性。</p></blockquote> <h3 id="torefs"><a href="#torefs" class="header-anchor">#</a> toRefs</h3> <p>toRefs相当于对对象内每个属性调用toRef，toRefs返回的对象内的属性使用时需要加.value,主要是方便我们解构使用</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;button @click=&quot;change&quot;&gt;按钮&lt;/button&gt;
+    name--{{name}}---age{{age}}
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup lang=&quot;ts&quot;&gt;
+import { reactive, toRefs } from 'vue'
+
+const obj = reactive({
+  name: '树哥',
+  age: 18
+})
+
+let { name, age } = toRefs(obj)
+
+const change = () =&gt; {
+  age.value++
+  name.value = '张麻子'
+  console.log('obj:', obj);
+  console.log('name:', name);
+  console.log('age:', age);
+}
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p>简单理解就是批量版的toRef,(<strong>其源码实现也正是通过对象循环调用了toRef</strong>)</p> <h2 id="toraw"><a href="#toraw" class="header-anchor">#</a> toRaw</h2> <p>将响应式对象修改为普通对象</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;button @click=&quot;change&quot;&gt;按钮&lt;/button&gt;
+    {{data}}
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup lang=&quot;ts&quot;&gt;
+import { reactive, toRaw } from 'vue'
+
+const obj = reactive({
+  name: '树哥',
+  age: 18
+})
+
+const data = toRaw(obj)
+
+const change = () =&gt; {
+  data.age = 19
+  console.log('obj:', obj, 'data:', data);
+}
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/92749f19830c49cf98f3b4f5adc691de~tplv-k3u1fbpfcp-watermark.image?" alt="toRaw.png"></p> <p>数据能变化，视图不变化(失去响应式)</p> <h2 id="computed"><a href="#computed" class="header-anchor">#</a> computed</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;{{title}}&lt;/p&gt;
+    &lt;h4&gt;{{userInfo}}&lt;/h4&gt;
+    &lt;h1&gt;{{add}}&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup lang=&quot;ts&quot;&gt;
+import { ref, reactive,computed } from &quot;vue&quot;;
+const count = ref(0)
+
+// 推导得到的类型：ComputedRef&lt;number&gt;
+const add = computed(() =&gt; count.value +1)
+
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h2 id="watch"><a href="#watch" class="header-anchor">#</a> watch</h2> <p>vue3 watch 的作用和 Vue2 中的 watch 作用是一样的，他们都是用来监听响应式状态发生变化的，当响应式状态发生变化时，就会触发一个回调函数。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>watch(data,()=&gt;{},{})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li><p>参数一，监听的数据</p></li> <li><p>参数二，数据改变时触发的回调函数（newVal,oldVal）</p></li> <li><p>参数三，options配置项，为一个对象</p></li> <li><p>1、监听ref定义的一个响应式数据</p></li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;script setup lang=&quot;ts&quot;&gt;
+import { ref, watch } from &quot;vue&quot;;
+
+const str = ref('彼时彼刻')
+
+//3s后改变str的值
+setTimeout(() =&gt; { str.value = '恰如此时此刻' }, 3000)
+
+watch(str, (newV, oldV) =&gt; {
+  console.log(newV, oldV) //恰如此时此刻 彼时彼刻
+})
+
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><ul><li>2、监听多个ref</li></ul> <p><strong>这时候写法变为数组的形式</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;script setup lang=&quot;ts&quot;&gt;
+import { ref, watch } from &quot;vue&quot;;
+
+let name = ref('树哥')
+let age = ref(18)
+
+//3s后改变值
+setTimeout(() =&gt; {
+  name.value = '我叫树哥'
+  age.value = 19
+}, 3000)
+
+watch([name, age], (newV, oldV) =&gt; {
+  console.log(newV, oldV) // ['我叫树哥', 19]  ['树哥', 18]
+})
+
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><ul><li>3、监听Reactive定义的响应式对象</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;script setup lang=&quot;ts&quot;&gt;
+import { reactive, watch } from &quot;vue&quot;;
+
+let info = reactive({
+  name: '树哥',
+  age: 18
+})
+
+//3s后改变值
+setTimeout(() =&gt; {
+  info.age = 19
+}, 3000)
+
+watch(info, (newV, oldV) =&gt; {
+  console.log(newV, oldV) 
+})
+
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>当 watch 监听的是一个响应式对象时，会隐式地创建一个深层侦听器，即该响应式对象里面的任何属性发生变化，都会触发监听函数中的回调函数。<strong>即当 watch 监听的是一个响应式对象时，默认开启 deep：true</strong></p> <ul><li>4、监听reactive 定义响应式对象的单一属性</li></ul> <p>错误写法：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;script setup lang=&quot;ts&quot;&gt;
+import { reactive, watch } from &quot;vue&quot;;
+
+let info = reactive({
+  name: '树哥',
+  age: 18
+})
+
+//3s后改变值
+setTimeout(() =&gt; {
+  info.age = 19
+}, 3000)
+
+
+watch(info.age, (newV, oldV) =&gt; {
+  console.log(newV, oldV) 
+})
+
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>可以看到控制台出现警告</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[Vue warn]: Invalid watch source:  18 A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+  at &lt;Index&gt; 
+  at &lt;App&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>如果我们非要监听响应式对象中的某个属性，我们可以使用 getter 函数的形式,<strong>即将watch第一个参数修改成一个回调函数的形式</strong></p> <p>正确写法：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 其他不变
+watch(()=&gt;info.age, (newV, oldV) =&gt; {
+  console.log(newV, oldV) // 19 18
+})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><ul><li>5、监听reactive定义的 引用数据</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;script setup lang=&quot;ts&quot;&gt;
+import { reactive, watch } from &quot;vue&quot;;
+
+let info = reactive({
+  name: '张麻子',
+  age: 18,
+  obj: {
+    str: '彼时彼刻，恰如此时此刻'
+  }
+})
+
+//3s后改变s值
+setTimeout(() =&gt; {
+  info.obj.str = 'to be or not to be'
+}, 3000)
+
+// 需要自己开启 deep:true深度监听,不然不发触发 watch 的回调函数
+watch(() =&gt; info.obj, (newV, oldV) =&gt; {
+  console.log(newV, oldV)
+}, {
+  deep: true
+})
+
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h2 id="watcheffect"><a href="#watcheffect" class="header-anchor">#</a> WatchEffect</h2> <p>会立即执行传入的一个函数，同时响应式追踪其依赖，并在其依赖变更时重新运行该函数。（有点像计算属性）</p> <p>如果用到 a 就只会监听 a, 就是用到几个监听几个 而且是非惰性,会默认调用一次</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;script setup lang=&quot;ts&quot;&gt;
+import { ref, watchEffect } from &quot;vue&quot;;
+
+let num = ref(0)
+
+//3s后改变值
+setTimeout(() =&gt; {
+  num.value++
+}, 3000)
+
+watchEffect(() =&gt; {
+  console.log('num 值改变：', num.value)
+})
+
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>可以在控制台上看到，第一次进入页面时，打印出<code>num 值改变：0</code>,三秒后，再次打印<code>num 值改变：1</code></p> <ul><li>停止监听</li></ul> <p>当 watchEffect 在组件的 setup() 函数或生命周期钩子被调用时，侦听器会被链接到该组件的生命周期，并在组件卸载时自动停止。</p> <p>但是我们采用异步的方式创建了一个监听器，这个时候监听器没有与当前组件绑定，所以即使组件销毁了，监听器依然存在。</p> <p>这个时候我们可以显式调用停止监听</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;script setup lang=&quot;ts&quot;&gt;
+import { watchEffect } from 'vue'
+// 它会自动停止
+watchEffect(() =&gt; {})
+// ...这个则不会！
+setTimeout(() =&gt; {
+  watchEffect(() =&gt; {})
+}, 100)
+
+const stop = watchEffect(() =&gt; {
+  /* ... */
+})
+
+// 显式调用
+stop()
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><ul><li>清除副作用（onInvalidate）</li></ul> <p>watchEffect 的第一个参数——effect函数——可以接收一个参数：叫onInvalidate，也是一个函数，用于清除 effect 产生的副作用</p> <p>就是在触发监听之前会调用一个函数可以处理你的逻辑，例如防抖</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import { ref, watchEffect } from &quot;vue&quot;;
+
+let num = ref(0)
+
+//3s后改变值
+setTimeout(() =&gt; {
+  num.value++
+}, 3000)
+
+watchEffect((onInvalidate) =&gt; {
+  console.log(num.value)
+  onInvalidate(() =&gt; {
+    console.log('执行');
+  });
+})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>控制台依次输出：0 =&gt; 执行 =&gt; 1</p> <ul><li>配置选项</li></ul> <p>watchEffect的第二个参数，用来定义副作用刷新时机，可以作为一个调试器来使用</p> <p>flush （更新时机）：</p> <ul><li>1、pre：组件更新前执行</li> <li>2、sync：强制效果始终同步触发</li> <li>3、post：组件更新后执行</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;script setup lang=&quot;ts&quot;&gt;
+import { ref, watchEffect } from &quot;vue&quot;;
+
+let num = ref(0)
+
+//3s后改变值
+setTimeout(() =&gt; {
+  num.value++
+}, 3000)
+
+watchEffect((onInvalidate) =&gt; {
+  console.log(num.value)
+  onInvalidate(() =&gt; {
+    console.log('执行');
+  });
+}, {
+  flush: &quot;post&quot;, //此时这个函数会在组件更新之后去执行
+  onTrigger(e) { //作为一个调试工具，可在开发中方便调试
+    console.log('触发', e);
+  },
+})
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h2 id="生命周期"><a href="#生命周期" class="header-anchor">#</a> 生命周期</h2> <p>和 vue2 相比的话，基本上就是将 Vue2 中的beforeDestroy名称变更成beforeUnmount; destroyed 表更为 unmounted；然后用setup代替了两个钩子函数 beforeCreate 和 created；新增了两个开发环境用于调试的钩子</p> <p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9d0471468f464abbaa0ecc656fb21591~tplv-k3u1fbpfcp-watermark.image?" alt="smzq.jpg"></p> <h2 id="父子组件传参"><a href="#父子组件传参" class="header-anchor">#</a> 父子组件传参</h2> <ul><li>defineProps</li></ul> <p>父组件传参</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;Children :msg=&quot;msg&quot; :list=&quot;list&quot;&gt;&lt;/Children&gt;
+&lt;/template&gt;
+
+&lt;script setup lang=&quot;ts&quot;&gt;
+import { ref, reactive } from 'vue'
+import Children from './Children.vue'
+
+const msg = ref('hello 啊，树哥')
+const list = reactive&lt;number[]&gt;([1, 2, 3])
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><blockquote><p>在 script setup 中，引入的组件会自动注册，所以可以直接使用，无需再通过components进行注册</p></blockquote> <p>子组件接受值</p> <p>defineProps 来接收父组件传递的值， <strong>defineProps是无须引入的直接使用即可</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;msg：{{msg}}&lt;/p&gt;
+    &lt;p&gt;list：{{list}}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup lang=&quot;ts&quot;&gt;
+defineProps&lt;{
+  msg: string,
+  list: number[]
+}&gt;()
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>使用 withDefaults 定义默认值</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;msg：{{msg}}&lt;/p&gt;
+    &lt;p&gt;list：{{list}}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup lang=&quot;ts&quot;&gt;
+type Props = {
+  msg?: string,
+  list?: number[]
+}
+
+// withDefaults 的第二个参数便是默认参数设置，会被编译为运行时 props 的 default 选项
+withDefaults(defineProps&lt;Props&gt;(), {
+  msg: '张麻子',
+  list: () =&gt; [4, 5, 6]
+})
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>子组件向父组件抛出事件</p> <ul><li>defineEmits</li></ul> <p>子组件派发事件</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;msg：{{msg}}&lt;/p&gt;
+    &lt;p&gt;list：{{list}}&lt;/p&gt;
+    &lt;button @click=&quot;onChangeMsg&quot;&gt;改变msg&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup lang=&quot;ts&quot;&gt;
+type Props = {
+  msg?: string,
+  list?: number[]
+}
+
+withDefaults(defineProps&lt;Props&gt;(), {
+  msg: '张麻子',
+  list: () =&gt; [4, 5, 6]
+})
+
+const emits = defineEmits(['changeMsg'])
+const onChangeMsg = () =&gt; {
+emits('changeMsg','黄四郎')
+}
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><p>子组件绑定了一个click 事件 然后通过defineEmits 注册了一个自定义事件,点击按钮的时候，触发 emit 调用我们注册的事件，传递参数</p> <p>父组件接收</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;Children :msg=&quot;msg&quot; :list=&quot;list&quot; @changeMsg=&quot;changeMsg&quot;&gt;&lt;/Children&gt;
+&lt;/template&gt;
+
+&lt;script setup lang=&quot;ts&quot;&gt;
+import { ref, reactive } from 'vue'
+import Children from './Children.vue'
+
+const msg = ref('hello 啊，树哥')
+const list = reactive&lt;number[]&gt;([1, 2, 3])
+
+const changeMsg = (v: string) =&gt; {
+  msg.value = v
+}
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><ul><li>获取子组件的实例和内部属性</li></ul> <p>在 script-setup 模式下，所有数据只是默认 return 给 template 使用，不会暴露到组件外，所以父组件是无法直接通过挂载 ref 变量获取子组件的数据。</p> <p>如果要调用子组件的数据，需要先在子组件显示的暴露出来，才能够正确的拿到，这个操作，就是由 defineExpose 来完成。</p> <p>子组件</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;p&gt;{{name}}&lt;/p&gt;
+&lt;/template&gt;
+
+&lt;script lang=&quot;ts&quot; setup&gt;
+import { ref } from 'vue'
+
+const name = ref('张麻子')
+const changeName = () =&gt; {
+  name.value = '县长'
+}
+// 将方法、变量暴露给父组件使用，父组件才可通过 ref API拿到子组件暴露的数据
+defineExpose({
+  name,
+  changeName
+})
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>父组件</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;child ref='childRef' /&gt;
+    &lt;button @click=&quot;getName&quot;&gt;获取子组件中的数据&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script lang=&quot;ts&quot; setup&gt;
+import { ref } from 'vue'
+import child from './Child.vue'
+
+// 子组件ref（TypeScript语法）
+const childRef = ref&lt;InstanceType&lt;typeof child&gt;&gt;()
+
+const getName = () =&gt; {
+  // 获取子组件name
+  console.log(childRef.value!.name)
+  // 执行子组件方法
+  childRef.value?.changeName()
+  // 获取修改后的name
+  console.log(childRef.value!.name)
+}
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><blockquote><p>定义节点 ref，const domRef= ref&lt;HTMLElement|null&gt;(null)</p></blockquote> <blockquote><p>注意：defineProps 、defineEmits 、 defineExpose 和 withDefaults 这四个宏函数只能在 <code>&lt;script setup&gt;</code> 中使用。他们不需要导入，会随着<code>&lt;script setup&gt;</code>的处理过程中一起被编译。</p></blockquote> <h2 id="插槽"><a href="#插槽" class="header-anchor">#</a> 插槽</h2> <p>在 Vue2 的中一般中具名插槽和作用域插槽分别使用slot和slot-scope来实现，如：</p> <p>父组件</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;p style=&quot;color:red&quot;&gt;父组件&lt;/p&gt;
+    &lt;Child ref='childRef'&gt;
+      &lt;template slot=&quot;content&quot; slot-scope=&quot;{ msg }&quot;&gt;
+        &lt;div&gt;{{ msg }}&lt;/div&gt;
+      &lt;/template&gt;
+    &lt;/Child&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script lang=&quot;ts&quot; setup&gt;
+import Child from './Child.vue'
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>子组件</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div&gt;child&lt;/div&gt;
+  &lt;slot name=&quot;content&quot; msg=&quot;hello 啊，树哥!&quot;&gt;&lt;/slot&gt;
+&lt;/template&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>在 Vue3 中将slot和slot-scope进行了合并统一使用，使用 v-slot， <code>v-slot:slotName</code> 简写 <code>#slotName</code></p> <p>父组件</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;p style=&quot;color:red&quot;&gt;父组件&lt;/p&gt;
+    &lt;Child&gt;
+      &lt;template  v-slot:content=&quot;{ msg }&quot;&gt;
+        &lt;div&gt;{{ msg }}&lt;/div&gt;
+      &lt;/template&gt;
+    &lt;/Child&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script lang=&quot;ts&quot; setup&gt;
+import Child from './Child.vue'
+&lt;/script&gt;
+
+&lt;!-- 简写 --&gt;
+&lt;Child&gt;
+  &lt;template #content=&quot;{ msg }&quot;&gt;
+    &lt;div&gt;{{ msg }}&lt;/div&gt;
+      &lt;/template&gt;
+&lt;/Child&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><blockquote><p>实际上,v-slot 在 Vue2.6+ 的版本就可以使用。</p></blockquote> <h2 id="异步组件"><a href="#异步组件" class="header-anchor">#</a> 异步组件</h2> <p>通过 defineAsyncComponent 异步加载</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;Children :msg=&quot;msg&quot; :list=&quot;list&quot; @changeMsg=&quot;changeMsg&quot;&gt;&lt;/Children&gt;
+&lt;/template&gt;
+
+&lt;script setup lang=&quot;ts&quot;&gt;
+import { ref, reactive,defineAsyncComponent } from 'vue'
+// import Children from './Children.vue'
+const Children = defineAsyncComponent(() =&gt; import('./Children.vue'))
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="suspense"><a href="#suspense" class="header-anchor">#</a> Suspense</h2> <p>Suspense 允许应用程序在等待异步组件时渲染一些其它内容,在 Vue2 中，必须使用条件判断(例如 v-if、 v-else等)来检查数据是否已加载并显示一些其它内容；但是，在 Vue3 新增了 Suspense 了，就不必跟踪何时加载数据并呈现相应的内容。</p> <p>他是一个带插槽的组件，只是它的插槽指定了default 和 fallback 两种状态。</p> <p>Suspense 使用：</p> <ul><li>1、使用 <code>&lt;Suspense&gt;&lt;/Suspense&gt;</code> 包裹所有异步组件相关代码</li> <li>2、<code>&lt;template v-slot:default&gt;&lt;/template&gt;</code> 插槽包裹异步组件</li> <li>3、<code>&lt;template v-slot:fallback&gt;&lt;/template&gt;</code> 插槽包裹渲染异步组件渲染之前的内容</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;Suspense&gt;
+    &lt;template #default&gt;
+      &lt;!-- 异步组件-默认渲染的页面 --&gt;
+      &lt;Children :msg=&quot;msg&quot; :list=&quot;list&quot; @changeMsg=&quot;changeMsg&quot;&gt;&lt;/Children&gt;
+    &lt;/template&gt;
+    &lt;template #fallback&gt;
+      &lt;!-- 页面还没加载出来展示的页面 --&gt;
+      &lt;div&gt;loading...&lt;/div&gt;
+    &lt;/template&gt;
+  &lt;/Suspense&gt;
+&lt;/template&gt;
+
+&lt;script setup lang=&quot;ts&quot;&gt;
+import { ref, reactive, defineAsyncComponent } from 'vue'
+const Children = defineAsyncComponent(() =&gt; import('./Children.vue'))
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h2 id="teleport传送组件"><a href="#teleport传送组件" class="header-anchor">#</a> Teleport传送组件</h2> <p>Teleport 是一种能够将我们的模板渲染至指定DOM节点，不受父级style、v-show等属性影响，但data、prop数据依旧能够共用的技术</p> <p>主要解决的问题：因为Teleport节点挂载在其他指定的DOM节点下，完全不受父级style样式影响</p> <p>使用：
+通过to 属性插入到指定元素位置，如 body，html，自定义className等等。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;!-- 插入至 body --&gt;
+  &lt;Teleport to=&quot;body&quot;&gt;
+    &lt;Children&gt;&lt;/Children&gt;
+  &lt;/Teleport&gt;
+  &lt;!-- 默认 #app 下 --&gt;
+  &lt;Children&gt;&lt;/Children&gt;
+&lt;/template&gt;
+&lt;script lang=&quot;ts&quot; setup&gt;
+import Children from './Children.vue'
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b45c3137623a4f8ca1a41f65e490a61a~tplv-k3u1fbpfcp-watermark.image?" alt="Teleport.png"></p> <h2 id="keep-alive-缓存组件"><a href="#keep-alive-缓存组件" class="header-anchor">#</a> keep-alive 缓存组件</h2> <ul><li>作用和vue2一致，只是生命周期名称有所更改</li> <li>初次进入时： onMounted&gt; onActivated</li> <li>退出后触发 deactivated</li> <li>再次进入：只会触发 onActivated</li></ul> <blockquote><p>事件挂载的方法等，只执行一次的放在 onMounted中；组件每次进去执行的方法放在 onActivated中</p></blockquote> <h2 id="provide-inject"><a href="#provide-inject" class="header-anchor">#</a> provide/inject</h2> <p>provide 可以在祖先组件中指定我们想要提供给后代组件的数据或方法，而在任何后代组件中，我们都可以使用 inject 来接收 provide 提供的数据或方法。</p> <p>父组件</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;Children&gt;&lt;/Children&gt;
+&lt;/template&gt;
+
+&lt;script setup lang=&quot;ts&quot;&gt;
+import { ref, provide } from 'vue'
+import Children from &quot;./Children.vue&quot;
+
+const msg = ref('hello 啊，树哥')
+
+provide('msg', msg)
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>子组件</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;msg：{{msg}}&lt;/p&gt;
+    &lt;button @click=&quot;onChangeMsg&quot;&gt;改变msg&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup lang=&quot;ts&quot;&gt;
+import { inject, Ref, ref } from 'vue'
+
+const msg = inject&lt;Ref&lt;string&gt;&gt;('msg',ref('hello啊！'))
+const onChangeMsg = () =&gt; {
+  msg.value = 'shuge'
+}
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><blockquote><p>如果你想要传入的值能响应式的改变，需要通过ref 或 reactive 添加响应式</p></blockquote> <h2 id="v-model-升级"><a href="#v-model-升级" class="header-anchor">#</a> v-model 升级</h2> <p>v-model 在vue3可以说是破坏式更新，改动还是不少的</p> <p>我们都知道，v-model 是props 和 emit 组合而成的语法糖,vue3中 v-model 有以下改动</p> <ul><li>变更：value =&gt; modelValue</li> <li>变更：update:input =&gt; update:modelValue</li> <li>新增：一个组件可以设置多个 v-model</li> <li>新增：开发者可以自定义 v-model修饰符</li> <li>v-bind 的 .sync 修饰符和组件的 model 选项已移除</li></ul> <p>子组件</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;{{msg}}，{{modelValue}}&lt;/p&gt;
+    &lt;button @click=&quot;onChangeMsg&quot;&gt;改变msg&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup lang=&quot;ts&quot;&gt;
+
+type Props = {
+  modelValue: string,
+  msg: string
+}
+defineProps&lt;Props&gt;()
+const emit = defineEmits(['update:modelValue', 'update:msg'])
+
+const onChangeMsg = () =&gt; {
+  // 触发父组件的值更新
+  emit('update:modelValue', '恰如此时此刻')
+  emit('update:msg', '彼时彼刻')
+}
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>父组件</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  // v-model:modelValue简写为v-model
+  // 绑定多个v-model
+  &lt;Children v-model=&quot;name&quot; v-model:msg=&quot;msg&quot;&gt;&lt;/Children&gt;
+&lt;/template&gt;
+
+&lt;script setup lang=&quot;ts&quot;&gt;
+import { ref } from 'vue'
+import Children from &quot;./Children.vue&quot;
+
+const msg = ref('hello啊')
+const name = ref('树哥')
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h2 id="自定义指令"><a href="#自定义指令" class="header-anchor">#</a> 自定义指令</h2> <p>自定义指令的生命周期</p> <ul><li>created 元素初始化的时候</li> <li>beforeMount 指令绑定到元素后调用 只调用一次</li> <li>mounted 元素插入父级dom调用</li> <li>beforeUpdate 元素被更新之前调用</li> <li>update 这个周期方法被移除 改用updated</li> <li>beforeUnmount 在元素被移除前调用</li> <li>unmounted 指令被移除后调用 只调用一次</li></ul> <p>实现一个自定义拖拽指令</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div v-move class=&quot;box&quot;&gt;
+    &lt;div class=&quot;header&quot;&gt;&lt;/div&gt;
+    &lt;div&gt;
+      内容
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+ 
+&lt;script setup lang='ts'&gt;
+import { Directive } from &quot;vue&quot;;
+const vMove: Directive = {
+  mounted(el: HTMLElement) {
+    let moveEl = el.firstElementChild as HTMLElement;
+    const mouseDown = (e: MouseEvent) =&gt; {
+      //鼠标点击物体那一刻相对于物体左侧边框的距离=点击时的位置相对于浏览器最左边的距离-物体左边框相对于浏览器最左边的距离
+      console.log(e.clientX, e.clientY, &quot;起始位置&quot;, el.offsetLeft);
+      let X = e.clientX - el.offsetLeft;
+      let Y = e.clientY - el.offsetTop;
+      const move = (e: MouseEvent) =&gt; {
+        el.style.left = e.clientX - X + &quot;px&quot;;
+        el.style.top = e.clientY - Y + &quot;px&quot;;
+        console.log(e.clientX, e.clientY, &quot;位置改变&quot;);
+      };
+      document.addEventListener(&quot;mousemove&quot;, move);
+      document.addEventListener(&quot;mouseup&quot;, () =&gt; {
+        document.removeEventListener(&quot;mousemove&quot;, move);
+      });
+    };
+    moveEl.addEventListener(&quot;mousedown&quot;, mouseDown);
+  },
+};
+&lt;/script&gt;
+ 
+&lt;style &gt;
+.box {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ccc;
+}
+
+.header {
+  height: 20px;
+  background: black;
+  cursor: move;
+}
+&lt;/style&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br></div></div><h2 id="自定义-hooks"><a href="#自定义-hooks" class="header-anchor">#</a> 自定义 hooks</h2> <p>我们都知道在 vue 中有个东西叫 mixins，他可以将多个组件中相同的逻辑抽离出来，实现一次写代码，多组件受益的效果。</p> <p>但是 mixins 的副作用就是引用的多了变量的来源就不清晰了，而且还会有变量来源不明确,不利于阅读，容易使代码变得难以维护。</p> <ul><li>Vue3 的 hook函数 相当于 vue2 的 mixin, 不同在与 hooks 是函数</li> <li>Vue3 的 hook函数 可以帮助我们提高代码的复用性, 让我们能在不同的组件中都利用 hooks 函数</li></ul> <p><strong>useWindowResize</strong></p> <p>我们来实现一个窗口改变时获取宽高的 hook</p> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> onMounted<span class="token punctuation">,</span> onUnmounted<span class="token punctuation">,</span> ref <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vue&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">useWindowResize</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> width <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> height <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">function</span> <span class="token function">onResize</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    width<span class="token punctuation">.</span>value <span class="token operator">=</span> window<span class="token punctuation">.</span>innerWidth<span class="token punctuation">;</span>
+    height<span class="token punctuation">.</span>value <span class="token operator">=</span> window<span class="token punctuation">.</span>innerHeight<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">onMounted</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&quot;resize&quot;</span><span class="token punctuation">,</span> onResize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">onResize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">onUnmounted</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    window<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span><span class="token string">&quot;resize&quot;</span><span class="token punctuation">,</span> onResize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    width<span class="token punctuation">,</span>
+    height
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> useWindowResize<span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><p>使用：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;h3&gt;屏幕尺寸&lt;/h3&gt;
+  &lt;div&gt;宽度：{{ width }}&lt;/div&gt;
+  &lt;div&gt;高度：{{ height }}&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup lang=&quot;ts&quot;&gt;
+import useWindowResize from &quot;../hooks/useWindowResize.ts&quot;;
+const { width, height } = useWindowResize();
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h2 id="style-v-bind-css变量注入"><a href="#style-v-bind-css变量注入" class="header-anchor">#</a> style v-bind CSS变量注入</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;span&gt; style v-bind CSS变量注入&lt;/span&gt;  
+&lt;/template&gt;
+&lt;script lang=&quot;ts&quot; setup&gt;
+  import { ref } from 'vue'
+  const color = ref('red')
+&lt;/script&gt;
+&lt;style scoped&gt;
+  span {
+    /* 使用v-bind绑定组件中定义的变量 */
+    color: v-bind('color');
+  }  
+&lt;/style&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h2 id="vue3-使用-h-render-函数渲染插槽"><a href="#vue3-使用-h-render-函数渲染插槽" class="header-anchor">#</a> vue3 使用 h (render) 函数渲染插槽</h2> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token function">h</span><span class="token punctuation">(</span>
+  NPopconfirm<span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token function-variable function">onPositiveClick</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">positiveClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">negativeText</span><span class="token operator">:</span> <span class="token string">'negativeText'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">positiveText</span><span class="token operator">:</span> <span class="token string">'positiveText'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span>
+   <span class="token function-variable function">trigger</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>                                   <span class="token comment">//trigger插槽的内容</span>
+     <span class="token function">h</span><span class="token punctuation">(</span>
+       NButton<span class="token punctuation">,</span>
+       <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>                                          <span class="token comment">//被render的元素的属性啥的,可以自定义</span>
+       <span class="token punctuation">[</span>
+         <span class="token comment">//h('i', {class: ['iconfont', 'icon-xiajia']}),  //这里是放被button包裹的元素</span>
+         <span class="token function">h</span><span class="token punctuation">(</span><span class="token string">'span'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'button上的文字'</span><span class="token punctuation">)</span>
+       <span class="token punctuation">]</span>
+     <span class="token punctuation">)</span><span class="token punctuation">,</span>
+   <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">'popconfirm的默认提示词'</span>            <span class="token comment">//默认内容</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h2 id="接口请求类型定义"><a href="#接口请求类型定义" class="header-anchor">#</a> 接口请求类型定义</h2> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token comment">// 定义用户登录接口携带参数的泛型类型</span>
+<span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">LoginFormData</span> <span class="token punctuation">{</span>
+  username<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+  password<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 定义接口返回数据的泛型类型</span>
+<span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">ResponseData<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span></span> <span class="token punctuation">{</span>
+  code<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+  message<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+  ok<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+  data<span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">;</span> <span class="token comment">// 使用泛型表示具体的数据类型</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 定义登录接口返回数据类型</span>
+<span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">LoginResponseData</span> <span class="token keyword">extends</span> <span class="token class-name">ResponseData<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">&gt;</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">// 在泛型类型中指定具体的数据类型为 string</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 定义获取用户信息返回数据类型</span>
+<span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">UserInfoResponseData</span> <span class="token keyword">extends</span> <span class="token class-name">ResponseData<span class="token operator">&lt;</span><span class="token punctuation">{</span>
+  routes<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  buttons<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  roles<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+  avatar<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token operator">&gt;</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">// 在泛型类型中指定具体的数据类型为对象类型</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><p>直接使用泛型</p> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token comment">// 定义接口返回数据的泛型类型</span>
+<span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">ResponseData<span class="token operator">&lt;</span><span class="token constant">T</span> <span class="token operator">=</span> <span class="token keyword">undefined</span><span class="token operator">&gt;</span></span> <span class="token punctuation">{</span>
+  code<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+  message<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+  ok<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+  data<span class="token operator">?</span><span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">;</span> <span class="token comment">// 使用泛型表示具体的数据类型，设为可选</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>在上述代码中，我们使用了 T = undefined 来指定泛型 T 的默认类型为 undefined，这样在不需要具体数据类型的情况下，可以直接使用 ResponseData 类型。</p> <p>使用：</p> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token keyword">const</span> responseData<span class="token operator">:</span> ResponseData <span class="token operator">=</span> <span class="token punctuation">{</span>
+  code<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+  message<span class="token operator">:</span> <span class="token string">&quot;Success&quot;</span><span class="token punctuation">,</span>
+  ok<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> responseDataWithData<span class="token operator">:</span> ResponseData<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">&gt;</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  code<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+  message<span class="token operator">:</span> <span class="token string">&quot;Success&quot;</span><span class="token punctuation">,</span>
+  ok<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  data<span class="token operator">:</span> <span class="token string">&quot;Hello, world!&quot;</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>responseData 使用了默认的 undefined 类型，而 responseDataWithData 指定了具体的数据类型为字符串类型。</p> <p>通过使用 ResponseData 泛型类型，你可以更灵活地处理接口返回数据的类型，并根据需要选择是否提供具体的数据类型。</p> <p><a href="https://www.jianshu.com/p/260827a11efa" target="_blank" rel="noopener noreferrer">参考<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>、<a href="https://cn.vuejs.org/api/render-function.html#h" target="_blank" rel="noopener noreferrer">渲染函数 API<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="参考"><a href="#参考" class="header-anchor">#</a> 参考</h2> <p><a href="https://blog.csdn.net/lgno2/article/details/109446711" target="_blank" rel="noopener noreferrer">Vue3使用TypeScript的正确姿势<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <br> <a href="https://juejin.cn/post/7122760155707473956" target="_blank" rel="noopener noreferrer">超极速的Vue3上手指北🔥<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <br> <a href="https://juejin.cn/post/6940454764421316644#heading-26" target="_blank" rel="noopener noreferrer">Vue3.0 新特性以及使用经验总结<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <br> <a href="https://xiaoman.blog.csdn.net/article/details/123228132?spm=1001.2014.3001.5502" target="_blank" rel="noopener noreferrer">自定义指令directive<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="往期回顾"><a href="#往期回顾" class="header-anchor">#</a> 往期回顾</h2> <p><a href="https://juejin.cn/post/7124117404187099172" target="_blank" rel="noopener noreferrer">2022年了，我才开始学 typescript ，晚吗？（7.5k字总结）<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <br> <a href="https://juejin.cn/post/7127925414885851144" target="_blank" rel="noopener noreferrer">当我们对组件二次封装时我们在封装什么<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <br> <a href="https://juejin.cn/post/7119018849353072677" target="_blank" rel="noopener noreferrer">vue 项目开发，我遇到了这些问题<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <br> <a href="https://juejin.cn/post/7117515006714839047" target="_blank" rel="noopener noreferrer">关于首屏优化，我做了哪些<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">10/15/2023, 9:34:00 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/blogs/docs/juejin/Typescript学习指南.html" class="prev">
+          Typescript学习指南
+        </a></span> <span class="next"><a href="/blogs/docs/juejin/微前端实践.html">
+          微前端实践
+        </a></span></p></div> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:0;" data-v-b57cc07c data-v-7dd95ae2></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><!----><canvas id="vuepress-canvas-cursor"></canvas><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;right:65px;bottom:0px;width:135px;height:300px;z-index:99999;opacity:0.8;pointer-events:none;"><canvas id="live2d_canvas" width="135" height="300" class="live2d_canvas" style="position:absolute;left:0px;top:0px;width:135px;height:300px;"></canvas></div><div></div><!----><div class="RibbonAnimation"></div></div></div>
+    <script src="/blogs/assets/js/app.500cfb4c.js" defer></script><script src="/blogs/assets/js/3.ab704d4e.js" defer></script><script src="/blogs/assets/js/1.120dd0c6.js" defer></script><script src="/blogs/assets/js/176.239f927c.js" defer></script><script src="/blogs/assets/js/15.a0d3f198.js" defer></script>
+  </body>
+</html>

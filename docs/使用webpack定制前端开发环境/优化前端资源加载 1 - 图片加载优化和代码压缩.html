@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>优化前端资源加载 1 - 图片加载优化和代码压缩 | 博客首页</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/blogs/avatar.ico">
+    <meta name="description" content="Vimalakirti blog">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/blogs/assets/css/0.styles.8ee0588d.css" as="style"><link rel="preload" href="/blogs/assets/js/app.500cfb4c.js" as="script"><link rel="preload" href="/blogs/assets/js/3.ab704d4e.js" as="script"><link rel="preload" href="/blogs/assets/js/1.120dd0c6.js" as="script"><link rel="preload" href="/blogs/assets/js/183.ae3152e7.js" as="script"><link rel="preload" href="/blogs/assets/js/15.a0d3f198.js" as="script"><link rel="prefetch" href="/blogs/assets/js/10.22997040.js"><link rel="prefetch" href="/blogs/assets/js/100.fd6dfd82.js"><link rel="prefetch" href="/blogs/assets/js/101.137866a8.js"><link rel="prefetch" href="/blogs/assets/js/102.8e97ff4c.js"><link rel="prefetch" href="/blogs/assets/js/103.cd97319e.js"><link rel="prefetch" href="/blogs/assets/js/104.0e7eed5a.js"><link rel="prefetch" href="/blogs/assets/js/105.35566707.js"><link rel="prefetch" href="/blogs/assets/js/106.f0f9b63e.js"><link rel="prefetch" href="/blogs/assets/js/107.751e7979.js"><link rel="prefetch" href="/blogs/assets/js/108.244161be.js"><link rel="prefetch" href="/blogs/assets/js/109.8ba67618.js"><link rel="prefetch" href="/blogs/assets/js/11.123cec5f.js"><link rel="prefetch" href="/blogs/assets/js/110.a85d3a98.js"><link rel="prefetch" href="/blogs/assets/js/111.79b978e1.js"><link rel="prefetch" href="/blogs/assets/js/112.e136754e.js"><link rel="prefetch" href="/blogs/assets/js/113.9872522c.js"><link rel="prefetch" href="/blogs/assets/js/114.e50bf446.js"><link rel="prefetch" href="/blogs/assets/js/115.94e4f425.js"><link rel="prefetch" href="/blogs/assets/js/116.154333be.js"><link rel="prefetch" href="/blogs/assets/js/117.713f2f2e.js"><link rel="prefetch" href="/blogs/assets/js/118.5f2b2811.js"><link rel="prefetch" href="/blogs/assets/js/119.8d4ac096.js"><link rel="prefetch" href="/blogs/assets/js/12.b2660b05.js"><link rel="prefetch" href="/blogs/assets/js/120.04f64197.js"><link rel="prefetch" href="/blogs/assets/js/121.ca17861d.js"><link rel="prefetch" href="/blogs/assets/js/122.6e7d28fb.js"><link rel="prefetch" href="/blogs/assets/js/123.f7b5977c.js"><link rel="prefetch" href="/blogs/assets/js/124.213e4532.js"><link rel="prefetch" href="/blogs/assets/js/125.3fa29b40.js"><link rel="prefetch" href="/blogs/assets/js/126.a4039525.js"><link rel="prefetch" href="/blogs/assets/js/127.7f484897.js"><link rel="prefetch" href="/blogs/assets/js/128.fdc975c7.js"><link rel="prefetch" href="/blogs/assets/js/129.fe2abf96.js"><link rel="prefetch" href="/blogs/assets/js/13.27388741.js"><link rel="prefetch" href="/blogs/assets/js/130.7a2140c1.js"><link rel="prefetch" href="/blogs/assets/js/131.425f7c16.js"><link rel="prefetch" href="/blogs/assets/js/132.70567358.js"><link rel="prefetch" href="/blogs/assets/js/133.fbc58b05.js"><link rel="prefetch" href="/blogs/assets/js/134.dcc7d0ce.js"><link rel="prefetch" href="/blogs/assets/js/135.1141e9a6.js"><link rel="prefetch" href="/blogs/assets/js/136.99a04b7a.js"><link rel="prefetch" href="/blogs/assets/js/137.7e4c228d.js"><link rel="prefetch" href="/blogs/assets/js/138.3a987474.js"><link rel="prefetch" href="/blogs/assets/js/139.c970c8e9.js"><link rel="prefetch" href="/blogs/assets/js/14.3bb072f4.js"><link rel="prefetch" href="/blogs/assets/js/140.8a4a896e.js"><link rel="prefetch" href="/blogs/assets/js/141.6945715d.js"><link rel="prefetch" href="/blogs/assets/js/142.25a947bd.js"><link rel="prefetch" href="/blogs/assets/js/143.bbe141ba.js"><link rel="prefetch" href="/blogs/assets/js/144.07143997.js"><link rel="prefetch" href="/blogs/assets/js/145.9a9c230c.js"><link rel="prefetch" href="/blogs/assets/js/146.ff058b45.js"><link rel="prefetch" href="/blogs/assets/js/147.611b1a61.js"><link rel="prefetch" href="/blogs/assets/js/148.c4db457d.js"><link rel="prefetch" href="/blogs/assets/js/149.e84e7c9e.js"><link rel="prefetch" href="/blogs/assets/js/150.26165aef.js"><link rel="prefetch" href="/blogs/assets/js/151.bbc21f18.js"><link rel="prefetch" href="/blogs/assets/js/152.72161a54.js"><link rel="prefetch" href="/blogs/assets/js/153.e1641b61.js"><link rel="prefetch" href="/blogs/assets/js/154.e91db58a.js"><link rel="prefetch" href="/blogs/assets/js/155.887f2853.js"><link rel="prefetch" href="/blogs/assets/js/156.b22cfc20.js"><link rel="prefetch" href="/blogs/assets/js/157.63f68b5b.js"><link rel="prefetch" href="/blogs/assets/js/158.856832c1.js"><link rel="prefetch" href="/blogs/assets/js/159.92584876.js"><link rel="prefetch" href="/blogs/assets/js/16.6e74b879.js"><link rel="prefetch" href="/blogs/assets/js/160.1d21558a.js"><link rel="prefetch" href="/blogs/assets/js/161.bb564e9f.js"><link rel="prefetch" href="/blogs/assets/js/162.caec4409.js"><link rel="prefetch" href="/blogs/assets/js/163.c6f64985.js"><link rel="prefetch" href="/blogs/assets/js/164.66e928ae.js"><link rel="prefetch" href="/blogs/assets/js/165.e3cb517b.js"><link rel="prefetch" href="/blogs/assets/js/166.e7fd38f0.js"><link rel="prefetch" href="/blogs/assets/js/167.0817b0a0.js"><link rel="prefetch" href="/blogs/assets/js/168.11c5a1b6.js"><link rel="prefetch" href="/blogs/assets/js/169.617f3bc0.js"><link rel="prefetch" href="/blogs/assets/js/17.3a3181e0.js"><link rel="prefetch" href="/blogs/assets/js/170.e2da6722.js"><link rel="prefetch" href="/blogs/assets/js/171.e8b33425.js"><link rel="prefetch" href="/blogs/assets/js/172.bded7304.js"><link rel="prefetch" href="/blogs/assets/js/173.c6aef283.js"><link rel="prefetch" href="/blogs/assets/js/174.61c0e632.js"><link rel="prefetch" href="/blogs/assets/js/175.81e803dc.js"><link rel="prefetch" href="/blogs/assets/js/176.239f927c.js"><link rel="prefetch" href="/blogs/assets/js/177.a4edfa3f.js"><link rel="prefetch" href="/blogs/assets/js/178.bef8fd54.js"><link rel="prefetch" href="/blogs/assets/js/179.b745b5db.js"><link rel="prefetch" href="/blogs/assets/js/18.fdfdabaf.js"><link rel="prefetch" href="/blogs/assets/js/180.1e6a265e.js"><link rel="prefetch" href="/blogs/assets/js/181.62663a80.js"><link rel="prefetch" href="/blogs/assets/js/182.58a29b9c.js"><link rel="prefetch" href="/blogs/assets/js/184.83530a9e.js"><link rel="prefetch" href="/blogs/assets/js/185.8a5f69a9.js"><link rel="prefetch" href="/blogs/assets/js/186.d3e57211.js"><link rel="prefetch" href="/blogs/assets/js/187.566cbf78.js"><link rel="prefetch" href="/blogs/assets/js/188.01bc9809.js"><link rel="prefetch" href="/blogs/assets/js/189.0a7925a0.js"><link rel="prefetch" href="/blogs/assets/js/19.4238119d.js"><link rel="prefetch" href="/blogs/assets/js/190.d40196a9.js"><link rel="prefetch" href="/blogs/assets/js/191.e26da653.js"><link rel="prefetch" href="/blogs/assets/js/192.89da53bc.js"><link rel="prefetch" href="/blogs/assets/js/193.8fce4546.js"><link rel="prefetch" href="/blogs/assets/js/194.156d0532.js"><link rel="prefetch" href="/blogs/assets/js/195.bfc310d0.js"><link rel="prefetch" href="/blogs/assets/js/196.918c289c.js"><link rel="prefetch" href="/blogs/assets/js/197.f1facd93.js"><link rel="prefetch" href="/blogs/assets/js/198.9bb0334e.js"><link rel="prefetch" href="/blogs/assets/js/199.6003905b.js"><link rel="prefetch" href="/blogs/assets/js/20.07ce6e0b.js"><link rel="prefetch" href="/blogs/assets/js/200.3a254968.js"><link rel="prefetch" href="/blogs/assets/js/201.0069edba.js"><link rel="prefetch" href="/blogs/assets/js/202.e8c89894.js"><link rel="prefetch" href="/blogs/assets/js/203.5a8a01ee.js"><link rel="prefetch" href="/blogs/assets/js/204.0d214ba2.js"><link rel="prefetch" href="/blogs/assets/js/205.00ca5934.js"><link rel="prefetch" href="/blogs/assets/js/206.f397a1ec.js"><link rel="prefetch" href="/blogs/assets/js/207.fb5b45fd.js"><link rel="prefetch" href="/blogs/assets/js/208.63155633.js"><link rel="prefetch" href="/blogs/assets/js/209.2ed6ecc2.js"><link rel="prefetch" href="/blogs/assets/js/21.089865dd.js"><link rel="prefetch" href="/blogs/assets/js/210.cbc16c4b.js"><link rel="prefetch" href="/blogs/assets/js/211.3061bbff.js"><link rel="prefetch" href="/blogs/assets/js/212.ffb1aa5d.js"><link rel="prefetch" href="/blogs/assets/js/213.f5e03609.js"><link rel="prefetch" href="/blogs/assets/js/22.12d8fc10.js"><link rel="prefetch" href="/blogs/assets/js/23.02f8a3dc.js"><link rel="prefetch" href="/blogs/assets/js/24.84bc157e.js"><link rel="prefetch" href="/blogs/assets/js/25.9b49dd25.js"><link rel="prefetch" href="/blogs/assets/js/26.e8ffd492.js"><link rel="prefetch" href="/blogs/assets/js/27.73ccf8d1.js"><link rel="prefetch" href="/blogs/assets/js/28.b6ff0a49.js"><link rel="prefetch" href="/blogs/assets/js/29.ba8c9cd7.js"><link rel="prefetch" href="/blogs/assets/js/30.ed151282.js"><link rel="prefetch" href="/blogs/assets/js/31.ee5a9adc.js"><link rel="prefetch" href="/blogs/assets/js/32.c4d7f55d.js"><link rel="prefetch" href="/blogs/assets/js/33.455ab698.js"><link rel="prefetch" href="/blogs/assets/js/34.3dc6fd97.js"><link rel="prefetch" href="/blogs/assets/js/35.cef5a85f.js"><link rel="prefetch" href="/blogs/assets/js/36.157cb55a.js"><link rel="prefetch" href="/blogs/assets/js/37.7786986a.js"><link rel="prefetch" href="/blogs/assets/js/38.ace12f85.js"><link rel="prefetch" href="/blogs/assets/js/39.2680a1d9.js"><link rel="prefetch" href="/blogs/assets/js/4.4c5b9874.js"><link rel="prefetch" href="/blogs/assets/js/40.cfe4df2f.js"><link rel="prefetch" href="/blogs/assets/js/41.7f0d36a7.js"><link rel="prefetch" href="/blogs/assets/js/42.20cb24f9.js"><link rel="prefetch" href="/blogs/assets/js/43.5cda41ae.js"><link rel="prefetch" href="/blogs/assets/js/44.6dd13984.js"><link rel="prefetch" href="/blogs/assets/js/45.108e8bf0.js"><link rel="prefetch" href="/blogs/assets/js/46.0a58d921.js"><link rel="prefetch" href="/blogs/assets/js/47.fc236d73.js"><link rel="prefetch" href="/blogs/assets/js/48.937eaaa0.js"><link rel="prefetch" href="/blogs/assets/js/49.e3384d83.js"><link rel="prefetch" href="/blogs/assets/js/5.d80bb541.js"><link rel="prefetch" href="/blogs/assets/js/50.45a095ef.js"><link rel="prefetch" href="/blogs/assets/js/51.39c8338e.js"><link rel="prefetch" href="/blogs/assets/js/52.efd2112f.js"><link rel="prefetch" href="/blogs/assets/js/53.267c64b0.js"><link rel="prefetch" href="/blogs/assets/js/54.b5b820d2.js"><link rel="prefetch" href="/blogs/assets/js/55.0ef4f037.js"><link rel="prefetch" href="/blogs/assets/js/56.8f5851ca.js"><link rel="prefetch" href="/blogs/assets/js/57.05fdaea6.js"><link rel="prefetch" href="/blogs/assets/js/58.ab6ba5e2.js"><link rel="prefetch" href="/blogs/assets/js/59.d8573084.js"><link rel="prefetch" href="/blogs/assets/js/6.a288fb54.js"><link rel="prefetch" href="/blogs/assets/js/60.1b462558.js"><link rel="prefetch" href="/blogs/assets/js/61.4128f601.js"><link rel="prefetch" href="/blogs/assets/js/62.88a7491d.js"><link rel="prefetch" href="/blogs/assets/js/63.4461d91d.js"><link rel="prefetch" href="/blogs/assets/js/64.38ea9196.js"><link rel="prefetch" href="/blogs/assets/js/65.fd87f9fe.js"><link rel="prefetch" href="/blogs/assets/js/66.e5d09ccb.js"><link rel="prefetch" href="/blogs/assets/js/67.22554b65.js"><link rel="prefetch" href="/blogs/assets/js/68.0502589c.js"><link rel="prefetch" href="/blogs/assets/js/69.35937916.js"><link rel="prefetch" href="/blogs/assets/js/7.ed923a16.js"><link rel="prefetch" href="/blogs/assets/js/70.7e3deaae.js"><link rel="prefetch" href="/blogs/assets/js/71.46a84170.js"><link rel="prefetch" href="/blogs/assets/js/72.61136659.js"><link rel="prefetch" href="/blogs/assets/js/73.2202ef65.js"><link rel="prefetch" href="/blogs/assets/js/74.b9d82b76.js"><link rel="prefetch" href="/blogs/assets/js/75.206dca9b.js"><link rel="prefetch" href="/blogs/assets/js/76.4ca6fb0e.js"><link rel="prefetch" href="/blogs/assets/js/77.7f16f66d.js"><link rel="prefetch" href="/blogs/assets/js/78.3563bf98.js"><link rel="prefetch" href="/blogs/assets/js/79.bc63c39e.js"><link rel="prefetch" href="/blogs/assets/js/8.e6004ff9.js"><link rel="prefetch" href="/blogs/assets/js/80.77fe98fc.js"><link rel="prefetch" href="/blogs/assets/js/81.e72bbb3b.js"><link rel="prefetch" href="/blogs/assets/js/82.3221aa1f.js"><link rel="prefetch" href="/blogs/assets/js/83.a9574403.js"><link rel="prefetch" href="/blogs/assets/js/84.5b77709e.js"><link rel="prefetch" href="/blogs/assets/js/85.6ab70366.js"><link rel="prefetch" href="/blogs/assets/js/86.86e90588.js"><link rel="prefetch" href="/blogs/assets/js/87.6c30aaeb.js"><link rel="prefetch" href="/blogs/assets/js/88.91ed30aa.js"><link rel="prefetch" href="/blogs/assets/js/89.78360293.js"><link rel="prefetch" href="/blogs/assets/js/9.8e018535.js"><link rel="prefetch" href="/blogs/assets/js/90.77b1bca0.js"><link rel="prefetch" href="/blogs/assets/js/91.4376e5c4.js"><link rel="prefetch" href="/blogs/assets/js/92.12c60706.js"><link rel="prefetch" href="/blogs/assets/js/93.7e733384.js"><link rel="prefetch" href="/blogs/assets/js/94.f943c59f.js"><link rel="prefetch" href="/blogs/assets/js/95.35646351.js"><link rel="prefetch" href="/blogs/assets/js/96.869251c0.js"><link rel="prefetch" href="/blogs/assets/js/97.e12beed8.js"><link rel="prefetch" href="/blogs/assets/js/98.35e82b36.js"><link rel="prefetch" href="/blogs/assets/js/99.b683092f.js">
+    <link rel="stylesheet" href="/blogs/assets/css/0.styles.8ee0588d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>博客首页</h3> <p class="description" data-v-59e6cb88>Vimalakirti blog</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>呛再首</span>
+          
+        <span data-v-59e6cb88>2019 - </span>
+        2023
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blogs/" class="home-link router-link-active"><img src="/blogs/avatar.jpg" alt="博客首页" class="logo"> <span class="site-name">博客首页</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blogs/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/categories/css/" class="nav-link"><i class="undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/html/" class="nav-link"><i class="undefined"></i>
+  html
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/javascript/" class="nav-link"><i class="undefined"></i>
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/其他/" class="nav-link"><i class="undefined"></i>
+  其他
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/面试/" class="nav-link"><i class="undefined"></i>
+  面试
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/React/" class="nav-link"><i class="undefined"></i>
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/Vue/" class="nav-link"><i class="undefined"></i>
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/杂记/" class="nav-link"><i class="undefined"></i>
+  杂记
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/Typescript/" class="nav-link"><i class="undefined"></i>
+  Typescript
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/blogs/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      文档
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/docs/HTML-Library/" class="nav-link"><i class="undefined"></i>
+  HTML-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/CSS-Library/" class="nav-link"><i class="undefined"></i>
+  CSS-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/Javascript-Library/" class="nav-link"><i class="undefined"></i>
+  Javascript-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/Vue-Library/" class="nav-link"><i class="undefined"></i>
+  Vue-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/React-Library/" class="nav-link"><i class="undefined"></i>
+  React-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/Other-Library/" class="nav-link"><i class="undefined"></i>
+  Other-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/juejin/" class="nav-link"><i class="undefined"></i>
+  juejin
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/interview/" class="nav-link"><i class="undefined"></i>
+  web-interview
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/前端性能优化与实践/" class="nav-link"><i class="undefined"></i>
+  前端性能优化与实践
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/使用webpack定制前端开发环境/" class="nav-link"><i class="undefined"></i>
+  使用webpack定制前端开发环境
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/TypeScript全面进阶指南/" class="nav-link"><i class="undefined"></i>
+  TypeScript全面进阶指南
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/Vimalate" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/blogs/avatar.jpg" alt="author-avatar" class="personal-img" data-v-1fad0c41> <h3 class="name" data-v-1fad0c41>
+    呛再首
+  </h3> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>187</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>20</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/blogs/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/categories/css/" class="nav-link"><i class="undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/html/" class="nav-link"><i class="undefined"></i>
+  html
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/javascript/" class="nav-link"><i class="undefined"></i>
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/其他/" class="nav-link"><i class="undefined"></i>
+  其他
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/面试/" class="nav-link"><i class="undefined"></i>
+  面试
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/React/" class="nav-link"><i class="undefined"></i>
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/Vue/" class="nav-link"><i class="undefined"></i>
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/杂记/" class="nav-link"><i class="undefined"></i>
+  杂记
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/Typescript/" class="nav-link"><i class="undefined"></i>
+  Typescript
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/blogs/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      文档
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/docs/HTML-Library/" class="nav-link"><i class="undefined"></i>
+  HTML-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/CSS-Library/" class="nav-link"><i class="undefined"></i>
+  CSS-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/Javascript-Library/" class="nav-link"><i class="undefined"></i>
+  Javascript-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/Vue-Library/" class="nav-link"><i class="undefined"></i>
+  Vue-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/React-Library/" class="nav-link"><i class="undefined"></i>
+  React-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/Other-Library/" class="nav-link"><i class="undefined"></i>
+  Other-Library
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/juejin/" class="nav-link"><i class="undefined"></i>
+  juejin
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/interview/" class="nav-link"><i class="undefined"></i>
+  web-interview
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/前端性能优化与实践/" class="nav-link"><i class="undefined"></i>
+  前端性能优化与实践
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/使用webpack定制前端开发环境/" class="nav-link"><i class="undefined"></i>
+  使用webpack定制前端开发环境
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/docs/TypeScript全面进阶指南/" class="nav-link"><i class="undefined"></i>
+  TypeScript全面进阶指南
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/Vimalate" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88></h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>呛再首</span>
+          
+        <span data-v-59e6cb88>2019 - </span>
+        2023
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page" style="padding-right:0;"><section style="display:;"><div class="page-title"><h1 class="title">优化前端资源加载 1 - 图片加载优化和代码压缩</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>呛再首</span></i> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h1 id="优化前端资源加载-1-图片加载优化和代码压缩"><a href="#优化前端资源加载-1-图片加载优化和代码压缩" class="header-anchor">#</a> 优化前端资源加载 1 - 图片加载优化和代码压缩</h1> <p>前面我们已经提及如何使用 webpack 来满足不同环境的构建需求，其中在生产环境构建时会做额外的一些工作，例如代码压缩等。这一部分的工作就是这一小节的主题，即优化前端资源的加载性能。</p> <p>我们总是希望浏览器在加载页面时用的时间越短越好，所以构建出来的文件应该越少越小越好，一来减少浏览器需要发起请求的数量，二来减少下载静态资源的时间。</p> <p>其实 webpack 把多个代码文件打包成几个必需的静态资源，已经很大程度减少了静态资源请求数量了，接下来我们来介绍下如何使用 webpack 实现更多的前端资源加载的优化需求。</p> <h2 id="css-sprites"><a href="#css-sprites" class="header-anchor">#</a> CSS Sprites</h2> <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Implementing_image_sprites_in_CSS" target="_blank" rel="noopener noreferrer">CSS Sprites<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 技术是前端领域一种很常见的用于减少图片资源请求数的优化方式，这里不做详细的介绍。</p> <blockquote><p>在了解 webpack 配置之前，需要明白 CSS Sprites 的原理。</p></blockquote> <p>如果你使用的 webpack 3.x 版本，需要 CSS Sprites 的话，可以使用 <a href="https://github.com/mixtur/webpack-spritesmith" target="_blank" rel="noopener noreferrer">webpack-spritesmith<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 或者 <a href="https://github.com/kezoo/sprite-webpack-plugin" target="_blank" rel="noopener noreferrer">sprite-webpack-plugin<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</p> <p>我们以 webpack-spritesmith 为例，先安装依赖：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm install webpack-spritesmith --save-dev
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>在 webpack 的配置中应用该插件：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>module: {
+  loaders: [
+    // ... 这里需要有处理图片的 loader，如 file-loader
+  ]
+},
+resolve: {
+  modules: [
+    'node_modules', 
+    'spritesmith-generated', // webpack-spritesmith 生成所需文件的目录
+  ],
+},
+plugins: [
+  new SpritesmithPlugin({
+    src: {
+      cwd: path.resolve(__dirname, 'src/ico'), // 多个图片所在的目录
+      glob: '*.png' // 匹配图片的路径
+    },
+    target: {
+      // 生成最终图片的路径
+      image: path.resolve(__dirname, 'src/spritesmith-generated/sprite.png'), 
+      // 生成所需 SASS/LESS/Stylus mixins 代码，我们使用 Stylus 预处理器做例子
+      css: path.resolve(__dirname, 'src/spritesmith-generated/sprite.styl'), 
+    },
+    apiOptions: {
+      cssImageRef: &quot;~sprite.png&quot;
+    },
+  }),
+],
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><p>在你需要的样式代码中引入 <code>sprite.styl</code> 后调用需要的 mixins 即可：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>@import '~sprite.styl'
+
+.close-button
+    sprite($close)
+.open-button
+    sprite($open)
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>更多的 webpack-spritesmith 配置可以参考：<a href="https://github.com/mixtur/webpack-spritesmith#config" target="_blank" rel="noopener noreferrer">Config of webpack-spritesmith<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</p> <p>遗憾的是，上面提到的这两个 plugin 还没更新到支持 webpack 4.x 版本，如果你使用的是 webpack 4.x，你需要配合使用 <a href="https://github.com/postcss/postcss" target="_blank" rel="noopener noreferrer">postcss<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 和 <a href="https://github.com/2createStudio/postcss-sprites" target="_blank" rel="noopener noreferrer">postcss-sprites<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，才能实现 CSS Sprites 的相关构建。</p> <h2 id="图片压缩"><a href="#图片压缩" class="header-anchor">#</a> 图片压缩</h2> <p>在一般的项目中，图片资源会占前端资源的很大一部分，既然代码都进行压缩了，占大头的图片就更不用说了。</p> <p>我们之前提及使用 file-loader 来处理图片文件，在此基础上，我们再添加一个 <a href="https://github.com/tcoopman/image-webpack-loader" target="_blank" rel="noopener noreferrer">image-webpack-loader<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 来压缩图片文件。简单的配置如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>module.exports = {
+  // ...
+  module: {
+    rules: [
+      {
+        test: /.*\.(gif|png|jpe?g|svg|webp)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {}
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: { // 压缩 jpeg 的配置
+                progressive: true,
+                quality: 65
+              },
+              optipng: { // 使用 imagemin-optipng 压缩 png，enable: false 为关闭
+                enabled: false,
+              },
+              pngquant: { // 使用 imagemin-pngquant 压缩 png
+                quality: '65-90',
+                speed: 4
+              },
+              gifsicle: { // 压缩 gif 的配置
+                interlaced: false,
+              },
+              webp: { // 开启 webp，会把 jpg 和 png 图片压缩为 webp 格式
+                quality: 75
+              },
+          },
+        ],
+      },
+    ],
+  },
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br></div></div><p>image-webpack-loader 的压缩是使用 <a href="https://github.com/imagemin" target="_blank" rel="noopener noreferrer">imagemin<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 提供的一系列图片压缩类库来处理的，如果需要进一步了解详细的配置，可以查看对应类库的官方文档 <a href="https://github.com/tcoopman/image-webpack-loader#usage" target="_blank" rel="noopener noreferrer">usage of image-webpack-loader<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</p> <h2 id="使用-dataurl"><a href="#使用-dataurl" class="header-anchor">#</a> 使用 DataURL</h2> <p>有的时候我们的项目中会有一些很小的图片，因为某些缘故并不想使用 CSS Sprites 的方式来处理（譬如小图片不多，因此引入 CSS Sprites 感觉麻烦），那么我们可以在 webpack 中使用 url-loader 来处理这些很小的图片。</p> <p><a href="https://github.com/webpack-contrib/url-loader" target="_blank" rel="noopener noreferrer">url-loader<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 和 <a href="https://github.com/webpack-contrib/file-loader" target="_blank" rel="noopener noreferrer">file-loader<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 的功能类似，但是在处理文件的时候，可以通过配置指定一个大小，当文件小于这个配置值时，url-loader 会将其转换为一个 base64 编码的 DataURL，配置如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>module.exports = {
+  // ...
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192, // 单位是 Byte，当文件小于 8KB 时作为 DataURL 处理
+            },
+          },
+        ],
+      },
+    ],
+  },
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>更多关于 url-loader 的配置可以参考官方文档 <a href="https://github.com/webpack-contrib/url-loader" target="_blank" rel="noopener noreferrer">url-loader<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，一般情况仅使用 <code>limit</code> 即可。</p> <h2 id="代码压缩"><a href="#代码压缩" class="header-anchor">#</a> 代码压缩</h2> <p>webpack 4.x 版本运行时，mode 为 production 即会启动压缩 JS 代码的插件，而对于 webpack 3.x，使用压缩 JS 代码插件的方式也已经介绍过了。在生产环境中，压缩 JS 代码基本是一个必不可少的步骤，这样可以大大减小 JavaScript 的体积，相关内容这里不再赘述。</p> <p>除了 JS 代码之外，我们一般还需要 HTML 和 CSS 文件，这两种文件也都是可以压缩的，虽然不像 JS 的压缩那么彻底（替换掉长变量等），只能移除空格换行等无用字符，但也能在一定程度上减小文件大小。在 webpack 中的配置使用也不是特别麻烦，所以我们通常也会使用。</p> <p>对于 HTML 文件，之前介绍的 html-webpack-plugin 插件可以帮助我们生成需要的 HTML 并对其进行压缩：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>module.exports = {
+  // ...
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html', // 配置输出文件名和路径
+      template: 'assets/index.html', // 配置文件模板
+      minify: { // 压缩 HTML 的配置
+        minifyCSS: true, // 压缩 HTML 中出现的 CSS 代码
+        minifyJS: true // 压缩 HTML 中出现的 JS 代码
+      }
+    }),
+  ],
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>如上，使用 <code>minify</code> 字段配置就可以使用 HTML 压缩，这个插件是使用 <a href="https://github.com/kangax/html-minifier#options-quick-reference" target="_blank" rel="noopener noreferrer">html-minifier<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 来实现 HTML 代码压缩的，<code>minify</code> 下的配置项直接透传给 html-minifier，配置项参考 html-minifier 文档即可。</p> <p>对于 CSS 文件，我们之前介绍过用来处理 CSS 文件的 css-loader，也提供了压缩 CSS 代码的功能：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>module.exports = {
+  module: {
+    rules: [
+      // ...
+      {
+        test: /\.css/,
+        include: [
+          path.resolve(__dirname, 'src'),
+        ],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              minimize: true, // 使用 css 的压缩功能
+            },
+          },
+        ],
+      },
+    ],
+  }
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><p>在 css-loader 的选项中配置 <code>minimize</code> 字段为 <code>true</code> 来使用 CSS 压缩代码的功能。css-loader 是使用 <a href="http://cssnano.co/" target="_blank" rel="noopener noreferrer">cssnano<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 来压缩代码的，<code>minimize</code> 字段也可以配置为一个对象，来将相关配置传递给 cssnano。更多详细内容请参考 <a href="http://cssnano.co/" target="_blank" rel="noopener noreferrer">cssnano<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 官方文档。</p> <h2 id="小结"><a href="#小结" class="header-anchor">#</a> 小结</h2> <p>由于优化前端资源加载这个主题相关的内容比较多，所以拆分成多个小节。本小节先介绍了比较基础的部分：CSS Sprites、图片压缩、使用 DataURL，以及基本的代码压缩，接下来的第 10、11 小节还会继续围绕前端资源加载优化的这个主题，介绍更加深入的内容。</p> <h2 id="例子"><a href="#例子" class="header-anchor">#</a> 例子</h2> <p>本小节提及的一些简单的 Demo 可以在 <a href="https://github.com/teabyii/webpack-examples" target="_blank" rel="noopener noreferrer">webpack-examples<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 找到。</p></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">12/30/2022, 2:33:12 PM</span></div></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:0;" data-v-b57cc07c data-v-7dd95ae2></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><!----><canvas id="vuepress-canvas-cursor"></canvas><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;right:65px;bottom:0px;width:135px;height:300px;z-index:99999;opacity:0.8;pointer-events:none;"><canvas id="live2d_canvas" width="135" height="300" class="live2d_canvas" style="position:absolute;left:0px;top:0px;width:135px;height:300px;"></canvas></div><div></div><!----><div class="RibbonAnimation"></div></div></div>
+    <script src="/blogs/assets/js/app.500cfb4c.js" defer></script><script src="/blogs/assets/js/3.ab704d4e.js" defer></script><script src="/blogs/assets/js/1.120dd0c6.js" defer></script><script src="/blogs/assets/js/183.ae3152e7.js" defer></script><script src="/blogs/assets/js/15.a0d3f198.js" defer></script>
+  </body>
+</html>
