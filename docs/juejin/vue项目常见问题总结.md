@@ -902,4 +902,15 @@ const dragEnter = () => {
 sendRequests();
  ```
 
+ ## 设置 flex 1 元素 全屏后再退出，出现滚动条
+
+给对应元素添加 overflow: auto;
+
+ ```css
+ .flex-1 {
+  flex: 1;
+  overflow: auto;
+ }
+ ```
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
