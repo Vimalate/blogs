@@ -913,4 +913,23 @@ sendRequests();
  }
  ```
 
+ ## 解决element-ui的表格设置固定栏后，边框线消失的问题
+
+ ```scss
+<style scoped lang = 'scss'>
+  /deep/ .el-table__fixed-header-wrapper {
+   .el-table__header {
+    th:not(.is-hidden):last-child {
+      right: -1px;
+    }
+  }
+}
+/deep/ .el-table__row{
+  td:not(.is-hidden):last-child{
+    right:-1px;}
+}
+</style>
+
+ ```
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
