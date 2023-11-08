@@ -932,4 +932,12 @@ sendRequests();
 
  ```
 
+ ## 监听浏览器关闭
+
+ [监听浏览器关闭](https://www.jb51.net/javascript/295121ttt.htm)
+
+## Vue项目实现用户长时间不操作，自动退出登录
+
+[Vue项目实现用户长时间不操作，自动退出登录](http://www.manongjc.com/detail/40-mmplvoucfjgswws.html)
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
