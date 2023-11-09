@@ -249,8 +249,7 @@ div {
 }
 ```
 
-## element隐藏组件滚动条scrollbar使用
-[具体使用](https://blog.csdn.net/zhongguohaoshaonian/article/details/79734787)
+
 
 ## post
 https://blog.csdn.net/qq_35387940/article/details/103422835

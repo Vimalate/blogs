@@ -940,4 +940,95 @@ sendRequests();
 
 [Vue项目实现用户长时间不操作，自动退出登录](http://www.manongjc.com/detail/40-mmplvoucfjgswws.html)
 
+## 父元素flex:1子元素height:100%失效的解决办法
+
+父元素 与 子元素 通过定位解决。
+
+```css
+.parent {
+  flex: 1;
+  position: relative;
+}
+.child {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+```
+
+## element隐藏组件滚动条scrollbar使用
+
+[具体使用](https://blog.csdn.net/zhongguohaoshaonian/article/details/79734787)
+
+## 自定义滚动条样式
+
+```css
+/* 滚动条 */
+
+ ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 1px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: #e9e9e9;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: #FFFFFF;
+}
+
+/* 兼容火狐 */
+html {
+  scrollbar-width: thin;
+}
+* {
+  /* box-sizing: inherit; */
+  scrollbar-width: inherit;
+}
+
+```
+
+** 隐藏滚动条**
+
+```css
+.outer {
+  width: 600px;
+  height: 200px;
+  margin: 20px auto;
+  border: 1px solid #f00;
+  overflow: scroll;
+  color: #fff;
+  /* 针对谷歌，Safari 和 Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;  /* IE 和 Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+```
+**不滚动时隐藏自定义滚动条**
+
+将外包裹层默认设置为overflow-y: hidden; 同时设置hover效果时overflow: auto;
+
+```css
+.content{
+  width: 200px;
+  height: 150px;
+  padding-left: 10px;
+  border: 1px solid #ccc;
+  overflow-y: hidden;
+}
+.content:hover{
+  overflow-y: auto;
+}
+```
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
