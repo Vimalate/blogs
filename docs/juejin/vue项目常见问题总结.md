@@ -1031,4 +1031,8 @@ html {
 }
 ```
 
+## 最全的docx,pptx,xlsx(excel),pdf文件预览方案总结
+
+[最全的docx,pptx,xlsx(excel),pdf文件预览方案总结](https://juejin.cn/post/7268530145208451124)
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)

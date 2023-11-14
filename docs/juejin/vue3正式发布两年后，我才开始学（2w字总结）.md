@@ -1048,6 +1048,74 @@ const { width, height } = useWindowResize();
 </script>
 ```
 
+## Vue Hook 字典缓存最佳解决方案
+
+```js
+import { computed, shallowRef } from "vue";
+// 获取字典数据接口
+import { getDictList } from "@/api/src/iam/std-code";
+import { getCache, setCache } from "./cache.js";
+
+/**
+ *
+ * @param {string} type
+ * @return {[{codeValue:string,codeName:string}[],Object]}  [字典列表,字典.jsmap]
+ */
+export default function useDict(type) {
+  const dictList = shallowRef(
+    /**@type {{codeValue:string,codeName:string}[]} */ []
+  );
+  //字典value=>label map映射，用于直接把字典值转换为文本
+  const dictValueNameMap = computed(() => {
+    const map = {};
+    dictList.value.forEach((item) => {
+      map[item.codeValue] = item.codeName;
+    });
+    return map;
+  });
+  const cachedData = getCache(type);
+  if (!cachedData) {
+    // console.log("获取字典");
+    setCache(
+      type,
+      getDictList({ stdNum: type }).then((res) => {
+        const { data } = res;
+        setCache(type, data);
+        dictList.value = data || [];
+        return res;
+      })
+    );
+  } else if (cachedData instanceof Promise) {
+    // console.log("dict存储了一个promise");
+    cachedData.then(({ data }) => {
+      setCache(type, data);
+      dictList.value = data || [];
+    });
+  } else {
+    // console.log("dict旧数据");
+    dictList.value = cachedData;
+  }
+  return [dictList, dictValueNameMap];
+}
+
+```
+
+cache.js
+
+```js
+const CACHE_MAP = new Map();
+
+export const getCache = (cacheKey) => {
+  const data = CACHE_MAP.get(cacheKey);
+  return data;
+};
+
+export const setCache = (cacheKey, data) => {
+  CACHE_MAP.set(cacheKey, data);
+};
+
+```
+
 ## style v-bind CSS变量注入
 
 ```
