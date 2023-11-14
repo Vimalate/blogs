@@ -1035,4 +1035,23 @@ html {
 
 [最全的docx,pptx,xlsx(excel),pdf文件预览方案总结](https://juejin.cn/post/7268530145208451124)
 
+**推荐服务端渲染：kkFileView**
+
+## 善用第三方组件库提供的工具类方法
+
+使用 Element 工具方法
+
+```js
+import { formatDate } from 'element-ui/src/utils/date-util'
+
+`定义格式化日期的方法及默认显示年月日时分秒的格式`
+export getFormatData(date = new Date(), format = 'yyyy-MM-dd hh:mm:ss') {
+  return formatDate(date, format)
+}
+
+new Date()        // Tue Oct 10 2023 08:37:59 GMT+0800 (中国标准时间)
+getFormatData()   // 2023-10-10 08:37:59
+getFormatData(new Date(), 'yyyyMMdd')   // 20231010
+```
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
