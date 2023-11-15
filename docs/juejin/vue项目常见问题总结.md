@@ -1054,4 +1054,70 @@ getFormatData()   // 2023-10-10 08:37:59
 getFormatData(new Date(), 'yyyyMMdd')   // 20231010
 ```
 
+## axios 请求视频流
+
+```js
+getVideoUrl(item) {
+    item.loading = true;
+    const url =`video-url`;
+
+    return axios
+      .get(url, {
+        responseType: "blob",
+        timeout: 5 * 60 * 1000,
+        hideLoading: true
+      })
+      .then(res => {
+        console.log("res-findByFilePath", res, res.data.size, res.data.type);
+        const blob = new Blob([res.data]);
+        let videoUrl;
+
+        if (res.data.size) {
+          videoUrl = new Promise((resolve, reject) => {
+            const fileReader = new FileReader();
+            fileReader.onloadend = () => {
+              try {
+                const jsonData = JSON.parse(fileReader.result);
+                // 说明是普通对象数据，后台转换失败
+                this.$message.error(jsonData.msg);
+                reject(new Error(jsonData.msg));
+              } catch (error) {
+                const videoUrl = window.URL.createObjectURL(blob);
+                resolve(videoUrl);
+              }
+            };
+            fileReader.readAsText(blob, "utf-8");
+          });
+        } else {
+          videoUrl = Promise.resolve(null);
+        }
+
+        return videoUrl;
+      })
+      .finally(() => {
+        item.loading = false;
+      });
+  }
+```
+
+使用：
+
+```js
+paly(){
+  this.getVideoUrl(item)
+    .then(videoUrl => {
+      if (videoUrl) {
+        item.filePath = videoUrl;
+      } else {
+        return this.$message.warning("暂无相关视频");
+        }
+      // 在这里可以使用正确的 videoUrl 进行后续处理
+      })
+      .catch(error => {
+        console.log("Error in getVideoUrl", error);
+      });
+}
+
+```
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
