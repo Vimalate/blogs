@@ -1067,7 +1067,7 @@ getVideoUrl(item) {
         timeout: 5 * 60 * 1000,
         hideLoading: true
       })
-      .then(res => {
+      .then(res => {  
         console.log("res-findByFilePath", res, res.data.size, res.data.type);
         const blob = new Blob([res.data]);
         let videoUrl;
@@ -1119,5 +1119,9 @@ paly(){
 }
 
 ```
+
+## vue 树形下拉组件 vue-treeSelect
+
+[vue-treeselect](https://www.cnblogs.com/javahr/p/13607024.html)
 
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
