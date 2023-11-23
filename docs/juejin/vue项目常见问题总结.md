@@ -1124,4 +1124,13 @@ paly(){
 
 [vue-treeselect](https://www.cnblogs.com/javahr/p/13607024.html)
 
+
+## 多段滑块组件
+
+[vue-slider-component](https://nightcatsama.github.io/vue-slider-component/#/zh-CN/basics/process?hash=%E5%BD%93%E5%80%BC%E7%9A%84%E7%B1%BB%E5%9E%8B%E4%B8%BA-function)
+
+## el-input-number无法实时监听输入事件
+
+[el-input-number无法实时监听输入事件](https://blog.csdn.net/weixin_62277266/article/details/124812768)
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)

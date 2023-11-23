@@ -1231,6 +1231,48 @@ responseData 使用了默认的 undefined 类型，而 responseDataWithData 指�
 
 [参考](https://www.jianshu.com/p/260827a11efa)、[渲染函数 API](https://cn.vuejs.org/api/render-function.html#h)
 
+## 接口请求类型定义（二）
+
+比如要写一个礼品列表的页面，我们可能要定义这么一些interface。总而言之，我们需要关注的是：页面数据的interface、接口返回的数据类型、接口的入参类型等等。
+
+```ts
+// 礼品创建、编辑、列表中的每一项，都会是这个数据类型。
+interface IGiftItem {
+  id: string | number;
+  name: string;
+  desc: string;
+  [key: string]: any;
+}
+
+// 全局相应的类型定义
+// 而且一般来说，我们不确认，接口返回的类型到底是什么（可能是null、可能是对象、也可能是数组），所以使用范型来定义interface
+interface IRes<T> {
+    code: number;
+    msg: string;
+    data: T
+}
+// 接口返回数据类型定义
+
+interface IGiftInfo {
+    list: Array<IGiftItem>;
+    pageNum: number;
+    pageSize: number;
+    total: number;
+}
+
+```
+
+在一个常见的接口请求中，我们一般使用TS这么定义一个数据请求，数据请求的req类型，数据请求的res类型。
+
+```ts
+export const getGiftlist = (
+  params: Record<string, any>
+): Promise<IRes<IGiftInfo>> => {
+  return Http.get("/apis/gift/list", params);
+};
+
+```
+
 
 ## 参考
 
@@ -1241,6 +1283,8 @@ responseData 使用了默认的 undefined 类型，而 responseDataWithData 指�
 [Vue3.0 新特性以及使用经验总结](https://juejin.cn/post/6940454764421316644#heading-26)
  <br>
 [自定义指令directive](https://xiaoman.blog.csdn.net/article/details/123228132?spm=1001.2014.3001.5502)
+
+[Vue 之 vue3 与 TS 的配合使用整理](https://blog.csdn.net/Zhuangvi/article/details/126808980)
 
 ## 往期回顾
 
