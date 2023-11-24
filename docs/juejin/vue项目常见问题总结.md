@@ -1133,4 +1133,8 @@ paly(){
 
 [el-input-number无法实时监听输入事件](https://blog.csdn.net/weixin_62277266/article/details/124812768)
 
+##  使用 fuse.js 实现全局搜索
+
+[使用 fuse.js 实现全局搜索](https://juejin.cn/post/7269225865619816483#heading-3)
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
