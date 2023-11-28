@@ -1178,7 +1178,7 @@ p.age = 11; // error  Cannot assign to 'age' because it is a read-only property.
 
 6. Record
 
-Record<K extends keyof any, T> 的作用是将 K 中所有的属性的值转化为 T 类型。
+Record<K extends keyof any, T> 的作用是将 K 中所有的属性的值转化为 T 类型，他是一个映射类型，它根据指定的键类型和值类型创建一个新的对象类型
 
 
 ```ts
@@ -1357,3 +1357,5 @@ tsconfig.json 包含 TypeScript 编译的相关配置，通过更改编译配置
 [TS中文文档](https://www.tslang.cn/docs/handbook/basic-types.html)
 <br>
 [2021 typescript史上最强学习入门文章](https://juejin.cn/post/7018805943710253086)
+
+[现代typescript高级教程](https://www.coding-time.cn/ts/base/%E7%B1%BB%E5%9E%8B.html)
