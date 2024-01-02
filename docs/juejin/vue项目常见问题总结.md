@@ -1137,4 +1137,10 @@ paly(){
 
 [使用 fuse.js 实现全局搜索](https://juejin.cn/post/7269225865619816483#heading-3)
 
+## diff 内容对比
+
+基于javascript实现的文本内容diff的库,可字符串及数组对比
+
+[diff.js使用指南](https://www.jianshu.com/p/6b8db8b979b3)
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
