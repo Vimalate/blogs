@@ -1143,4 +1143,12 @@ paly(){
 
 [diff.js使用指南](https://www.jianshu.com/p/6b8db8b979b3)
 
+## cnpm的版本锁定问题的解决方案
+
+**不要使用cnpm，因为cnpm，是不支持依赖版本锁定的。**
+
+也即是说，无论你的项目中有package-lock.json、npm-shrinkwrap.json还是yarn-lock.json文件，执行cnpm i安装依赖的时候他们都只是摆设，都只会根据package.json文件进行安装。所以通过cnpm安装依赖是不能避免上面问题的。而且有很多网友反馈cnpm会有依赖包丢失的问题。
+
+[cnpm的版本锁定问题的解决方案](http://www.bryh.cn/a/133761.html)
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
