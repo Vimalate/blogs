@@ -19,6 +19,11 @@ itemStyle: {
   borderWidth: 2
 },
 ```
+
+## 入场动画  
+
+[echarts入场动画](https://juejin.cn/post/7253115535483207737)
+
 ## 一些社区样例
 
 [echarts 社区](https://www.makeapie.cn/echarts_9.html?queryStr=%E7%8E%AF%E5%BD%A2)
