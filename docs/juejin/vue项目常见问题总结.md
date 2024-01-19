@@ -958,6 +958,15 @@ sendRequests();
 }
 ```
 
+## el-table 自适应高度
+
+[实现el-table高度自适应，让滚动条只能出现在表格内部](https://juejin.cn/post/7131566256624238600?from=search-suggest)
+
+[解决element table 宽高自适应](https://juejin.cn/post/6979424132823777287)
+
+[纯CSS使Element Table自适应高度](https://juejin.cn/post/6895340192086491143)
+
+
 ## element隐藏组件滚动条scrollbar使用
 
 [具体使用](https://blog.csdn.net/zhongguohaoshaonian/article/details/79734787)
