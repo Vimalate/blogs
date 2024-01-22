@@ -281,6 +281,7 @@ module.exports = {
         "vue项目问题总结",
         "vue中的$attrs和$listeners",
         "关于组件二次封装的又一步思考",
+        'vue导出el-table表格为Excel文件'
       ],
       "/docs/React-Library/": ["", "react-study"],
       "/docs/Other-Library/": [
