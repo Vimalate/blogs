@@ -183,6 +183,7 @@ OMS.downLoadXlsx({
        raw: true,
        columnWidth: [10, 15, 12, 15, 15, 15, 15, 15] // 可选，用于设置列宽度
      }
+     // 可添加多个sheet
    ],
    name: name
   });

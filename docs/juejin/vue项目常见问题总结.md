@@ -966,6 +966,7 @@ sendRequests();
 
 [纯CSS使Element Table自适应高度](https://juejin.cn/post/6895340192086491143)
 
+[el-table设置max-height滚动失效问题](https://juejin.cn/post/7084512087791108126)
 
 ## element隐藏组件滚动条scrollbar使用
 
