@@ -9,6 +9,17 @@
 ## cnpm 临时使用
 ```npm --registry=https://registry.npm.taobao.org install```
 
+## npm官方镜像改成淘宝镜像
+
+```
+// 1. 切换镜像源
+npm config set registry https://registry.npmmirror.com
+
+// 2. 检测是否切换成功
+npm config get registry
+
+```
+
 ## 树状结构变一维数组
 
 ```js
