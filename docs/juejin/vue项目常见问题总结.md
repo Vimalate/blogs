@@ -1161,4 +1161,10 @@ paly(){
 
 [cnpm的版本锁定问题的解决方案](http://www.bryh.cn/a/133761.html)
 
+## vue 封装锚点组件（自定义索引栏）
+
+[vue 封装锚点组件（自定义索引栏）](https://www.cnblogs.com/zdd2017/p/15300666.html)
+
+[根据页面滚动高亮显示目录的侧边栏）](https://blog.csdn.net/m0_68324632/article/details/125988195)
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
