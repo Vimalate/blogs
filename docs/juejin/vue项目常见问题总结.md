@@ -1167,4 +1167,18 @@ paly(){
 
 [根据页面滚动高亮显示目录的侧边栏）](https://blog.csdn.net/m0_68324632/article/details/125988195)
 
+## vue 工具函数中拿到 this 
+
+```js
+// 在 Vue 组件中调用工具方法时使用 bind() 方法
+yourUtilMethod.bind(this)();
+
+// 工具方法中使用 this 来访问 Vue 实例的属性和方法
+function yourUtilMethod() {
+  // 在工具方法中可以使用 this 来访问 Vue 实例的属性和方法
+  this.someData = 'example';
+  this.someMethod();
+}
+```
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
