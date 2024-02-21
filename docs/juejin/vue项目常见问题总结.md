@@ -1181,4 +1181,12 @@ function yourUtilMethod() {
 }
 ```
 
+## console.log({name})取代console.log('name', name)
+
+```
+console.log('name', name)
+
+console.log({name})
+```
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
