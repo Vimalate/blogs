@@ -1359,3 +1359,5 @@ tsconfig.json 包含 TypeScript 编译的相关配置，通过更改编译配置
 [2021 typescript史上最强学习入门文章](https://juejin.cn/post/7018805943710253086)
 
 [现代typescript高级教程](https://www.coding-time.cn/ts/base/%E7%B1%BB%E5%9E%8B.html)
+
+[看完zustand源码后，我的TypeScript水平突飞猛进](https://juejin.cn/post/7339364757386264612)
