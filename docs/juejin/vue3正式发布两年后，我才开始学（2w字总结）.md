@@ -1286,6 +1286,8 @@ export const getGiftlist = (
 
 [Vue 之 vue3 与 TS 的配合使用整理](https://blog.csdn.net/Zhuangvi/article/details/126808980)
 
+[Vue3 Composition API 如何结合 TypeScript 进行使用](https://juejin.cn/post/7285971524686626851?searchId=20240306144033A23C26E4B3A7C607636D)
+
 ## 往期回顾
 
 [2022年了，我才开始学 typescript ，晚吗？（7.5k字总结）](https://juejin.cn/post/7124117404187099172)

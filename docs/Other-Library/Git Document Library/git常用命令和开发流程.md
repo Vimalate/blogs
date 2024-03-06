@@ -246,6 +246,22 @@ git remote show origin
 git remote prune origin
 ```
 
+## 开发主体流程
+
+1. 需求评审
+2. 开发排期
+3. 编码开发
+4. 冒烟测试（自检验）
+5. 冒烟通过，提交测试，合并代码到测试分支，部署测试环境
+6. 测试环境测试，开发修 bug
+7. 测试完成，提交预发，合并代码到预发分支，部署预发环境
+8. 预发环境测试，开发修 bug（修完的 bug 要重新走测试再走预发，这个下面会解释）
+9. 测试完成，产品验收
+10. 验收完成，提交生产，合并代码到生产分支，部署生产环境
+11. 生产运营（客户）验收
+12. 验收完成，结项
+
+
 [WARNING DELETE `␍` PRETTIER/PRETTIER（ESLINT配置的一些问题）](https://www.freesion.com/article/4532642129/)
 
 参考：[git 教程](https://juejin.im/post/5c67e70bf265da2de33f127c)、[使用Git进行多人协作开发](https://juejin.im/post/5ecb6b41f265da770d3dae6e)、[廖雪峰：多人协作](https://www.liaoxuefeng.com/wiki/896043488029600/900375748016320)、[vscode 本地分支合并远程分支，远程分支合并到本地分支](https://blog.csdn.net/qq_41732963/article/details/119942560)、[开发中关于Git那些事
@@ -253,4 +269,5 @@ git remote prune origin
 [Git--多人协作开发](https://blog.csdn.net/m0_61560468/article/details/131624036)
 
 [Git操作详解以及在VScode中的使用](https://blog.csdn.net/qq_42688495/article/details/109538723)
+[git 开发工作流程](https://juejin.cn/post/7327863960008392738)
 
