@@ -261,7 +261,10 @@ git remote prune origin
 11. 生产运营（客户）验收
 12. 验收完成，结项
 
+## Git Tag标签操作
 
+[Git Tag标签操作](https://juejin.cn/post/7211055301205573690)
+[git tag的查看、添加、推送和删除](https://juejin.cn/post/6938227254191194120?searchId=202403131358458313F350636764CFEE3B)
 [WARNING DELETE `␍` PRETTIER/PRETTIER（ESLINT配置的一些问题）](https://www.freesion.com/article/4532642129/)
 
 参考：[git 教程](https://juejin.im/post/5c67e70bf265da2de33f127c)、[使用Git进行多人协作开发](https://juejin.im/post/5ecb6b41f265da770d3dae6e)、[廖雪峰：多人协作](https://www.liaoxuefeng.com/wiki/896043488029600/900375748016320)、[vscode 本地分支合并远程分支，远程分支合并到本地分支](https://blog.csdn.net/qq_41732963/article/details/119942560)、[开发中关于Git那些事
