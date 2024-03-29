@@ -391,6 +391,26 @@ initForm(){
 }
 ```
 
+**Vue3 setup，dialog 里重置表单**
+
+```js
+// 初始化时定义函数返回响应式初始值
+const initForm = () => reactive({ keywords: "", name: "", num: "" });
+// let ，用 const 下方重置不能重新赋值
+let form = initForm();
+
+// 弹框打开时重置
+const open = () => {
+  dialogVisible.value = true;
+  resetForm();
+};
+
+const resetForm = () => {
+  form = initForm();
+  ruleFormRef.value?.resetFields();
+};
+```
+
 ## 将一个 prop 限制在一个类型的列表中
 
  我们在使用 prop 时，可能会有时候需要判断该 prop 是否在我们规定的范围内（或者说规定的值内），这个时候我们可以使用 prop 定义中的 validator 选项，将一个 prop 类型限制在一组特定的值里。
