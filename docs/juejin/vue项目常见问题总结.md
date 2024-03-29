@@ -1189,4 +1189,26 @@ console.log('name', name)
 console.log({name})
 ```
 
+## iframe嵌入页面实现免登录思路
+
+**通过iframe的通讯方式传**
+
+```js
+// 发送方（本地系统）：
+var params = {
+  type: "setToken",
+  token: "这是伟过去的token"
+}
+window.parent.postMessage(params, "*");
+
+// 接收方（被嵌入系统）：在APP.vue文件的created生命周期接收
+window.addEventListener( "message",
+  (e)=>{
+    if(e.data.type === 'setToken'){
+      //这里拿到token,然后放入缓存实在免登录即可
+    }
+  }	
+false);
+```
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
