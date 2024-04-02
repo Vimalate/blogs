@@ -1231,4 +1231,8 @@ window.addEventListener( "message",
 false);
 ```
 
+## publicPath和base配置的区别
+
+[publicPath和base配置的区别](https://juejin.cn/post/7352091152583409675)
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
