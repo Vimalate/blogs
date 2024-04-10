@@ -1235,4 +1235,21 @@ false);
 
 [publicPath和base配置的区别](https://juejin.cn/post/7352091152583409675)
 
+## reactive 直接赋值丢失响应式
+
+**使用 Object.assign**
+```ts
+const formData = reactive<DeptForm>({
+  status: 1,
+  parentId: 0,
+  sort: 1,
+});
+
+
+getDeptForm(deptId).then(({ data }) => {
+  Object.assign(formData, data);
+});
+```
+
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
