@@ -702,6 +702,7 @@ module.exports = {
 ```
 [Vue3实现各种附件预览](https://juejin.cn/post/6995856687106261000)
 
+**handsontable**
 
 ## error delete ·CR· (prettier/prettier)
 
@@ -1062,6 +1063,8 @@ html {
 ```
 
 ## 最全的docx,pptx,xlsx(excel),pdf文件预览方案总结
+
+
 
 [最全的docx,pptx,xlsx(excel),pdf文件预览方案总结](https://juejin.cn/post/7268530145208451124)
 
