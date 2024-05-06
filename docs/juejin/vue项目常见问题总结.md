@@ -395,9 +395,8 @@ initForm(){
 
 ```js
 // 初始化时定义函数返回响应式初始值
-const initForm = () => reactive({ keywords: "", name: "", num: "" });
-// let ，用 const 下方重置不能重新赋值
-let form = initForm();
+const initForm = () => { keywords: "", name: "", num: "" };
+const form = reactive(initForm());
 
 // 弹框打开时重置
 const open = () => {
@@ -406,10 +405,14 @@ const open = () => {
 };
 
 const resetForm = () => {
-  form = initForm();
+  // 使用 Object.assign 重置对象
+  Object.assign(formStateReactive, getFormState())
   ruleFormRef.value?.resetFields();
 };
 ```
+
+**参考**
+[vue3中如何更优雅地处理form组件](https://juejin.cn/post/7129800976415850533?from=search-suggest)
 
 ## 将一个 prop 限制在一个类型的列表中
 
