@@ -406,7 +406,7 @@ const open = () => {
 
 const resetForm = () => {
   // 使用 Object.assign 重置对象
-  Object.assign(formStateReactive, getFormState())
+  Object.assign(form, initForm())
   ruleFormRef.value?.resetFields();
 };
 ```
