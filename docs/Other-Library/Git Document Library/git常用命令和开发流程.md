@@ -171,6 +171,13 @@ git config --global core.autocrlf false
 [Git报错： Failed to connect to github.com port 443 解决方案](https://blog.csdn.net/zpf1813763637/article/details/128340109)
 
 
+```
+git config --global http.proxy 127.0.0.1:7897
+git config --global https.proxy 127.0.0.1:7897
+```
+[参考](https://cloud.tencent.com/developer/article/2405656)
+
+
 ## git learn
 
 [](https://oschina.gitee.io/learn-git-branching/)
