@@ -1,5 +1,5 @@
 ---
-title: $ref和$el区别
+title: vue导出el-table表格为Excel文件
 date: 2024-01-22 14:50:38
 tags:
  - Vue
@@ -7,7 +7,11 @@ categories:
  - Vue
 ---
 
+之前在项目中遇到一个需求，需要前端做一个导出，用于导出el-table表格为Excel文件。
+
 ## 方式一，仅使用 xlsx.js，不带样式，简单导出
+
+第一种是直接利用 xlsx.js 插件自导的导出功能，不带样式，简单导出，代码如下：
 
 ```js
 import * as XLSX from 'xlsx'
@@ -17,9 +21,13 @@ const book = XLSX.utils.book_new();
 const sheet = XLSX.utils.table_to_sheet(this.$refs.exportTableRef.$el);
 // Sheet
 XLSX.utils.book_append_sheet(book, sheet, "Sheet1");
-XLSX.writeFile(book, "检查部位统计.xlsx");
+XLSX.writeFile(book, "xxx统计.xlsx");
 ```
 
+
+但是，如果要导出多sheet，那么以上方式并不能够满足需求，经过一番查找和尝试，xlsx-style-medalsoft 可以满足设置样式需求。
+
+封装后如下：
 
 ## 方式二，封装为常用方法（多 sheet，带样式）
 
