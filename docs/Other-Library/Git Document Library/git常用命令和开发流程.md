@@ -268,6 +268,8 @@ git remote prune origin
 11. 生产运营（客户）验收
 12. 验收完成，结项
 
+[git 开发工作流程](https://juejin.cn/post/7327863960008392738)
+
 ## Git Tag标签操作
 
 [Git Tag标签操作](https://juejin.cn/post/7211055301205573690)
@@ -279,5 +281,5 @@ git remote prune origin
 [Git--多人协作开发](https://blog.csdn.net/m0_61560468/article/details/131624036)
 
 [Git操作详解以及在VScode中的使用](https://blog.csdn.net/qq_42688495/article/details/109538723)
-[git 开发工作流程](https://juejin.cn/post/7327863960008392738)
+
 
