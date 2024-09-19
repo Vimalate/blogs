@@ -322,7 +322,6 @@ module.exports = {
         "print 打印",
         "session、cookie、Token和JWT",
         "Vite初识",
-        "一些工作中值得收藏的网站",
         "pnpm、vue3搭建组件库",
         "WebRtc初探",
         "Echarts常用配置",
@@ -340,6 +339,7 @@ module.exports = {
         "如何使用 pnpm+vue3+vite 搭建组件库并发布到私有仓库",
         "常见手写代码",
         "vue3 里使用jsx",
+        "一些工作中值得收藏的网站",
       ],
       "/docs/interview/": [
         "",
