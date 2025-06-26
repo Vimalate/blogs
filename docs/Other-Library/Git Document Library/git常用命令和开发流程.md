@@ -272,6 +272,28 @@ git remote prune origin
 
 [git 开发工作流程](https://juejin.cn/post/7327863960008392738)
 
+
+## 设置 github/gitlab 推送用户名
+
+- 将“你的用户名”替换全局为你希望设置的新用户名。
+
+```
+git config --global user.name "your_username"
+```
+
+- 仓库本地修改用户名
+
+```
+git config user.name "your_username"
+```
+
+验证用户名是否设置成功：
+
+```
+git config user.name
+```
+
+
 ## Git Tag标签操作
 
 [Git Tag标签操作](https://juejin.cn/post/7211055301205573690)
